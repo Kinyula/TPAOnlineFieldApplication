@@ -54,7 +54,7 @@ class CreateStaffLivewire extends Component
         $user->first_name = $this->first_name;
         $user->last_name = $this->last_name;
         $user->email = $this->email;
-        $user->password = bcrypt($this->password); // Using bcrypt instead of Hash::make()
+        $user->password = Hash::make($this->password);
         $user->phone_number = $this->phone_number;
         $user->gender = $this->gender;
         $user->position = $this->position;
@@ -83,7 +83,6 @@ class CreateStaffLivewire extends Component
             'first_name', 'last_name', 'email', 'password', 'phone_number', 'gender', 'position', 'department', 'role', 'profile_image', 'port'
         ]);
     }
-
 
 
 
