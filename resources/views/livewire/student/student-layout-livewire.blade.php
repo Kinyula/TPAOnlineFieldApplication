@@ -11,7 +11,7 @@
         <!-- Site favicon -->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/HomeImages/TPA1.png') }}" />
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/HomeImages/TPA1.png') }}" />
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('storage/HomeImages/TPA1.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('storage/HomeImages/TPA1.png') }}">
 
         <!-- Mobile Specific Metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -109,7 +109,8 @@
                                 <img src="{{ asset('storage/profile_images/' . $profileImage->profile_image) }}"
                                     alt="" />
                             </span>
-                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }} )</span>
+                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }}
+                                )</span>
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
@@ -123,7 +124,7 @@
                                     <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                    <i class="fas fa-sign-out"></i>
+                                        <i class="fas fa-sign-out"></i>
                                         Log Out
                                     </x-dropdown-link>
                                 </form>
@@ -255,7 +256,7 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a wire:navigate href="{{ asset('/profile')}}">Profile</a></li>
+                                <li><a wire:navigate href="{{ asset('/profile') }}">Profile</a></li>
 
                             </ul>
 

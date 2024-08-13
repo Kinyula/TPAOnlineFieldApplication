@@ -29,7 +29,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        Alert::success('Login successful to TPA Online Application!', 'Welcome back'.' '.auth()->user()->first_name.' '.auth()->user()->last_name.'!');
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

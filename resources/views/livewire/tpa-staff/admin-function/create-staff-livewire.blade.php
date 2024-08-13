@@ -2,7 +2,7 @@
     <div class="card-box mb-30 p-3">
         <h3 class="text-2xl font-bold mb-3 text-yellow-500"><i class="fas fa-user"></i> Create TPA Staff</h3>
         <form wire:submit.prevent="createStaff" class="space-y-4">
-            <!-- Grid Layout for Medium and Large Screens -->
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- First Name -->
                 <div>
@@ -56,10 +56,16 @@
                         <x-input-label for="password" :value="__('Password')" />
                         <x-mandatory-star />
                     </span>
-                    <x-text-input id="password" class="block mt-1 w-full" type="text" name="password"
-                        wire:model="password" />
+                    <div class="relative">
+                        <x-text-input id="password" class="block mt-1 w-full pr-10" type="password" name="password"
+                            wire:model="password" />
+                        <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onclick="togglePasswordVisibility()">
+                            <i id="password-eye-icon" class="far fa-eye text-gray-600"></i>
+                        </span>
+                    </div>
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
+
                 <!-- Gender -->
                 <div>
                     <span class="flex relative top-3">
@@ -83,7 +89,7 @@
                     <x-select-input id="port" class="block mt-1 w-full" name="port" wire:model="port">
                         <option value="">-- Select Port --</option>
                         @foreach ($ports as $port)
-                            <option value="{{ $port->id }}">{{ $port->port }}</option>
+                            <option value="{{ $port->id }}">{{ $port->port_name }}</option>
                         @endforeach
                     </x-select-input>
                     <x-input-error :messages="$errors->get('port')" class="mt-2" />
@@ -109,7 +115,6 @@
                     <span class="flex relative top-3">
                         <x-input-label for="position" :value="__('Position')" />
                         <x-mandatory-star />
-
                     </span>
                     <x-select-input id="position" class="block mt-1 w-full" name="position" wire:model="position">
                         <option value="">-- Select Position --</option>
@@ -135,7 +140,7 @@
                     <x-input-error :messages="$errors->get('department')" class="mt-2" />
                 </div>
 
-
+                <!-- Profile Image -->
                 <div>
                     <label for="profile_image"
                         class="block font-medium text-sm text-gray-700 dark:text-gray-300">Profile image</label>
@@ -144,15 +149,31 @@
                         <strong class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2">{{ $message }}</strong>
                     @enderror
                 </div>
-
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button class="ms-4 bg-yellow-500">
                     <i class="fas fa-check px-1"></i>
-                    {{ __('save') }}
+                    {{ __('Save') }}
                 </x-primary-button>
             </div>
         </form>
     </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('password-eye-icon');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
 </div>
