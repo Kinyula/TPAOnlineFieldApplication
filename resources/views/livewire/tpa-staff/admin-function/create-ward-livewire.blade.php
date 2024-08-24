@@ -4,6 +4,8 @@
             <i class="fas fa-plus"></i>
             {{ __('Add Ward') }}
         </h2>
+        <p class="text-red-500">NB: all parts with * are mandatory</p>
+
         <form wire:submit.prevent = "createWard">
 
             <!-- Country -->
@@ -14,7 +16,7 @@
                 </span>
                 <x-select-input id="district" class="block mt-1 w-full" name="district" wire:model="district">
                     <option value="">-- Select District --</option>
-                    @foreach ($country_districts as $country_district )
+                    @foreach ($country_districts as $country_district)
                         <!-- Add your country options here -->
                         <option value="{{ $country_district->id }}">{{ $country_district->district }}</option>
                     @endforeach

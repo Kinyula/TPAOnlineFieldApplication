@@ -3,9 +3,13 @@
 
         <div class="flex items-center">
             <i class="fas fa-book-open text-3xl text-yellow-500"></i>
-            <h3 class="text-xl font-bold ml-2 text-yellow-500">Application Tips!</h3>
+            <h3 class="text-xl font-bold ml-2 text-yellow-500">Application Tip!</h3>
         </div>
-
+        <div class="flex gap-2">
+            <i class="fas fa-arrow-right mt-1 text-yellow-500"></i>
+            <p class="mb-4 text-blue-800">You will be allowed to perform the application only if you have filled at least <small class="text-green-600 uppercase font-weight-bold">50%</small> of your information guided by the progress bar if the progress bar is <small class="text-green-600 uppercase font-weight-bold">green</small> then you will be allowed to apply <small class="text-red-500 uppercase font-weight-bold">else you will not be allowed to apply.</small></p>
+            {{-- <a href="{{ asset('TPA/field-application') }}" class="px-4 py-2 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-300">Getting started</a> --}}
+        </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         <!-- Practical Training Card -->

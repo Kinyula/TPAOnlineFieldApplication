@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apply_fields', function (Blueprint $table) {
+        Schema::create('field_application_data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('port_id')->nullable()->constrained('ports')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('confirm_status')->default('confirm');
-            $table->string('arrival_status')->default('not viewed');
+            $table->foreignId('module_id')->nullable()->constrained('modules')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('sub_module_id')->nullable()->constrained('sub_modules')->onDelete('cascade')->onUpdate('cascade');
             $table->string('application_letter');
+            $table->string('confirm_status')->default('confirm');
+            $table->string('view_status')->default('not viewed');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('apply_fields');
+        Schema::dropIfExists('field_application_data');
     }
 };

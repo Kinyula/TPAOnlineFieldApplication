@@ -1,20 +1,30 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Tpa\AcceptedLetterPdfController;
 use App\Http\Controllers\Tpa\FieldApplicationController;
+use App\Http\Controllers\Tpa\StudentRestoreFiles\ContactRestoreFiles\RestoreContactDetailsController;
+use App\Http\Controllers\Tpa\StudentRestoreFiles\PersonalRestoreFiles\RestorePersonalDetailsController;
+use App\Http\Controllers\Tpa\ViewAllConfirmedStudentsController;
+use App\Http\Controllers\Tpa\ViewApplicationsController;
+use App\Http\Controllers\TPAStaff\AddVacantSpacesController;
 use App\Http\Controllers\TPAStaff\AdminFunction\StaffManagementController;
 use App\Http\Controllers\TPAStaff\AdminFunction\TpaManagementController;
+use App\Http\Controllers\TPAStaff\SetDeadlineController;
 use App\Http\Controllers\TPAStaff\TPAContactsController;
+use App\Http\Controllers\TpaStaff\ViewNetworkingSubModulesController;
+use App\Http\Controllers\TpaStaff\ViewSoftwareDevelopmentSubModulesController;
+use App\Http\Controllers\TPAStaff\ViewStudentsDetailsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-    // ------------------------------------------------------ Contact routes ------------------------------------------------------------------
+// ------------------------------------------------------ Contact routes ------------------------------------------------------------------
 
-    Route::get('TPA/contact', [TPAContactsController::class, 'index']);
-    Route::post('TPA/contact', [TPAContactsController::class,'store'])->name('store');
+Route::get('TPA/contact', [TPAContactsController::class, 'index']);
+Route::post('TPA/contact', [TPAContactsController::class, 'store'])->name('store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,10 +35,31 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('TPA/field-application', [FieldApplicationController::class, 'index']);
+    Route::get('TPA/view-field-application', [ViewApplicationsController::class, 'index']);
 
     // -------------------------------------- Admin management routes -------------------------------------------
     Route::get('TPA/staff-management', [StaffManagementController::class, 'index']);
     Route::get('TPA/tpa-management', [TpaManagementController::class, 'index']);
+    Route::get('TPA/view-software-development-sub-modules', [ViewSoftwareDevelopmentSubModulesController::class, 'index']);
+
+    // -------------------------------------- End of Admin management routes ----------------------------------------------------------
+
+    // ---------------------------------------- TPA Staff Routes ------------------------------------------------------------------------------------------
+    Route::get('TPA/set-deadline', [SetDeadlineController::class, 'index']);
+    Route::get('TPA/view-networking-sub-modules', [ViewNetworkingSubModulesController::class, 'index']);
+    Route::get('TPA/send-accepted-letter', [AcceptedLetterPdfController::class, 'index']);
+    Route::get('TPA/create-vacant-space', [AddVacantSpacesController::class, 'index']);
+
+    // ------------------------------------------------ TPA Routes ------------------------------------------------------------------------------------
+
+    Route::get('TPA/view-all-confirmed-students', [ViewAllConfirmedStudentsController::class, 'index']);
+    Route::get('TPA/view-student-details', [ViewStudentsDetailsController::class, 'index']);
+
+    // ------------------------------------------------------------ End of TPA Routes ------------------------------------------------------------------------------------
+
+    // ------------------------------------------------------------------ Student Routes -------------------------------------------------------------------------------
+    Route::get('TPA/student-restore-contact-infos', [RestoreContactDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-personal-infos', [RestorePersonalDetailsController::class, 'index']);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

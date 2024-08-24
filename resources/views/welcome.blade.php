@@ -29,6 +29,9 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -120,10 +123,13 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center">
-            <img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="Icon" class="me-2" style="width: 50px; height: 50px;">
-            <h1 class="text-warning m-0">Tanzania Port Authority</h1>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
+        data-wow-delay="0.1s">
+        <a href="{{ asset('/') }}" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center no-underline">
+            <img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="Icon" class="me-2"
+                style="width: 50px; height: 50px;">
+            <!-- Text that disappears on small screens -->
+            <h1 class="text-warning m-0 d-none d-lg-block">Tanzania Port Authority</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -170,6 +176,7 @@
         </div>
     </nav>
 
+
     <!-- Navbar End -->
 
 
@@ -192,7 +199,8 @@
                             infrastructure and strategic location drive global trade and economic growth, ensuring
                             efficient logistics and sustainability.
                         </p>
-                        <a href="#about_us" class="btn btn-warning py-3 px-5 animated slideInLeft text-white mb-5">Learn More</a>
+                        <a href="#about_us"
+                            class="btn btn-warning py-3 px-5 animated slideInLeft text-white mb-5">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -211,7 +219,9 @@
                             build robust logistics infrastructure, positioning Tanzania as a key player in international
                             commerce.
                         </p>
-                        <a href="#" class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Explore Now</a>
+                        <a href="#"
+                            class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Explore
+                            Now</a>
                     </div>
                 </div>
             </div>
@@ -230,7 +240,9 @@
                             efficiency and sustainability. Our strategic initiatives support global trade and drive
                             economic development.
                         </p>
-                        <a href="#" class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Learn More</a>
+                        <a href="#"
+                            class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Learn
+                            More</a>
                     </div>
                 </div>
             </div>
@@ -329,25 +341,26 @@
                         Authority remains at the forefront of innovation and excellence, driving progress and
                         contributing to the prosperity of our nation.</p>
 
-                    <div class="d-flex align-items-center mb-5">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-warning"
-                            style="width: 120px; height: 120px;">
-                            <h1 class="display-1 mb-n2" data-toggle="counter-up">
-                                @php
-                                    $startYear = 2005; // Replace with your start year
-                                    $currentYear = date('Y'); // Get the current year
-                                    $yearsPassed = $currentYear - $startYear;
+                        <div class="d-flex align-items-center mb-5">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-warning"
+                                style="width: 120px; height: 120px;">
+                                <h1 id="yearsCounter" class="display-1 mb-n2">
+                                    @php
+                                        $startYear = 2005; // Replace with your start year
+                                        $currentYear = date('Y'); // Get the current year
+                                        $yearsPassed = $currentYear - $startYear;
+                                    @endphp
+                                    0
+                                </h1>
+                            </div>
+                            <div class="ps-4">
+                                <h3>Years</h3>
+                                <h3>Working</h3>
+                                <h3 class="mb-0">Experience</h3>
+                            </div>
+                        </div>
 
-                                @endphp
-                                {{ $yearsPassed }}
-                            </h1>
-                        </div>
-                        <div class="ps-4">
-                            <h3>Years</h3>
-                            <h3>Working</h3>
-                            <h3 class="mb-0">Experience</h3>
-                        </div>
-                    </div>
+
                     <a class="btn btn-warning py-3 px-5 text-white" href="">Read More</a>
                 </div>
             </div>
@@ -573,6 +586,7 @@
         </div>
     </div>
     <!-- Team End -->
+
     <!-- Footer Start -->
     <div class="container-fluid text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s"
         style="background-color: #003366">
@@ -652,7 +666,7 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-warning btn-lg-square back-to-top text-white"><i
-            class="bi bi-arrow-up"></i></a>
+            class="fas fa-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -666,7 +680,62 @@
     <script src="{{ asset('lib/tempusdominus/js/moment.min.js') }}"></script>
     <script src="{{ asset('lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
     <script src="{{ asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <!-- Template Javascript -->
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([-6.369028, 34.888822], 6); // Center the map on Tanzania
 
+        // Add a tile layer (map background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers for branches
+        var branches = [{
+                name: 'Headquarters',
+                coords: [-6.8123, 39.2830], // Coordinates of the headquarters
+                popup: 'Dar es Salaam port ( HQ )'
+            },
+            {
+                name: 'Tanga port',
+                coords: [-5.0694, 39.1048], // Coordinates of another branch
+                popup: 'Tanga port'
+            },
+            // Add more branches here
+        ];
+
+        branches.forEach(function(branch) {
+            var marker = L.marker(branch.coords).addTo(map)
+                .bindPopup(branch.popup);
+
+            // Open the popup for the headquarters marker by default
+            if (branch.name === 'Headquarters') {
+                marker.openPopup();
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const counter = document.getElementById('yearsCounter');
+            const yearsPassed = {{ $yearsPassed }};
+            let count = 0;
+            const speed = 100; // Adjust speed as needed
+
+            function updateCounter() {
+                if (count < yearsPassed) {
+                    count++;
+                    counter.innerText = count;
+                    setTimeout(updateCounter, speed);
+                } else {
+                    counter.innerText = yearsPassed;
+                }
+            }
+
+            updateCounter();
+        });
+    </script>
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
     @include('sweetalert::alert')

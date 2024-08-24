@@ -7,7 +7,7 @@ use Livewire\Component;
 class TpaManagementHandlerLivewire extends Component
 {
     public $currentStep = 1;
-    public $totalSteps = 6;
+    public $totalSteps = 8;
 
     public function nextStep()
     {

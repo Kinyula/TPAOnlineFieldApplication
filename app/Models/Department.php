@@ -8,10 +8,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Department extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'department_name',
         'floor_number',
         'office_name',
     ];
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
+
+    public function fieldApplications()
+    {
+        return $this->hasMany(FieldApplicationData::class);
+    }
 }

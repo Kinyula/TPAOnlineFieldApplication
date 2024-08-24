@@ -109,7 +109,8 @@
                                 <img src="{{ asset('storage/profile_images/' . $profileImage->profile_image) }}"
                                     alt="" />
                             </span>
-                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }} )</span>
+                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }}
+                                )</span>
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
@@ -123,7 +124,7 @@
                                     <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                    <i class="fas fa-sign-out"></i>
+                                        <i class="fas fa-sign-out"></i>
                                         Log Out
                                     </x-dropdown-link>
                                 </form>
@@ -255,15 +256,7 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a wire:navigate href="{{ asset('/profile')}}">Profile</a></li>
-
-                            </ul>
-
-                            <ul class="submenu">
-                                <li><a wire:navigate href="{{ asset('UIMS/add-phone-number') }}">
-                                        Phone
-                                        number management</a>
-                                </li>
+                                <li><a href="{{ asset('/profile') }}">Profile</a></li>
 
                             </ul>
 
@@ -277,22 +270,21 @@
 
 
                             <ul class="submenu">
-                                <li><a class="active:bg-red-800" wire:navigate href="{{ asset('TPA/status') }}">
-                                        View status
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/set-deadline') }}">
+                                        Set deadline application date
                                     </a></li>
 
                             </ul>
 
-                            {{-- <ul class="submenu">
-                                <li><a href="{{ asset('UIMS/add-asset-status') }}">
-                                        Add an allocation status
+
+                            <ul class="submenu">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/view-student-details') }}">
+                                        View student details
                                     </a></li>
 
-                            </ul> --}}
-
+                            </ul>
 
                         </li>
-
 
                     </ul>
                 </div>
@@ -303,6 +295,18 @@
         <div class="main-container">
             @yield('content')
         </div>
+
+        <footer class="bg-blue-800 text-yellow-500 py-6 mt-8">
+            <div class="container mx-auto text-center">
+                <p class="text-sm sm:text-base">
+                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer
+                    Victor Z.K.
+                </p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2">
+                    Unauthorized copying, sharing, or redistribution is strictly prohibited.
+                </p>
+            </div>
+        </footer>
 
         <!-- js -->
 

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_modules', function (Blueprint $table) {
+        Schema::create('deadlines', function (Blueprint $table) {
             $table->id();
             $table->foreignId('module_id')->nullable()->constrained('modules')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('submodule_name');
+            $table->date('deadline_date');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sub_modules');
+        Schema::dropIfExists('deadlines');
     }
 };

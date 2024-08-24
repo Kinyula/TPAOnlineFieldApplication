@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SubModule extends Model
 {
-    use HasFactory,SoftDeletes;
-    protected $fillable = ['module_id','submodule_name'];
+    use HasFactory, SoftDeletes;
+    protected $fillable = ['module_id', 'sub_module'];
+
+    public function modules()
+    {
+        return $this->belongsTo(Module::class, 'module_id', 'id');
+    }
+
+    public function fieldApplications()
+    {
+        return $this->hasMany(FieldApplicationData::class);
+    }
 }

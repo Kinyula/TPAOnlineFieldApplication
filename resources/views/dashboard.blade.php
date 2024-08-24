@@ -10,8 +10,12 @@
         @endif
 
         @if (auth()->user()->role_id == '2')
-        @livewire('tpa-staff.admin-home-page-livewire')
-    @endif
+            @livewire('tpa-staff.dict-home-page-livewire')
+        @endif
+
+        @if (auth()->user()->role_id == '4')
+            @livewire('tpa.view-all-student-applications-livewire')
+        @endif
     @endsection
 
 </x-app-layout>

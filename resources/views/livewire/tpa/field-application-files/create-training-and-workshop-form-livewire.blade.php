@@ -3,7 +3,7 @@
         <h3 class="text-2xl font-bold mb-3 text-yellow-500">
             <i class="fas fa-chalkboard-teacher"></i> Training and Workshop
         </h3>
-        <form>
+        <form wire:submit.prevent = "submitTrainingAndWorkshop">
             <!-- Training Name -->
             <div class="mt-4">
                 <x-input-label for="training_name" :value="__('Training Name')" />
@@ -18,7 +18,7 @@
                 <x-text-input id="training_institution" class="block mt-1 w-full" type="text"
                     name="training_institution" wire:model="training_institution" />
                 <x-input-error :messages="$errors->get('training_institution')" class="mt-2" />
-            </div> 
+            </div>
 
             <!-- Training Certificate (File Upload) -->
             <div class="mt-4">

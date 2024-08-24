@@ -89,4 +89,20 @@
         </h3>
         @livewire('tpa-staff.admin-function.create-department-livewire')
     </div>
+
+    <!-- Step 7: Module -->
+    <div @if ($currentStep == 7) style="display: block;" @else style="display: none;" @endif>
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
+
+        </h3>
+        @livewire('tpa-staff.admin-function.create-module-livewire')
+    </div>
+
+        <!-- Step 8: Sub Module -->
+        <div @if ($currentStep == 8) style="display: block;" @else style="display: none;" @endif>
+            <h3 class="text-2xl font-bold mb-3 text-yellow-500">
+
+            </h3>
+            @livewire('tpa-staff.admin-function.create-sub-module-livewire')
+        </div>
 </div>

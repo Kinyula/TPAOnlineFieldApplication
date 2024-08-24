@@ -8,7 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Module extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['module_name'];
+    protected $fillable = ['department_id', 'module_name'];
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    public function deadline()
+    {
+        return $this->hasOne(Deadline::class);
+    }
 }

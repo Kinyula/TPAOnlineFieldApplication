@@ -16,7 +16,7 @@ class CreateStaffLivewire extends Component
 {
     public $first_name, $last_name, $email, $password, $phone_number;
     public $gender, $position, $department, $port, $departments, $role, $profile_image;
-    public $ports;
+    public $ports,$check_number;
 
     public function render()
     {
@@ -30,13 +30,11 @@ class CreateStaffLivewire extends Component
         $this->ports = Port::all();
     }
 
-    public function updatedLastName($value)
-    {
-        $this->password = strtoupper($value);
-    }
 
     public function createStaff()
     {
+
+
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -48,6 +46,7 @@ class CreateStaffLivewire extends Component
             'department' => 'required',
             'role' => 'required',
             'port' => 'required',
+            
         ]);
 
         $user = new User();
@@ -75,12 +74,23 @@ class CreateStaffLivewire extends Component
             'user_id' => $user->id,
             'department_id' => $this->department,
             'port_id' => $this->port,
+            'check_number'
         ]);
 
         $this->dispatch('staffCreated');
 
         $this->reset([
-            'first_name', 'last_name', 'email', 'password', 'phone_number', 'gender', 'position', 'department', 'role', 'profile_image', 'port'
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'phone_number',
+            'gender',
+            'position',
+            'department',
+            'role',
+            'profile_image',
+            'port'
         ]);
     }
 

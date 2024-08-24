@@ -29,7 +29,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        Alert::success('Welcome back!'.'  '.auth()->user()->first_name.' '.'you are the'.' '.auth()->user()->position, 'Enjoy!.');
         return redirect()->intended(route('dashboard', absolute: false));
+        Alert::success('Logged in successful from TPA Online Application!', 'Welcome back!.');
     }
 
     /**
@@ -38,7 +40,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
-
+        
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();

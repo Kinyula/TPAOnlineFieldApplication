@@ -20,7 +20,7 @@
             <h3 class="text-2xl font-bold mb-3 text-yellow-500">
                 <i class="fas fa-user-graduate"></i> Professional Qualifications
             </h3>
-            <form>
+            <form wire:submit.prevent = "submitProfessionalQualifications">
                 <!-- Country -->
                 <div class="mt-4">
                     <x-input-label for="country" :value="__('Country')" />

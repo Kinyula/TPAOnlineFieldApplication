@@ -4,6 +4,8 @@
             <i class="fas fa-plus"></i>
             {{ __('Add Port') }}
         </h2>
+        <p class="text-red-500">NB: all parts with * are mandatory</p>
+        
         <form wire:submit.prevent = "createPort">
             <!-- Country -->
             <div>

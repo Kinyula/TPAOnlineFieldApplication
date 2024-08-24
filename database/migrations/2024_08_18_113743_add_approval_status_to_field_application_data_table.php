@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
-            $table->id();
-            $table->string('module_name');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('field_application_data', function (Blueprint $table) {
+            $table->string('approval_status')->default('not approved');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::table('field_application_data', function (Blueprint $table) {
+            $table->string('approval_status')->default('not approved');
+        });
     }
 };

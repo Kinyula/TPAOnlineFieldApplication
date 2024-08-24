@@ -122,10 +122,13 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
+        data-wow-delay="0.1s">
         <a href="{{ asset('/') }}" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center no-underline">
-            <img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="Icon" class="me-2" style="width: 50px; height: 50px;">
-            <h1 class="text-warning m-0">Tanzania Port Authority</h1>
+            <img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="Icon" class="me-2"
+                style="width: 50px; height: 50px;">
+            <!-- Text that disappears on small screens -->
+            <h1 class="text-warning m-0 d-none d-lg-block">Tanzania Port Authority</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -171,6 +174,7 @@
             @endif
         </div>
     </nav>
+
     <!-- Navbar End -->
 
 
@@ -247,7 +251,7 @@
                                     <label for="name">Your Name</label>
                                 </div>
                                 @error('name')
-                                <small class="text-danger">{{ $message }}</small>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="col-md-6">
@@ -257,26 +261,28 @@
                                     <label for="email">Your Email</label>
                                 </div>
                                 @error('email')
-                                <small class="text-danger">{{ $message }}</small>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="subject" placeholder="Phone Number" name="phone_number">
+                                    <input type="number" class="form-control" id="subject"
+                                        placeholder="Phone Number" name="phone_number">
                                     <label for="phone_number">Phone Number</label>
                                 </div>
 
                                 @error('phone_number')
-                                <small class="text-danger">{{ $message }}</small>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px" name="question"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"
+                                        name="question"></textarea>
                                     <label for="message">Any question ? ask here...</label>
                                 </div>
                                 @error('question')
-                                <small class="text-danger">{{ $message }}</small>
+                                    <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="col-12">
@@ -434,7 +440,7 @@
 
 
 
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
 </body>
 
 </html>

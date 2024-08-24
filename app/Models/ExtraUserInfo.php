@@ -12,9 +12,12 @@ class ExtraUserInfo extends Model
     protected $fillable = [
         'user_id',
         'department_id',
-        'port_id'];
+        'port_id',
+        'check_number'
+    ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

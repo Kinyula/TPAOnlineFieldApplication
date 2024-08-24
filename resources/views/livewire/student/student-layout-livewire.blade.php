@@ -256,41 +256,24 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a wire:navigate href="{{ asset('/profile') }}">Profile</a></li>
-
-                            </ul>
-
-                            <ul class="submenu">
-                                <li><a wire:navigate href="{{ asset('UIMS/add-phone-number') }}">
-                                        Phone
-                                        number management</a>
-                                </li>
+                                <li><a href="{{ asset('/profile') }}">Profile</a></li>
 
                             </ul>
 
                         </li>
 
                         <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle ">
+                            <a href="javascript:;" class="dropdown-toggle">
                                 <span class="micon bi bi-pencil-square"></span><span class="mtext">Activities</span>
                             </a>
 
-
-
                             <ul class="submenu">
-                                <li><a class="active:bg-red-800" wire:navigate href="{{ asset('TPA/status') }}">
-                                        View status
-                                    </a></li>
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/send-accepted-letter') }}">
+                                        View your acceptance letter
+                                    </a>
+                                </li>
 
                             </ul>
-
-                            {{-- <ul class="submenu">
-                                <li><a href="{{ asset('UIMS/add-asset-status') }}">
-                                        Add an allocation status
-                                    </a></li>
-
-                            </ul> --}}
-
 
                         </li>
 
@@ -304,6 +287,20 @@
         <div class="main-container">
             @yield('content')
         </div>
+
+
+        <footer class="bg-blue-800 text-yellow-500 py-6 mt-8">
+            <div class="container mx-auto text-center">
+                <p class="text-sm sm:text-base">
+                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer Victor Z.K.
+                </p>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2">
+                    Unauthorized copying, sharing, or redistribution is strictly prohibited.
+                </p>
+            </div>
+        </footer>
+
+
 
         <!-- js -->
 
