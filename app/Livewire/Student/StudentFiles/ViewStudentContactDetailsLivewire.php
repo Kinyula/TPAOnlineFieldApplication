@@ -34,12 +34,24 @@ class ViewStudentContactDetailsLivewire extends Component
     public function getContactDetailsProperty()
     {
 
-        return ContactDetail::with(['user'])
+        if (auth()->user()->role_id == '0') {
+            return ContactDetail::with(['user'])
+            ->whereHas('user', function ($query) {
+                $query->where('first_name', 'like', '%' . $this->search . '%')
+                    ->orWhere('last_name', 'like', '%' . $this->search . '%');
+            })
+            ->where('user_id', '=', auth()->user()->id)
+            ->paginate(15);
+        } else {
+            return ContactDetail::with(['user'])
             ->whereHas('user', function ($query) {
                 $query->where('first_name', 'like', '%' . $this->search . '%')
                     ->orWhere('last_name', 'like', '%' . $this->search . '%');
             })
             ->paginate(15);
+        }
+
+
     }
 
     public function deleteSelected()

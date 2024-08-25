@@ -19,4 +19,9 @@ class AcademicDetail extends Model
         'registration_number',
         'current_year',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

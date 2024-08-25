@@ -3,8 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tpa\AcceptedLetterPdfController;
 use App\Http\Controllers\Tpa\FieldApplicationController;
+use App\Http\Controllers\Tpa\StudentRestoreFiles\AcademicRestoreFiles\RestoreAcademicDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\ContactRestoreFiles\RestoreContactDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\PersonalRestoreFiles\RestorePersonalDetailsController;
+use App\Http\Controllers\Tpa\TpaStaffRestoreFiles\ApplicationRestoreFiles\RestoreApplicationDetailsController;
 use App\Http\Controllers\Tpa\ViewAllConfirmedStudentsController;
 use App\Http\Controllers\Tpa\ViewApplicationsController;
 use App\Http\Controllers\TPAStaff\AddVacantSpacesController;
@@ -49,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('TPA/view-networking-sub-modules', [ViewNetworkingSubModulesController::class, 'index']);
     Route::get('TPA/send-accepted-letter', [AcceptedLetterPdfController::class, 'index']);
     Route::get('TPA/create-vacant-space', [AddVacantSpacesController::class, 'index']);
+    Route::get('TPA/student-restore-application-infos',[RestoreApplicationDetailsController::class, 'index']);
 
     // ------------------------------------------------ TPA Routes ------------------------------------------------------------------------------------
 
@@ -60,6 +63,7 @@ Route::middleware('auth')->group(function () {
     // ------------------------------------------------------------------ Student Routes -------------------------------------------------------------------------------
     Route::get('TPA/student-restore-contact-infos', [RestoreContactDetailsController::class, 'index']);
     Route::get('TPA/student-restore-personal-infos', [RestorePersonalDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-academic-infos',[RestoreAcademicDetailsController::class, 'index']);
 });
 
 require __DIR__ . '/auth.php';

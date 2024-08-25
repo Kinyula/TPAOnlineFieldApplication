@@ -275,6 +275,12 @@
 
                             </ul>
 
+                            <ul class="submenu">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/view-student-details') }}">
+                                        View your details
+                                    </a></li>
+
+                            </ul>
                         </li>
 
 
@@ -292,7 +298,8 @@
         <footer class="bg-blue-800 text-yellow-500 py-6 mt-8">
             <div class="container mx-auto text-center">
                 <p class="text-sm sm:text-base">
-                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer Victor Z.K.
+                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer
+                    Victor Z.K.
                 </p>
                 <p class="text-xs sm:text-sm text-gray-400 mt-2">
                     Unauthorized copying, sharing, or redistribution is strictly prohibited.

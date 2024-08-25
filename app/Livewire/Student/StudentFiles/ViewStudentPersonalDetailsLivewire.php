@@ -66,12 +66,23 @@ class ViewStudentPersonalDetailsLivewire extends Component
 
     public function getPersonalDetailsProperty()
     {
-        return PersonalDetail::with(['user'])
-            ->whereHas('user', function ($query) {
-                $query->where('first_name', 'like', '%' . $this->search . '%')
-                    ->orWhere('last_name', 'like', '%' . $this->search . '%');
-            })
-            ->paginate(15);
+        if (auth()->user()->role_id == '0') {
+            return PersonalDetail::with(['user'])
+                ->whereHas('user', function ($query) {
+                    $query->where('first_name', 'like', '%' . $this->search . '%')
+                        ->orWhere('last_name', 'like', '%' . $this->search . '%');
+                })
+                ->where('user_id', auth()->id())
+                ->paginate(15);
+        } else {
+            return PersonalDetail::with(['user'])
+                ->whereHas('user', function ($query) {
+                    $query->where('first_name', 'like', '%' . $this->search . '%')
+                        ->orWhere('last_name', 'like', '%' . $this->search . '%');
+                })
+
+                ->paginate(15);
+        }
     }
 
     public function exportExcel()

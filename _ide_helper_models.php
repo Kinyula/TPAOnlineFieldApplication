@@ -26,6 +26,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|AcademicDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AcademicDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|AcademicDetail onlyTrashed()
@@ -53,6 +54,36 @@ namespace App\Models{
  *
  * @property int $id
  * @property int|null $user_id
+ * @property string $declaration_text
+ * @property string $signature
+ * @property string $declaration_date
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereDeclarationDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereDeclarationText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereSignature($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail withoutTrashed()
+ */
+	class ApplicationDeclarationDetail extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
  * @property int|null $country_id
  * @property int|null $region_id
  * @property int|null $district_id
@@ -60,6 +91,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Country|null $country
+ * @property-read \App\Models\District|null $district
+ * @property-read \App\Models\Region|null $region
+ * @property-read \App\Models\User|null $user
+ * @property-read \App\Models\Ward|null $ward
  * @method static \Illuminate\Database\Eloquent\Builder|ContactDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ContactDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ContactDetail onlyTrashed()
@@ -108,12 +144,42 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int|null $module_id
+ * @property string $deadline_date
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereDeadlineDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Deadline withoutTrashed()
+ */
+	class Deadline extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $department
  * @property string $floor_number
  * @property string $office_name
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\FieldApplicationData> $fieldApplications
+ * @property-read int|null $field_applications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Module> $modules
+ * @property-read int|null $modules_count
  * @method static \Illuminate\Database\Eloquent\Builder|Department newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Department newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Department onlyTrashed()
@@ -167,10 +233,12 @@ namespace App\Models{
  * @property int|null $port_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $check_number
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo whereCheckNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo whereDepartmentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo whereId($value)
@@ -179,6 +247,196 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo whereUserId($value)
  */
 	class ExtraUserInfo extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property int|null $port_id
+ * @property int|null $module_id
+ * @property int|null $sub_module_id
+ * @property string $application_letter
+ * @property string $confirm_status
+ * @property string $view_status
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $approval_status
+ * @property int|null $department_id
+ * @property-read \App\Models\Department|null $department
+ * @property-read \App\Models\Module|null $modules
+ * @property-read \App\Models\SubModule|null $subModule
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData query()
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereApplicationLetter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereApprovalStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereConfirmStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData wherePortId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereSubModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData whereViewStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData withoutTrashed()
+ */
+	class FieldApplicationData extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $insurance_company
+ * @property string $insurance_card_number
+ * @property string $expiration_date
+ * @property string $insurance_card_attachment
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereExpirationDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereInsuranceCardAttachment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereInsuranceCardNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereInsuranceCompany($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail withoutTrashed()
+ */
+	class InsuranceDetail extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $language
+ * @property string $language_level
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency query()
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereLanguage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereLanguageLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency withoutTrashed()
+ */
+	class LanguageProficiency extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $department_id
+ * @property string $module_name
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Deadline|null $deadline
+ * @property-read \App\Models\Department|null $department
+ * @method static \Illuminate\Database\Eloquent\Builder|Module newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereModuleName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Module withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Module withoutTrashed()
+ */
+	class Module extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property int|null $module_id
+ * @property string $vacant_space
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Module|null $modules
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace whereVacantSpace($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModuleVacantSpace withoutTrashed()
+ */
+	class ModuleVacantSpace extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $attachment_name
+ * @property string $attachment_file
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereAttachmentFile($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereAttachmentName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail withoutTrashed()
+ */
+	class OtherAttachmentDetail extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -202,6 +460,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail onlyTrashed()
@@ -266,6 +525,116 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int|null $user_id
+ * @property int|null $country_id
+ * @property string $course
+ * @property string $mode_of_learning
+ * @property string $institution
+ * @property string|null $issuer
+ * @property string $certificate
+ * @property string $start_date
+ * @property string $end_date
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Country|null $country
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereCertificate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereCountryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereCourse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereInstitution($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereIssuer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereModeOfLearning($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProfessionalQualification withoutTrashed()
+ */
+	class ProfessionalQualification extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $project_name
+ * @property string $start_date
+ * @property string $end_date
+ * @property string $project_url
+ * @property string $description
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereProjectName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereProjectUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProjectDetail withoutTrashed()
+ */
+	class ProjectDetail extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $publication_title
+ * @property string $publication_standard
+ * @property string $publication_date
+ * @property string|null $publication_url
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication wherePublicationDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication wherePublicationStandard($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication wherePublicationTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication wherePublicationUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Publication withoutTrashed()
+ */
+	class Publication extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property string $phone_number
@@ -289,6 +658,45 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Question withoutTrashed()
  */
 	class Question extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $phone_number
+ * @property string $gender
+ * @property string $occupation
+ * @property string $institute
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereInstitute($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereOccupation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail wherePhoneNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|RefereeDetail withoutTrashed()
+ */
+	class RefereeDetail extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -322,6 +730,103 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int|null $user_id
+ * @property string $skill_category
+ * @property string $skill_level
+ * @property string $description
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereSkillCategory($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereSkillLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SkillExperience withoutTrashed()
+ */
+	class SkillExperience extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $module_id
+ * @property string $sub_module
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\FieldApplicationData> $fieldApplications
+ * @property-read int|null $field_applications_count
+ * @property-read \App\Models\Module|null $modules
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereModuleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereSubModule($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SubModule withoutTrashed()
+ */
+	class SubModule extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $training_name
+ * @property string $training_institution
+ * @property string $training_certificate
+ * @property string $start_date
+ * @property string $end_date
+ * @property string $training_description
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereEndDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereTrainingCertificate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereTrainingDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereTrainingInstitution($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereTrainingName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|TrainingAndWorkshop withoutTrashed()
+ */
+	class TrainingAndWorkshop extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $first_name
  * @property string $last_name
  * @property string $phone_number
@@ -339,6 +844,7 @@ namespace App\Models{
  * @property-read \App\Models\ExtraUserInfo|null $extraUserInfo
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \App\Models\PersonalDetail|null $personalDetails
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
@@ -389,5 +895,42 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Ward withoutTrashed()
  */
 	class Ward extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $institution
+ * @property string $institution_address
+ * @property string $job_title
+ * @property string $current_occupation
+ * @property string $start_date
+ * @property string $duties_performed
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience query()
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereCurrentOccupation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereDutiesPerformed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereInstitution($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereInstitutionAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereJobTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereStartDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|WorkExperience withoutTrashed()
+ */
+	class WorkExperience extends \Eloquent {}
 }
 

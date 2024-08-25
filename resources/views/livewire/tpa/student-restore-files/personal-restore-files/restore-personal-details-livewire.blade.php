@@ -63,10 +63,6 @@
             wire:model.live="search">
 
         <div class="flex space-x-2">
-            <a href="{{ asset('TPA/view-student-details') }}"
-            class="flex items-center justify-center px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-400 transition duration-200 ease-in-out transform hover:scale-105">
-            <i class="fas fa-arrow-left mr-2"></i> Back
-        </a>
 
             <button wire:click="restoreSelected"
                 onclick="confirm('Are you sure you want to restore all selected records?') || event.stopImmediatePropagation()"
@@ -81,11 +77,11 @@
         </div>
     </div>
 
-    <!-- Button to View Trashed Information -->
+    <!-- Back Button -->
     <div class="mb-4">
-        <a href="{{ asset('TPA/student-restore-personal-infos') }}"
+        <a href="{{ asset('TPA/view-student-details') }}"
             class="flex items-center justify-center px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-400 transition duration-200 ease-in-out">
-            <i class="fas fa-trash-restore mr-2"></i> View Trashed Details
+            <i class="fas fa-arrow-left mr-2"></i> Back
         </a>
     </div>
 
