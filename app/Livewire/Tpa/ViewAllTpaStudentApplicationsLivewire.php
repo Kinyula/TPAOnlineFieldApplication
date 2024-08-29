@@ -78,7 +78,6 @@ class ViewAllTpaStudentApplicationsLivewire extends Component
         $application = TpaFieldApplicationData::findOrFail($id);
         $application->approval_status = 'approved';
         $application->view_status = 'viewed';
-        $application->confirm_status = 'confirmed';
         $application->update();
 
         $this->dispatch('application-status-updated');
