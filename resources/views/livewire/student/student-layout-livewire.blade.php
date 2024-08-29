@@ -234,7 +234,7 @@
         <div class="left-side-bar">
             <div class="brand-logo">
                 <a href="{{ asset('/dashboard') }}" style="color:black;" href="javascript:;">
-                    <img style="width: 55px;border-radius:50%" src="{{ asset('storage/HomeImages/TPA1.png') }}"
+                    <img style="width: 55px;" src="{{ asset('storage/HomeImages/real-tpa.png') }}"
                         alt="" srcset="">
                     <p class="text-gray-500" style="position:relative;left:10%">TOAS</p>
                 </a>
@@ -268,8 +268,16 @@
                             </a>
 
                             <ul class="submenu">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/view-single-field-application') }}">
+                                        View your application
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <ul class="submenu">
                                 <li><a class="active:bg-red-800" href="{{ asset('TPA/send-accepted-letter') }}">
-                                        View your acceptance letter
+                                        View response letter
                                     </a>
                                 </li>
 

@@ -7,8 +7,10 @@ use Livewire\Component;
 class FieldApplicationLivewire extends Component
 {
     public $currentStep = 1;
-    public $totalSteps = 15; // Total number of steps/forms
+    public $totalSteps = 8; // Total number of steps/forms
     public $progress = 0;
+
+    
 
     protected $listeners = ['progressUpdated'];
 

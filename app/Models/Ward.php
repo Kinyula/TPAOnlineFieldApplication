@@ -14,4 +14,9 @@ class Ward extends Model
         'district_id',
         'ward'
     ];
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
 }

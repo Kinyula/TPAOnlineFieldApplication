@@ -16,4 +16,9 @@ class InsuranceDetail extends Model
         'expiration_date',
         'insurance_card_attachment'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -10,7 +10,7 @@ class Department extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'department_name',
+        'department',
         'floor_number',
         'office_name',
     ];

@@ -88,6 +88,7 @@
 
     <div class="bg-white shadow-lg rounded-lg p-6">
 
+
         <!-- Session Alerts -->
         @foreach (['restore-selected', 'restore-single', 'delete-selected', 'delete-single', 'download'] as $msg)
             @if (session()->has($msg))

@@ -23,6 +23,13 @@ class ViewStudentDetailsLivewire extends Component
         }
     }
 
+    public function setStep($step)
+    {
+        if ($step >= 1 && $step <= $this->totalSteps) {
+            $this->currentStep = $step;
+        }
+    }
+
     public function getStepPercentageProperty()
     {
         return ($this->currentStep / $this->totalSteps) * 100;

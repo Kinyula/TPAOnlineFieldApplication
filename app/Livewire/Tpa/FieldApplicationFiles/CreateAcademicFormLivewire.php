@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Livewire\Tpa\FieldApplicationFiles;
 
 use App\Models\AcademicDetail;
@@ -15,7 +16,8 @@ class CreateAcademicFormLivewire extends Component
     public $current_year;
     public $data;
 
-    public function mount(){
+    public function mount()
+    {
         $this->data = AcademicDetail::where('user_id', auth()->user()->id)->exists();
     }
     public function render()
@@ -32,7 +34,14 @@ class CreateAcademicFormLivewire extends Component
             'status' => 'required',
             'program' => 'required',
             'registration_number' => 'required|unique:academic_details,registration_number',
-            'current_year' => 'required',
+            'current_year' => [
+                'required',
+                'digits:4', // Ensures the year is a 4-digit number
+                'integer', // Ensures the year is an integer
+                'min:1900', // Ensures the year is not less than 1900
+                'max:' . date('Y'), // Ensures the year is not greater than the current year
+            ],
+
         ]);
 
         // Create and save academic details
@@ -61,7 +70,5 @@ class CreateAcademicFormLivewire extends Component
 
         // Emit the 'stepCompleted' event to trigger the progress bar update
         $this->dispatch('stepCompleted');
-
     }
 }
-

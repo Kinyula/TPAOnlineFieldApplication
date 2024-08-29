@@ -14,7 +14,7 @@
         @endif
 
         @if (auth()->user()->role_id == '4')
-            @livewire('tpa.view-all-student-applications-livewire')
+            @livewire('tpa.view-all-tpa-student-applications-livewire')
         @endif
     @endsection
 

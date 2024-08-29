@@ -3,16 +3,19 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Tpa\AcceptedLetterPdfController;
 use App\Http\Controllers\Tpa\FieldApplicationController;
+use App\Http\Controllers\Tpa\HomeForTpaOnlineFieldApplicationController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\AcademicRestoreFiles\RestoreAcademicDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\ContactRestoreFiles\RestoreContactDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\PersonalRestoreFiles\RestorePersonalDetailsController;
 use App\Http\Controllers\Tpa\TpaStaffRestoreFiles\ApplicationRestoreFiles\RestoreApplicationDetailsController;
+use App\Http\Controllers\Tpa\TpaStaffRestoreFiles\RestoreTpaApplicationDetailsController;
 use App\Http\Controllers\Tpa\ViewAllConfirmedStudentsController;
 use App\Http\Controllers\Tpa\ViewApplicationsController;
 use App\Http\Controllers\TPAStaff\AddVacantSpacesController;
 use App\Http\Controllers\TPAStaff\AdminFunction\StaffManagementController;
 use App\Http\Controllers\TPAStaff\AdminFunction\TpaManagementController;
 use App\Http\Controllers\TPAStaff\SetDeadlineController;
+use App\Http\Controllers\TPAStaff\TpaApplyFieldController;
 use App\Http\Controllers\TPAStaff\TPAContactsController;
 use App\Http\Controllers\TpaStaff\ViewNetworkingSubModulesController;
 use App\Http\Controllers\TpaStaff\ViewSoftwareDevelopmentSubModulesController;
@@ -22,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('TPA/Online-application', [HomeForTpaOnlineFieldApplicationController::class, 'index']);
 // ------------------------------------------------------ Contact routes ------------------------------------------------------------------
 
 Route::get('TPA/contact', [TPAContactsController::class, 'index']);
@@ -37,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('TPA/field-application', [FieldApplicationController::class, 'index']);
+    Route::get('TPA/view-single-field-application',[TpaApplyFieldController::class, 'index']);
     Route::get('TPA/view-field-application', [ViewApplicationsController::class, 'index']);
 
     // -------------------------------------- Admin management routes -------------------------------------------
@@ -52,11 +56,13 @@ Route::middleware('auth')->group(function () {
     Route::get('TPA/send-accepted-letter', [AcceptedLetterPdfController::class, 'index']);
     Route::get('TPA/create-vacant-space', [AddVacantSpacesController::class, 'index']);
     Route::get('TPA/student-restore-application-infos',[RestoreApplicationDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-tpa-application-infos',[RestoreTpaApplicationDetailsController::class, 'index']);
 
     // ------------------------------------------------ TPA Routes ------------------------------------------------------------------------------------
 
     Route::get('TPA/view-all-confirmed-students', [ViewAllConfirmedStudentsController::class, 'index']);
     Route::get('TPA/view-student-details', [ViewStudentsDetailsController::class, 'index']);
+
 
     // ------------------------------------------------------------ End of TPA Routes ------------------------------------------------------------------------------------
 

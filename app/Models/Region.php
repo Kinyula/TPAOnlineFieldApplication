@@ -14,4 +14,9 @@ class Region extends Model
         'country_id',
         'region'
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

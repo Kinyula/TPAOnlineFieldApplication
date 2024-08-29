@@ -74,7 +74,7 @@
                         <th class="px-4 py-2">Status</th>
                         <th class="px-4 py-2">Program</th>
                         <th class="px-4 py-2">Registration Number</th>
-                        <th class="px-4 py-2">Current Year</th>
+                        <th class="px-4 py-2">Year</th>
                         @if (!auth()->user()->role_id == '0')
                             <th class="px-4 py-2">Actions</th>
                         @else

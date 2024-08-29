@@ -1,10 +1,42 @@
 <div class="container mx-auto p-4">
-    <!-- Step Indicator -->
-    <div class="flex justify-between items-center mb-8">
-        <div class="w-full bg-gray-200 rounded-full h-2.5">
-            <div class="bg-blue-800 h-2.5 rounded-full" style="width: {{ $stepPercentage }}%;"></div>
-        </div>
-        <span class="ml-4 text-gray-600">{{ $currentStep }}/{{ $totalSteps }}</span>
+    <!-- Menu Bar -->
+    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+        <button wire:click="setStep(1)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 1) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Personal Details
+        </button>
+        <button wire:click="setStep(2)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 2) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Contact Details
+        </button>
+        <button wire:click="setStep(3)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 3) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Academic Details
+        </button>
+        <button wire:click="setStep(4)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 4) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Referee Details
+        </button>
+        <button wire:click="setStep(5)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 5) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Training & Workshops
+        </button>
+        <button wire:click="setStep(6)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 6) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Professional Qualification
+        </button>
+        <button wire:click="setStep(7)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 7) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Project Portfolio
+        </button>
+        <button wire:click="setStep(8)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 8) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Other Attachments
+        </button>
+        <button wire:click="setStep(9)"
+            class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 9) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
+            Declaration
+        </button>
     </div>
 
     <!-- Step Content -->
@@ -12,53 +44,40 @@
         @switch($currentStep)
             @case(1)
                 @livewire('student.student-files.view-student-personal-details-livewire')
-                @break
+            @break
+
             @case(2)
                 @livewire('student.student-files.view-student-contact-details-livewire')
-                @break
+            @break
+
             @case(3)
                 @livewire('student.student-files.view-student-academic-details-livewire')
-                @break
+            @break
+
             @case(4)
                 @livewire('student.student-files.view-student-referee-details-livewire')
-                @break
+            @break
+
             @case(5)
                 @livewire('student.student-files.view-student-training-and-workshop-details-livewire')
-                @break
+            @break
+
             @case(6)
                 @livewire('student.student-files.view-student-professional-qualification-details-livewire')
-                @break
+            @break
+
             @case(7)
                 @livewire('student.student-files.view-student-project-portfolio-details-livewire')
-                @break
+            @break
+
             @case(8)
                 @livewire('student.student-files.view-student-other-attachment-details-livewire')
-                @break
+            @break
+
             @case(9)
                 @livewire('student.student-files.view-student-declaration-details-livewire')
-                @break
+            @break
         @endswitch
     </div>
 
-    <br>
-    <!-- Navigation Buttons -->
-    <div class="flex justify-between">
-        @if ($currentStep > 1)
-            <button wire:click="previousStep" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg">
-                Previous
-                <i class="fas fa-arrow-left"></i>
-            </button>
-        @else
-            <div></div>
-        @endif
-
-        @if ($currentStep < $totalSteps)
-            <button wire:click="nextStep" class="bg-blue-800 text-white px-4 py-2 rounded-lg">
-                Next
-                <i class="fas fa-arrow-right"></i>
-            </button>
-        @else
-
-        @endif
-    </div>
 </div>

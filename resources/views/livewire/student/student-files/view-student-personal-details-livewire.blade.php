@@ -98,9 +98,7 @@
                     <th class="px-4 py-2">Disability Status</th>
                     <th class="px-4 py-2">NIDA Number</th>
                     <th class="px-4 py-2">Marital Status</th>
-                    <th class="px-4 py-2">Professionalism Title</th>
-                    <th class="px-4 py-2">Designation</th>
-                    <th class="px-4 py-2">Years of Experience</th>
+
 
                     @if (!auth()->user()->role_id == '0')
                         <th class="px-4 py-2">Actions</th>
@@ -128,9 +126,6 @@
                         <td class="px-4 py-2">{{ $detail->disability_status }}</td>
                         <td class="px-4 py-2">{{ $detail->nida_number ?? 'N/A' }}</td>
                         <td class="px-4 py-2">{{ $detail->marital_status }}</td>
-                        <td class="px-4 py-2">{{ $detail->professionalism_title ?? 'N/A' }}</td>
-                        <td class="px-4 py-2">{{ $detail->designation ?? 'N/A' }}</td>
-                        <td class="px-4 py-2">{{ $detail->years_of_experience ?? 'N/A' }}</td>
 
                         @if (!auth()->user()->role_id == '0')
                             <td class="px-4 py-2 flex space-x-2">

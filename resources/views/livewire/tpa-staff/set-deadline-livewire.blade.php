@@ -3,9 +3,9 @@
         <h3 class="text-2xl font-bold mb-4 text-yellow-500">
             <i class="fas fa-calendar-alt"></i>
             @if ($isUpdating)
-                Update Application Deadline
+                Update Intern Application Deadline
             @else
-                Set Application Deadline
+                Set Intern Application Deadline
             @endif
         </h3>
 

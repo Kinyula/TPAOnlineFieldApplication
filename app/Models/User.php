@@ -61,4 +61,24 @@ class User extends Authenticatable
     {
         return $this->hasOne(PersonalDetail::class);
     }
+
+    public function contactDetails()
+    {
+        return $this->hasOne(ContactDetail::class);
+    }
+
+    public function academicDetails()
+    {
+        return $this->hasOne(AcademicDetail::class);
+    }
+
+    public function languageProficiency()
+    {
+        return $this->hasOne(LanguageProficiency::class);
+    }
+
+    public function applicationDeclaration()
+    {
+        return $this->hasOne(ApplicationDeclarationDetail::class);
+    }
 }

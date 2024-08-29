@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class LanguageProficiency extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'user_id',
         'language',
         'language_level'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -44,17 +44,24 @@
                         <td class="px-4 py-2">{{ $application->modules->module_name }}</td>
                         <td class="px-4 py-2">{{ $application->subModule->sub_module ?? 'N/A' }}</td>
                         <td class="px-4 py-2">
-                            <button wire:click="confirmPlace({{ $application->id }})"
-                                onclick="confirm('Are you sure you want to perform this action? This action is irreversible.') || event.stopImmediatePropagation()"
-                                class="px-3 py-1 rounded text-white
-                                {{ $application->confirm_status == 'confirmed' ? 'bg-gray-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-700' }}"
-                                {{ $application->confirm_status == 'confirmed' ? 'disabled' : '' }}>
-
-                                <i class="{{ $application->confirm_status == 'confirmed' ? 'fas fa-check' : 'fas fa-times' }}"></i>
-                                {{ $application->confirm_status == 'confirmed' ? 'Confirmed' : 'Not Confirmed' }}
-                            </button>
-
+                            <!-- Active Confirm Button -->
+                            @if($application->approval_status == 'approved' && $application->confirm_status != 'confirmed')
+                                <button wire:click="confirmPlace({{ $application->id }})"
+                                    onclick="confirm('Are you sure you want to perform this action? This action is irreversible.') || event.stopImmediatePropagation()"
+                                    class="px-3 py-1 rounded text-white bg-red-500 hover:bg-red-700">
+                                    <i class="fas fa-times"></i> Not Confirmed
+                                </button>
+                            @else
+                                <!-- Disabled Confirm Button -->
+                                <button class="px-3 py-1 rounded text-white bg-gray-300 cursor-not-allowed" disabled>
+                                    <i class="{{ $application->confirm_status == 'confirmed' ? 'fas fa-check' : 'fas fa-times' }}"></i>
+                                    {{ $application->confirm_status == 'confirmed' ? 'Confirmed' : 'Not Confirmed' }}
+                                </button>
+                            @endif
                         </td>
+
+
+
                         <td class="px-4 py-2">
                             <button
                                 onclick="confirm('Are you sure you want to perform this action ? bacause this action is irreversible') || event.stopImmediatePropagation()"

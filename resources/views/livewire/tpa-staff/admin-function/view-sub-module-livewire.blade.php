@@ -51,7 +51,7 @@
                 </div>
             @endforeach
         </div>
-        @livewire('tpa.field-application-files.application-form-livewire')
+        @livewire('tpa.field-application-files.tpa-field-application-form-livewire')
 
     @endif
 

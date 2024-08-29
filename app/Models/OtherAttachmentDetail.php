@@ -14,4 +14,9 @@ class OtherAttachmentDetail extends Model
         'attachment_name',
         'attachment_file'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

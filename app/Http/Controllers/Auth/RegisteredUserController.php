@@ -36,7 +36,16 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'phone_number' => ['required', 'string', 'max:255', 'regex:/^\+?[0-9]{7,15}$/'],
             'gender' => ['required', 'string', 'max:255', 'in:male,female'],
-            'password' => ['required', 'confirmed'],
+            'password' => [
+                'required',
+                'confirmed',
+                'min:8', // Minimum length of 8 characters
+                'regex:/[a-z]/', // At least one lowercase letter
+                'regex:/[A-Z]/', // At least one uppercase letter
+                'regex:/[0-9]/', // At least one digit
+                'regex:/[@$!%*?&#_]/', // At least one special character
+                'not_regex:/\s/', // No spaces allowed
+            ],
             // 'profile_image' => ['required', 'image']
 
         ]);

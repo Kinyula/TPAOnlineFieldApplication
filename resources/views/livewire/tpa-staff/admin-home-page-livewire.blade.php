@@ -44,4 +44,5 @@
         </div>
 
     </div>
+    @livewire('tpa-staff.admin-function.view-staff-livewire')
 </div>

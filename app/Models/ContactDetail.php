@@ -33,5 +33,5 @@ class ContactDetail extends Model
     public function ward(){
         return $this->belongsTo(Ward::class);
     }
-    
+
 }

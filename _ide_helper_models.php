@@ -60,6 +60,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeclarationDetail onlyTrashed()
@@ -149,6 +150,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Module|null $modules
  * @method static \Illuminate\Database\Eloquent\Builder|Deadline newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Deadline newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Deadline onlyTrashed()
@@ -207,6 +209,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Region|null $region
  * @method static \Illuminate\Database\Eloquent\Builder|District newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|District newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|District onlyTrashed()
@@ -234,6 +237,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $check_number
+ * @property-read \App\Models\Department|null $department
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newQuery()
@@ -306,6 +310,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|InsuranceDetail onlyTrashed()
@@ -336,6 +341,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|LanguageProficiency onlyTrashed()
@@ -422,6 +428,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|OtherAttachmentDetail onlyTrashed()
@@ -443,45 +450,11 @@ namespace App\Models{
 /**
  * 
  *
- * @property int $id
- * @property int|null $user_id
- * @property string $first_name
- * @property string $last_name
- * @property string $email
- * @property string $date_of_birth
- * @property string $phone_number
- * @property string $gender
- * @property string|null $nida_number
- * @property string $disability_status
- * @property string|null $marital_status
- * @property string|null $professionalism_title
- * @property string|null $designation
- * @property string|null $years_of_experience
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail query()
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDateOfBirth($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDesignation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDisabilityStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereFirstName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereGender($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereLastName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereMaritalStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereNidaNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail wherePhoneNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereProfessionalismTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereYearsOfExperience($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail withoutTrashed()
  */
@@ -501,6 +474,12 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Country|null $country
+ * @property-read \App\Models\District|null $district
+ * @property-read \App\Models\Region|null $region
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\TpaFieldApplicationData> $tpaFieldData
+ * @property-read int|null $tpa_field_data_count
+ * @property-read \App\Models\Ward|null $ward
  * @method static \Illuminate\Database\Eloquent\Builder|Port newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Port newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Port onlyTrashed()
@@ -709,6 +688,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Country|null $country
  * @method static \Illuminate\Database\Eloquent\Builder|Region newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Region newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Region onlyTrashed()
@@ -723,6 +703,31 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Region withoutTrashed()
  */
 	class Region extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $department_id
+ * @property string $deadline_date
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Department $department
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereDeadlineDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline withoutTrashed()
+ */
+	class SetFieldDeadline extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -791,6 +796,45 @@ namespace App\Models{
  *
  * @property int $id
  * @property int|null $user_id
+ * @property int|null $port_id
+ * @property int|null $department_id
+ * @property string $application_letter
+ * @property string $confirm_status
+ * @property string $view_status
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $approval_status
+ * @property-read \App\Models\Department|null $department
+ * @property-read \App\Models\Port|null $port
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereApplicationLetter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereApprovalStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereConfirmStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData wherePortId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereViewStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData withoutTrashed()
+ */
+	class TpaFieldApplicationData extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int|null $user_id
  * @property string $training_name
  * @property string $training_institution
  * @property string $training_certificate
@@ -841,7 +885,11 @@ namespace App\Models{
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\AcademicDetail|null $academicDetails
+ * @property-read \App\Models\ApplicationDeclarationDetail|null $applicationDeclaration
+ * @property-read \App\Models\ContactDetail|null $contactDetails
  * @property-read \App\Models\ExtraUserInfo|null $extraUserInfo
+ * @property-read \App\Models\LanguageProficiency|null $languageProficiency
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \App\Models\PersonalDetail|null $personalDetails
@@ -881,6 +929,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\District|null $district
  * @method static \Illuminate\Database\Eloquent\Builder|Ward newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Ward newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Ward onlyTrashed()

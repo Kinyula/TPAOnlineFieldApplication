@@ -1,3 +1,6 @@
+
+
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,6 +34,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
@@ -126,7 +130,7 @@
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
         data-wow-delay="0.1s">
         <a href="{{ asset('/') }}" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center no-underline">
-            <img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="Icon" class="me-2"
+            <img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="Icon" class="me-2"
                 style="width: 50px; height: 50px;">
             <!-- Text that disappears on small screens -->
             <h1 class="text-warning m-0 d-none d-lg-block">Tanzania Port Authority</h1>
@@ -139,22 +143,7 @@
                 <a href="{{ asset('/') }}" class="nav-item nav-link text-dark-blue">
                     <i class="fa fa-home me-2"></i> Home
                 </a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle text-dark-blue" data-bs-toggle="dropdown">
-                        <i class="fa fa-bars me-2"></i> Pages
-                    </a>
-                    <div class="dropdown-menu border-0 m-0">
-                        <a href="#services" class="dropdown-item text-dark-blue">
-                            <i class="fa fa-cogs me-2"></i> Our Services
-                        </a>
-                        <a href="#leaders" class="dropdown-item text-dark-blue">
-                            <i class="fa fa-users me-2"></i> Higher Staff Members
-                        </a>
-                    </div>
-                </div>
-                <a href="{{ asset('TPA/contact') }}" class="nav-item nav-link text-dark-blue">
-                    <i class="fa fa-envelope me-2"></i> Contact
-                </a>
+
             </div>
 
             @if (Route::has('login'))
@@ -191,13 +180,12 @@
                     <img class="img-fluid w-100 h-100"
                         src="{{ asset('storage/HomeImages/hamburg-elbe-ship-water.jpg') }}"
                         alt="Hamburg Elbe Ship Water" style="object-fit: cover;">
-
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h2 class="fs-2 text-white animated slideInDown">Welcome to the Tanzania Port Authority</h2>
+                        <h2 class="fs-2 text-white animated slideInDown">Unlock Your Potential in ICT</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
-                            Empowering Tanzania’s maritime industry with innovative port services. Our advanced
-                            infrastructure and strategic location drive global trade and economic growth, ensuring
-                            efficient logistics and sustainability.
+                            Dive into the dynamic world of ICT with our comprehensive applications. From networking and
+                            software development to digital marketing, our programs are designed to equip you with the
+                            skills needed to thrive in the tech industry.
                         </p>
                         <a href="#about_us"
                             class="btn btn-warning py-3 px-5 animated slideInLeft text-white mb-5">Learn More</a>
@@ -213,11 +201,11 @@
                         src="{{ asset('storage/HomeImages/container-port-loading-stacked.jpg') }}"
                         alt="Container Port Loading" style="object-fit: cover;">
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h2 class="fs-2 text-white animated slideInDown">Tanzania's Maritime Success</h2>
+                        <h2 class="fs-2 text-white animated slideInDown">Innovate with Software Development</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
-                            Transforming global trade with our state-of-the-art port services. We enhance efficiency and
-                            build robust logistics infrastructure, positioning Tanzania as a key player in international
-                            commerce.
+                            Join our software development programs to gain hands-on experience in creating cutting-edge
+                            applications. Learn to build, test, and deploy software solutions that meet global standards
+                            and drive technological progress.
                         </p>
                         <a href="#"
                             class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Explore
@@ -234,11 +222,11 @@
                         src="{{ asset('storage/HomeImages/birds-eye-view-photo-of-freight-containers.jpg') }}"
                         alt="Freight Containers" style="object-fit: cover;">
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
-                        <h2 class="fs-2 text-white animated slideInDown">Leading the Way in Maritime Innovation</h2>
+                        <h2 class="fs-2 text-white animated slideInDown">Empower Your Career in Digital Marketing</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
-                            At the forefront of maritime logistics, we integrate innovative technologies to enhance
-                            efficiency and sustainability. Our strategic initiatives support global trade and drive
-                            economic development.
+                            Step into the world of digital marketing with our targeted programs. Learn how to create
+                            impactful campaigns, analyze data, and drive business success through innovative marketing
+                            strategies.
                         </p>
                         <a href="#"
                             class="btn btn-warning py-3 px-5 rounded animated slideInLeft text-white mb-5">Learn
@@ -249,10 +237,14 @@
         </div>
     </div>
 
+
     <!-- Carousel End -->
 
-
-
+    <br>
+    <div class="container">
+        <h2 class="map-heading text-warning">The Map of Tanzania Showing All Port Branches</h2>
+        <div id="map" class="container-fluid" style="height: 450px;"></div>
+    </div>
 
     <!-- Facts Start -->
     <div class="container-xxl py-5">
@@ -261,331 +253,62 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item text-center bg-light h-100 p-5 pt-0">
                         <div class="fact-icon">
-                            <i class="fas fa-graduation-cap fa-3x"></i>
+                            <i class="fas fa-network-wired fa-3x"></i>
                         </div>
-                        <h3 class="mb-3">Hands-On Practical Training</h3>
-                        <p class="mb-0">Our practical training programs are designed to bridge the gap between
-                            classroom theory and real-world application. We provide college students with hands-on
-                            experiences in their field of study, ensuring they acquire essential skills and knowledge to
-                            excel in their careers.</p>
-                        <p class="mb-0">From industry workshops to live project work, our training modules are
-                            tailored to offer practical insights and problem-solving opportunities. Join us to gain
-                            valuable experience and enhance your readiness for the professional world.</p>
+                        <h3 class="mb-3">Networking & Cybersecurity</h3>
+                        <p class="mb-0">Our networking programs offer in-depth knowledge and hands-on experience in
+                            designing, managing, and securing network infrastructures. Learn to configure routers,
+                            switches, firewalls, and more, to ensure robust and secure communications.</p>
+                        <p class="mb-0">With a focus on both wired and wireless networking, our courses prepare you
+                            to tackle real-world challenges in network administration and cybersecurity, ensuring that
+                            you are ready to excel in a fast-paced industry.</p>
                         <button class="btn btn-warning py-3 px-5 mt-2 text-white"
-                            onclick="alert('Please register first and then login to your account and be able to see more description about Field , Internship, Research & Innovation and Mentorship applications.')"
-                            class="btn btn-warning py-3 px-5"><i class="fa fa-plus text-white me-3"></i>Read
-                            More...</button>
+                            onclick="alert('Please register first and then log in to your account to see more descriptions about Field, Internship, Research & Innovation, and Mentorship applications.')">
+                            <i class="fa fa-plus text-white me-3"></i>Read More...
+                        </button>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="fact-item text-center bg-light h-100 p-5 pt-0">
                         <div class="fact-icon">
-                            <i class="fas fa-ship fa-3x"></i>
+                            <i class="fas fa-code fa-3x"></i>
                         </div>
-                        <h3 class="mb-3">Marine Transport Services</h3>
-                        <p class="mb-0">We offer comprehensive marine transport services to ensure efficient and
-                            reliable shipping of goods across the globe. Our fleet of modern cargo ships and experienced
-                            crew provide safe and timely transportation for various types of cargo.</p>
-                        <p class="mb-0">From container shipping to bulk cargo, our services are designed to meet the
-                            diverse needs of our clients. We handle logistics planning, route optimization, and
-                            real-time tracking to enhance the shipping experience and ensure smooth operations.</p>
+                        <h3 class="mb-3">Software Development</h3>
+                        <p class="mb-0">Our software development track provides comprehensive training in coding,
+                            system design, and application development. Whether you're interested in web, mobile, or
+                            desktop applications, we cover a wide range of programming languages and frameworks.</p>
+                        <p class="mb-0">Through hands-on projects and real-world scenarios, you'll gain the skills
+                            needed to develop, test, and deploy software solutions that meet industry standards and user
+                            needs.</p>
                     </div>
-
                 </div>
+
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="fact-item text-center bg-light h-100 p-5 pt-0">
                         <div class="fact-icon">
-                            <i class="fas fa-box-open fa-3x"></i>
+                            <i class="fas fa-chart-line fa-3x"></i>
                         </div>
-                        <h3 class="mb-3">Comprehensive Shipping Solutions</h3>
-                        <p class="mb-0">We provide a range of shipping solutions tailored to meet the needs of
-                            various industries. From small packages to large freight, our shipping services ensure that
-                            your goods are delivered safely and efficiently.</p>
-                        <p class="mb-0">Our state-of-the-art tracking system allows you to monitor your shipments in
-                            real-time, ensuring transparency and timely delivery. With our extensive network and
-                            dedicated team, we handle logistics with precision and reliability.</p>
+                        <h3 class="mb-3">Digital Marketing & Analytics</h3>
+                        <p class="mb-0">Our digital marketing program equips you with the knowledge and tools to
+                            succeed in the dynamic world of online marketing. Learn how to create effective campaigns,
+                            optimize for search engines, and leverage social media platforms to engage with your
+                            audience.</p>
+                        <p class="mb-0">We also cover data analytics, providing you with the skills to measure
+                            campaign performance, analyze user behavior, and make data-driven decisions that drive
+                            business growth.</p>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Facts End -->
 
 
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="about-img">
-                        <img class="img-fluid" src="{{ asset('storage/HomeImages/2.jpg') }}" alt="">
-                        <img class="img-fluid" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h4 class="section-title" id="about_us">About Us</h4>
-                    <h1 class="display-5 mb-4">Driving Growth and Connectivity for Tanzania's Future</h1>
-                    <p>At the Tanzania Port Authority, we are dedicated to fostering economic growth and enhancing
-                        global connectivity through our strategic port operations. With a rich history and a vision for
-                        the future, our authority oversees the management and development of key port facilities that
-                        play a crucial role in Tanzania's trade and commerce.</p>
-                    <p class="mb-4">Our commitment extends beyond just operational efficiency; we strive to deliver
-                        world-class services that support the logistics and maritime industries. By investing in
-                        cutting-edge technology and sustainable practices, we aim to elevate Tanzania’s port
-                        infrastructure to meet the demands of a dynamic global economy. Our mission is to facilitate
-                        seamless trade, promote regional development, and ensure the security and safety of our maritime
-                        activities.</p>
-                    <p class="mb-4">With a dedicated team and a customer-centric approach, the Tanzania Port
-                        Authority remains at the forefront of innovation and excellence, driving progress and
-                        contributing to the prosperity of our nation.</p>
-
-                        <div class="d-flex align-items-center mb-5">
-                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-warning"
-                                style="width: 120px; height: 120px;">
-                                <h1 id="yearsCounter" class="display-1 mb-n2">
-                                    @php
-                                        $startYear = 2005; // Replace with your start year
-                                        $currentYear = date('Y'); // Get the current year
-                                        $yearsPassed = $currentYear - $startYear;
-                                    @endphp
-                                    0
-                                </h1>
-                            </div>
-                            <div class="ps-4">
-                                <h3>Years</h3>
-                                <h3>Working</h3>
-                                <h3 class="mb-0">Experience</h3>
-                            </div>
-                        </div>
 
 
-                    <a class="btn btn-warning py-3 px-5 text-white" href="">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
 
-
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title" id="services">Our Services</h4>
-                <h1 class="display-5 mb-4">We are Focused On the assurance of connectivity around the world</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                        <div class="service-text p-5">
-                            <i class="fa fa-anchor fa-2x text-warning me-2"></i>
-                            <h3 class="mb-3">Port Operations Management</h3>
-                            <p class="mb-4">At Tanzania Port Authority, Port Operations Management encompasses the
-                                efficient oversight of all port activities to ensure smooth and effective operations.
-                                This includes managing vessel schedules, coordinating cargo handling processes,
-                                optimizing berth allocation, and maintaining operational standards. Our dedicated team
-                                ensures that ships are promptly and safely docked, cargo is handled with precision, and
-                                operational disruptions are minimized. By leveraging advanced technology and best
-                                practices, we strive to enhance productivity and deliver high-quality services to our
-                                stakeholders.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                        <div class="service-text p-5">
-
-                            <i class="fa fa-tools fa-2x text-warning mb-4"></i> <!-- FontAwesome icon for tools -->
-                            <h3 class="mb-3">Infrastructure Development and Maintenance</h3>
-                            <p class="mb-4">At Tanzania Port Authority, Infrastructure Development and Maintenance
-                                are crucial for sustaining and enhancing port operations. This encompasses the
-                                construction, upgrading, and repair of port facilities, including docks, storage areas,
-                                and transportation networks. Our commitment to robust infrastructure ensures that the
-                                port can accommodate increasing cargo volumes, improve operational efficiency, and
-                                provide a safe and reliable environment for all maritime activities. Regular maintenance
-                                routines and strategic development plans help us adapt to evolving industry demands and
-                                maintain high standards of service.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-
-                        <div class="service-text p-5">
-                            <i class="fa fa-shield-alt fa-2x text-warning mb-4"></i>
-                            <!-- FontAwesome icon for shield -->
-                            <h3 class="mb-3">Customs and Security</h3>
-                            <p class="mb-4">At Tanzania Port Authority, Customs and Security are paramount for
-                                maintaining the integrity and safety of port operations. Our customs procedures ensure
-                                the proper inspection and clearance of goods, preventing illegal trade and ensuring
-                                compliance with national and international regulations. Our security measures include
-                                surveillance, access control, and patrolling to safeguard the port infrastructure,
-                                cargo, and personnel. By implementing advanced technologies and rigorous protocols, we
-                                aim to provide a secure environment that facilitates smooth and lawful trade activities
-                                while protecting against potential threats.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                        <div class="service-text p-5">
-                            <i class="fa fa-cogs fa-3x text-warning mb-4"></i>
-                            <h3 class="mb-3">Cargo Handling Services</h3>
-                            <p class="mb-4">At Tanzania Port Authority, Cargo Handling Services are critical to
-                                ensuring the smooth and efficient movement of goods through our ports. This involves
-                                managing the loading and unloading of cargo from vessels, coordinating with various
-                                stakeholders to ensure timely processing, and utilizing advanced equipment and
-                                techniques to handle different types of cargo safely. Our dedicated team is committed to
-                                maintaining high standards of efficiency and safety, ensuring that all cargo operations
-                                meet regulatory requirements and industry best practices.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                        <div class="service-text p-5">
-                            <i class="fa fa-anchor fa-3x text-warning mb-4"></i>
-                            <h3 class="mb-3">Harbor Pilotage and Towing Services</h3>
-                            <p class="mb-4">The Tanzania Port Authority offers comprehensive Harbor Pilotage and
-                                Towing Services to ensure the safe and efficient movement of vessels within port waters.
-                                Our skilled harbor pilots guide ships through complex navigation channels, while our
-                                powerful tugboats provide essential towing support for docking and undocking maneuvers.
-                                These services are crucial for maintaining the safety of maritime operations and
-                                minimizing the risk of accidents in the port area. By leveraging expert knowledge and
-                                state-of-the-art equipment, we ensure that all vessels are handled with precision and
-                                care.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('storage/HomeImages/1.png') }}" alt="">
-                        <div class="service-text p-5">
-                            <i class="fa fa-truck fa-3x text-warning mb-4"></i>
-                            <h3 class="mb-3">Logistics and Transport Coordination</h3>
-                            <p class="mb-4">At Tanzania Port Authority, Logistics and Transport Coordination plays a
-                                pivotal role in ensuring the seamless movement of goods. Our team is dedicated to
-                                managing the logistics of cargo, from arrival at the port to its final destination. This
-                                includes coordinating with transport providers, managing schedules, and ensuring
-                                compliance with regulations. By utilizing advanced tracking systems and maintaining
-                                strong relationships with logistics partners, we strive to optimize efficiency and
-                                reliability in all transport operations.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-warning me-3"></i>Read
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Higher Staff Members</h4>
-                <h1 class="display-5 mb-4">Experienced leaders guiding our port's success.</h1>
-            </div>
-
-            <div class="row g-0 team-items">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{ asset('storage/HomeImages/AbdallahMwinyi.png') }}"
-                                alt="">
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h3 class="mt-2"> Name</h3>
-                            <span class="text-primary">Abdallah Mwinyi</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{ asset('storage/HomeImages/EllinamiMinja.png') }}"
-                                alt="">
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h3 class="mt-2"> Name</h3>
-                            <span class="text-primary">Ellinami Minja</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{ asset('storage/HomeImages/ErnestMangu.png') }}"
-                                alt="">
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h3 class="mt-2">Name</h3>
-                            <span class="text-primary">Ernest Mangu</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{ asset('storage/HomeImages/MasanjaKadogosa.png') }}"
-                                alt="">
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h3 class="mt-2"> Name</h3>
-                            <span class="text-primary">Masanja Kadogosa</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
 
     <!-- Footer Start -->
     <div class="container-fluid text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s"
@@ -641,6 +364,8 @@
 
             </div>
         </div>
+
+
         <div class="container-fluid copyright">
             <div class="container">
                 <div class="row">
@@ -682,6 +407,13 @@
     <script src="{{ asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+
+
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('js/main.js') }}"></script>
+    @include('sweetalert::alert')
+
     <script>
         // Initialize the map
         var map = L.map('map').setView([-6.369028, 34.888822], 6); // Center the map on Tanzania
@@ -715,32 +447,6 @@
             }
         });
     </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const counter = document.getElementById('yearsCounter');
-            const yearsPassed = {{ $yearsPassed }};
-            let count = 0;
-            const speed = 100; // Adjust speed as needed
-
-            function updateCounter() {
-                if (count < yearsPassed) {
-                    count++;
-                    counter.innerText = count;
-                    setTimeout(updateCounter, speed);
-                } else {
-                    counter.innerText = yearsPassed;
-                }
-            }
-
-            updateCounter();
-        });
-    </script>
-    <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
-    @include('sweetalert::alert')
-
-
 </body>
 
 </html>

@@ -150,7 +150,7 @@
 
 
 
-                <!-- Professionalism Title -->
+                {{-- <!-- Professionalism Title -->
                 <div>
                     <span class="flex relative top-3">
                         <x-input-label for="professionalism_title" :value="__('Professionalism Title')" />
@@ -180,7 +180,7 @@
                     <x-text-input id="years_of_experience" class="block mt-1 w-full" type="number"
                         name="years_of_experience" wire:model="years_of_experience" />
                     <x-input-error :messages="$errors->get('years_of_experience')" class="mt-2" />
-                </div>
+                </div> --}}
 
             </div>
 
@@ -193,5 +193,6 @@
         </form>
     </div>
     @endif
+
 
 </div>

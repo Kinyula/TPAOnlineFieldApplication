@@ -43,6 +43,10 @@ class RestoreApplicationDetailsLivewire extends Component
         session()->flash('restore-selected', 'Applications restored successfully!');
     }
 
+    public function restoreApplication(){
+        
+    }
+
     public function deleteSelectedPermanently()
     {
         // Fetch the selected applications

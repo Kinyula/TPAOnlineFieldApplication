@@ -2,6 +2,7 @@
 
 namespace App\Livewire\TpaStaff;
 
+use App\Models\Department;
 use App\Models\SubModule;
 use Livewire\Component;
 
@@ -12,6 +13,8 @@ class DictHomePageLivewire extends Component
 
     public function mount(){
         $this->modules = SubModule::with(['modules'])->get();
+
+
     }
 
     public function showMore()

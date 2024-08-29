@@ -1,1 +1,1 @@
-<img src="{{ asset('storage/HomeImages/TPA1.png') }}" alt="" srcset="">
+<img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="" srcset="" style="height: 130px">

@@ -1,6 +1,7 @@
 <div>
+
     <div class="card-box mb-30 p-3">
-        <span class="text-xl font-bold text-yellow-500">Sub-Modules and Their Parent Modules</span>
+        <span class="text-xl font-bold text-yellow-500">Sub-Modules and Their Parent Modules for internship applications</span>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -29,4 +30,6 @@
         </button>
     </div>
     @endif
+
+
 </div>

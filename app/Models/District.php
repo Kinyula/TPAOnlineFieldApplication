@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class District extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'region_id',
         'district'
     ];
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }

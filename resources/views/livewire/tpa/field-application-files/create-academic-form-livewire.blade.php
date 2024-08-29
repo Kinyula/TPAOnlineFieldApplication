@@ -70,9 +70,12 @@
                             <x-mandatory-star />
                         </span>
                         <x-select-input id="status" class="block mt-1 w-full" name="status" wire:model="status">
-                            <option value="">{{ __('Select Status') }}</option>
-                            <option value="on_progress">{{ __('On Progress') }}</option>
-                            <option value="completed">{{ __('Completed') }}</option>
+                            <option value="">{{ __('Select Year of Study') }}</option>
+                            <option value="first year">{{ __('First year') }}</option>
+                            <option value="second year">{{ __('Second year') }}</option>
+                            <option value="third year">{{ __('Third year') }}</option>
+                            <option value="fourth year">{{ __('Fourth year') }}</option>
+                            <option value="other">{{ __('Other') }}</option>
                         </x-select-input>
                         <x-input-error :messages="$errors->get('status')" class="mt-2" />
                     </div>
@@ -101,7 +104,7 @@
                     <!-- Current Year -->
                     <div>
                         <span class="flex relative top-3">
-                            <x-input-label for="current_year" :value="__('Current Year')" />
+                            <x-input-label for="current_year" :value="__('Year')" />
                             <x-mandatory-star />
                         </span>
                         <x-text-input id="current_year" class="block mt-1 w-full" type="number" name="current_year"

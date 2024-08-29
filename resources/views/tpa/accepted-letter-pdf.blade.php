@@ -2,7 +2,7 @@
 
     @section('content')
 
-    @livewire('tpa.accepted-letter-pdf-livewire', ['students' => $students])
+    @livewire('tpa.response-letter-livewire', ['students' => $students])
 
     @endsection
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Tpa\FieldApplicationFiles;
 
 use App\Models\AcademicDetail;
+use App\Models\ApplicationDeclarationDetail;
 use App\Models\ContactDetail;
 use App\Models\LanguageProficiency;
 use App\Models\OtherAttachmentDetail;
@@ -17,7 +18,7 @@ use Livewire\Component;
 
 class FieldApplicationProgressbarLivewire extends Component
 {
-    public $totalSteps = 15; // Total number of steps/forms
+    public $totalSteps = 8; // Total number of steps/forms
     public $completedSteps = 0; // Dynamically fetched from the database
     public $progress = 0; // Progress percentage
 
@@ -57,30 +58,30 @@ class FieldApplicationProgressbarLivewire extends Component
             $completedSteps++;
         }
 
-        // Check if project portfolio details have been completed
-        if (ProjectDetail::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // // Check if project portfolio details have been completed
+        // if (ProjectDetail::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
-        // Check if referee details have been completed
-        if (RefereeDetail::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // // Check if referee details have been completed
+        // if (RefereeDetail::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // Check if training and workshop details have been completed
-        if (TrainingAndWorkshop::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (TrainingAndWorkshop::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // Check if professional qualifications details have been completed
-        if (ProfessionalQualification::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (ProfessionalQualification::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // Check if working experience details have been completed
-        if (WorkExperience::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (WorkExperience::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // Check if other attachment details have been completed
         if (OtherAttachmentDetail::where('user_id', auth()->id())->exists()) {
@@ -92,6 +93,10 @@ class FieldApplicationProgressbarLivewire extends Component
             $completedSteps++;
         }
 
+        // Check if application declaration details have been completed
+        if (ApplicationDeclarationDetail::where('user_id', auth()->id())->exists()) {
+            $completedSteps++;
+        }
         return $completedSteps;
     }
 
