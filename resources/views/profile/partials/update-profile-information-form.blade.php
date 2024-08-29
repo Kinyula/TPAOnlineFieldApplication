@@ -13,10 +13,14 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update', ['id' => $user->id]) }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
-
+        <div class="profile-image">
+            <img style="" class="rounded-full w-50 "
+                src="{{ asset('storage/profile_images/' . auth()->user()->profile_image) }}" alt=""
+                srcset="">
+        </div>
         <div>
             <x-input-label for="first_name" :value="__('First Name')" />
             <x-text-input id="first_name" name="first_name" type="text" class="mt-1 block w-full" :value="old('first_name', $user->first_name)" />

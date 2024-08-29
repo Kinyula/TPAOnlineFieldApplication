@@ -234,8 +234,8 @@
         <div class="left-side-bar">
             <div class="brand-logo">
                 <a href="{{ asset('/dashboard') }}" style="color:black;" href="javascript:;">
-                    <img style="width: 55px;" src="{{ asset('storage/HomeImages/real-tpa.png') }}"
-                        alt="" srcset="">
+                    <img style="width: 55px;" src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt=""
+                        srcset="">
                     <p class="text-gray-500" style="position:relative;left:10%">TOAS</p>
                 </a>
                 <div class="close-sidebar" data-toggle="left-sidebar-close">
@@ -256,7 +256,7 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a href="{{ asset('/profile') }}">Profile</a></li>
+                                <li><a href="{{ asset('/profile/'.auth()->user()->id) }}">Profile</a></li>
 
                             </ul>
 

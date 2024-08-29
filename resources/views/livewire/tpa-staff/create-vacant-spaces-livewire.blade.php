@@ -15,7 +15,7 @@
 @endif
 <h2 class="text-2xl font-bold text-gray-800 flex items-center mb-4">
     <i class="fas fa-plus text-yellow-500 mr-2"></i>
-    Create Vacant Spaces
+    Create Vacant Spaces for internship
 </h2>
 
 <p class="text-red-500">NB: all parts with * are mandatory</p>

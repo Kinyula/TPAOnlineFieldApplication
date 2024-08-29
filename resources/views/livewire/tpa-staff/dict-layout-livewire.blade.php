@@ -255,7 +255,7 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a  href="{{ asset('/profile')}}">Profile</a></li>
+                                <li><a  href="{{ asset('/profile/'.auth()->user()->id)}}">Profile</a></li>
 
                             </ul>
 

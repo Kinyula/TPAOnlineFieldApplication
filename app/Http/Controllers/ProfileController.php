@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -24,17 +27,62 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request, $id)
     {
-        $request->user()->fill($request->validated());
+
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'gender' => [
+                'required',
+                'string',
+                'in:male,female,other', // Replace with allowed gender values
+                'max:255',
+            ],
+
+            'phone_number' => [
+                'required',
+                'string',
+                'max:15', // Adjust the max length as per your needs (e.g., international phone numbers)
+                'regex:/^\+?[0-9]{7,15}$/', // Allows optional '+' at the start, followed by 7 to 15 digits
+            ],
+
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'profile_image' => ['required']
+        ]);
+
+        $users = User::findOrFail($id);
+
+        $users->first_name = $request->input('first_name');
+
+        $users->last_name = $request->input('last_name');
+
+        $users->email = $request->input('email');
+
+        $users->gender = $request->input('gender');
+
+        $profile_image = auth()->user()->profile_image;
+
+
+        if (File::exists(public_path('storage/profile_images/' . $profile_image))) {
+
+            File::delete(public_path('storage/profile_images/' . $profile_image));
+        }
+
+        $new_profile_image  = $request->file('profile_image')->store('public/profile_images');
+        $profile_image = explode('/', $new_profile_image);
+        $profile_image = $profile_image[2];
+
+        $users->profile_image = $profile_image;
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $users->update();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        Alert::success('success', 'Profile updated successfully');
+        return Redirect::route('profile.edit', ['id' => $users->id])->with('status', 'profile-updated');
     }
 
     /**

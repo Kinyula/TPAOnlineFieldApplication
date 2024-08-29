@@ -15,7 +15,7 @@
     <div class="bg-white shadow-lg rounded-lg p-6">
 
         <div role="alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-            <strong class="uppercase">Remember you have to confirm your application after submission for it to be
+            <strong class="uppercase">Remember you have to confirm your application after you have been approved for it to be
                 noticed
                 else your application will not be seen!</strong>
             <button class="absolute top-0 right-0 mt-1 mr-2 text-green-500 hover:text-green-700"
@@ -23,7 +23,6 @@
                 <i class="fas fa-times"></i>
             </button>
         </div>
-
 
         <h2 class="text-xl font-bold text-yellow-500 mb-5">View your application status</h2>
 
