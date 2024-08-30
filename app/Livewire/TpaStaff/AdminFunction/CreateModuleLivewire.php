@@ -24,7 +24,7 @@ class CreateModuleLivewire extends Component
     public function createModule()
     {
         // Code to create module goes here
-        $this->validate(['module' => 'required','department' => 'required']);
+        $this->validate(['module' => 'required', 'department' => 'required']);
         $module = new Module();
         $module->department_id = $this->department;
         $module->module_name = $this->module;

@@ -16,13 +16,14 @@ class CreateCountryLivewire extends Component
         return view('livewire.tpa-staff.admin-function.create-country-livewire');
     }
 
-    public function createCountry(){
+    public function createCountry()
+    {
         $this->validate(['country' => 'required']);
 
         $country = new Country();
         $country->country_name = $this->country;
         $country->save();
-        Alert::success('Success!','Country saved successfully!');
+        session()->flash('country', 'Country saved successfully!');
         $this->reset(['country']);
     }
 }

@@ -11,7 +11,6 @@ class FieldApplicationLivewire extends Component
     public $progress = 0;
 
     
-
     protected $listeners = ['progressUpdated'];
 
     public function progressUpdated($progress)

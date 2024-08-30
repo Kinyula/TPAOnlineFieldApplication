@@ -284,6 +284,13 @@
 
                             </ul>
 
+                            <ul class="submenu">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/view-student-details') }}">
+                                        View respoded students
+                                    </a></li>
+
+                            </ul>
+
                         </li>
 
                     </ul>

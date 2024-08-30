@@ -4,21 +4,27 @@ namespace App\Livewire\Student\StudentFiles\EditStudentDetailFiles;
 
 use App\Models\ContactDetail;
 use App\Models\Country;
+use App\Models\District;
+use App\Models\Region;
+use App\Models\Ward;
 use Livewire\Component;
 
 class EditContactDetailsLivewire extends Component
 {
     public $country;
     public $region;
+    public $regions = [];
+    public $districts = [];
+    public $wards = [];
     public $district;
     public $ward;
     public $countries;
 
     protected $rules = [
-        'country' => 'required|integer|exists:countries,id',
-        'region' => 'required|integer|exists:regions,id',
-        'district' => 'required|integer|exists:districts,id',
-        'ward' => 'required|integer|exists:wards,id',
+        'country' => 'required|string',
+        'region' => 'required|string',
+        'district' => 'required|string',
+        'ward' => 'required|string',
     ];
 
     public function mount()
@@ -28,13 +34,17 @@ class EditContactDetailsLivewire extends Component
 
     public function updatedCountry()
     {
-        $this->region = null;
-        $this->district = null;
-        $this->ward = null;
+        $this->regions = Region::where('country_id', $this->country)->get();
+    }
 
-        $this->region = auth()->user()->contactDetail->region_id ?? null;
-        $this->district = auth()->user()->contactDetail->district_id ?? null;
-        $this->ward = auth()->user()->contactDetail->ward_id ?? null;
+    public function updatedRegion()
+    {
+        $this->districts = District::where('region_id', $this->region)->get();
+    }
+    public function updatedDistrict()
+    {
+
+        $this->wards = Ward::where('district_id', $this->district)->get();
     }
     public function render()
     {

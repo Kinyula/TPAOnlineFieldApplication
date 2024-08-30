@@ -5,8 +5,8 @@
         </h3>
 
         <div class="overflow-x-auto">
-            <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-                <thead class="bg-gray-100 text-gray-600 uppercase text-sm">
+            <table class="min-w-full bg-white border border-yellow-500 rounded-lg shadow-md">
+                <thead class="bg-yellow-500 text-white uppercase text-sm">
                     <tr>
                         <th class="px-6 py-3 border-b">First Name</th>
                         <th class="px-6 py-3 border-b">Last Name</th>
@@ -22,7 +22,7 @@
                             <td class="px-6 py-4">{{ $member->last_name }}</td>
                             <td class="px-6 py-4">{{ $member->email }}</td>
                             <td class="px-6 py-4">{{ $member->position }}</td>
-                            <td class="px-6 py-4">{{ $member->extraUserInfo->department_id ?? 'N/A' }}</td> <!-- Adjust if your department relationship or attribute differs -->
+                            <td class="px-6 py-4">{{ $member->extraUserInfo->department->department ?? 'N/A' }}</td> <!-- Adjust if your department relationship or attribute differs -->
                         </tr>
                     @endforeach
                 </tbody>

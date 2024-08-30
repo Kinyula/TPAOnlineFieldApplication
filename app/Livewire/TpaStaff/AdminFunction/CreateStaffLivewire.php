@@ -16,7 +16,7 @@ class CreateStaffLivewire extends Component
 {
     public $first_name, $last_name, $email, $password, $phone_number;
     public $gender, $position, $department, $port, $departments, $role, $profile_image;
-    public $ports,$check_number;
+    public $ports, $check_number;
 
     public function render()
     {
@@ -46,7 +46,7 @@ class CreateStaffLivewire extends Component
             'department' => 'required',
             'role' => 'required',
             'port' => 'required',
-            
+
         ]);
 
         $user = new User();
@@ -92,13 +92,7 @@ class CreateStaffLivewire extends Component
             'profile_image',
             'port'
         ]);
-    }
 
-
-
-    #[On('staffCreated')]
-    public function staffCreated()
-    {
-        Alert::success('Success!', 'Staff is created successfully');
+        session()->flash('staff', 'TPA staff created successfully!');
     }
 }

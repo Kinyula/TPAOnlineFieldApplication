@@ -20,6 +20,7 @@ class CreatePortLivewire extends Component
         $port = new Port();
         $port->port_name = $this->port;
         $port->save();
+        session()->flash('port','Port created successfully!');
         $this->reset('port');
 
 

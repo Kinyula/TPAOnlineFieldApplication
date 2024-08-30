@@ -33,7 +33,7 @@ class CreateRegionLivewire extends Component
         $region->country_id = $this->country;
         $region->region = $this->region;
         $region->save();
-        Alert::success('Success!','Region saved successfully!');
+        session()->flash('region','Region saved successfully!');
         $this->reset(['region', 'country']);
     }
 }

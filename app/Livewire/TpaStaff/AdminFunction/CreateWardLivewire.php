@@ -21,17 +21,18 @@ class CreateWardLivewire extends Component
         return view('livewire.tpa-staff.admin-function.create-ward-livewire');
     }
 
-    public function createWard(){
+    public function createWard()
+    {
         $this->validate([
-            'district' =>'required',
-           'ward' =>'required|unique:wards,ward',
+            'district' => 'required',
+            'ward' => 'required|unique:wards,ward',
         ]);
 
         $ward = new Ward();
         $ward->district_id = $this->district;
         $ward->ward = $this->ward;
         $ward->save();
-        Alert::success('Success!','Region saved successfully!');
+        session()->flash('ward', 'Ward is created successfully!');
         $this->reset(['district', 'ward']);
     }
 }

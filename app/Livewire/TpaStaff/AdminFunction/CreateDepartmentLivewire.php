@@ -24,7 +24,7 @@ class CreateDepartmentLivewire extends Component
         $department->office_name = $this->office;
         $department->save();
 
-        Alert::success('Success!','Department saved successfully');
+        session()->flash('department','Department saved successfully');
         $this->reset(['department','floor','office']);
     }
 }

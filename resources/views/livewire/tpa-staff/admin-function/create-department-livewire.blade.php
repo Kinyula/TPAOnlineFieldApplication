@@ -1,4 +1,10 @@
 <div>
+    @if (session()->has('department'))
+        <div role="alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+            <i class="fas fa-check-circle w-6 h-6 mr-3 text-green-500"></i>
+            <strong class="font-medium">{{ session('department') }}</strong>
+        </div>
+    @endif
     <div class="card-box mb-30 p-3">
         <h2>
             <i class="fas fa-plus"></i>

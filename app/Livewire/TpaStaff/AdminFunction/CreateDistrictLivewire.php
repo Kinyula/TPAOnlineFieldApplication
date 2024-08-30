@@ -12,7 +12,8 @@ class CreateDistrictLivewire extends Component
     public $regions;
     public $region;
     public $district;
-    public function mount(){
+    public function mount()
+    {
         $this->regions = Region::get();
     }
     public function render()
@@ -20,13 +21,14 @@ class CreateDistrictLivewire extends Component
         return view('livewire.tpa-staff.admin-function.create-district-livewire');
     }
 
-    public function createDistrict(){
-        $this->validate(['region' => 'required','district' => 'required']);
+    public function createDistrict()
+    {
+        $this->validate(['region' => 'required', 'district' => 'required']);
         $district = new District();
         $district->region_id = $this->region;
         $district->district = $this->district;
         $district->save();
-        Alert::success('success!','District saved successfully');
-        $this->reset(['region','district']);
+        session()->flash('district', 'District saved successfully');
+        $this->reset(['region', 'district']);
     }
 }

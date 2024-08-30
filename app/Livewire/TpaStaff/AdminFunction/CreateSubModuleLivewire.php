@@ -32,5 +32,6 @@ class CreateSubModuleLivewire extends Component
         session()->flash('sub-module', 'Sub-module created successfully');
         $this->reset(['module','sub_module']);
         // $this->dispatch('module-created');
+        session()->flash('sub-module','Sub module is created successfully');
     }
 }
