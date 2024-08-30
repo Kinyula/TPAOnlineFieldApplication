@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(ApplicationDeclarationDetail::class);
     }
+
+    public function tpaFieldApplications()
+    {
+        return $this->hasOne(TpaFieldApplicationData::class);
+    }
 }

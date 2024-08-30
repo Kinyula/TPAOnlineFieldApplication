@@ -35,11 +35,19 @@
                             </td>
                             <td class="py-4 px-6 text-xs sm:text-sm md:text-base">
 
+                                @if (auth()->user()->tpaFieldApplications->approval_status == 'approved' &&
+                                        auth()->user()->tpaFieldApplications->confirm_status == 'confirmed')
+                                    <button wire:click="generatePdf('{{ $student->id }}')"
+                                        class="px-4 py-2 bg-yellow-500 text-white rounded-lg transition cursor-pointer hover:bg-yellow-600">
+                                        Download PDF
+                                    </button>
+                                @else
+                                    <button disabled wire:click="generatePdf('{{ $student->id }}')"
+                                        class="px-4 py-2 bg-slate-300 text-white rounded-lg transition cursor-not-allowed">
+                                        Download PDF
+                                    </button>
+                                @endif
 
-                                <button wire:click="generatePdf('{{ $student->id }}')"
-                                    class="px-4 py-2 bg-yellow-500 text-white rounded-lg transition cursor-pointer hover:bg-yellow-600">
-                                    Download PDF
-                                </button>
 
 
                             </td>
