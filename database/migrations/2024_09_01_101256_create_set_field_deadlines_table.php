@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('set_field_deadlines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('department_id')->constrained('departments')->onDelete('cascade')->onUpdate('cascade');
-            $table->date('deadline_date');
+            $table->string('deadline_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

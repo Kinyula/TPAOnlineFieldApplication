@@ -11,14 +11,14 @@ class EditSkillExperienceDetailsLivewire extends Component
     public $skill_level;
     public $description;
 
-    public function mount(){
-        $skillExperienceDetail = SkillExperience::where('user_id',auth()->user()->id)->first();
-        if($skillExperienceDetail){
+    public function mount()
+    {
+        $skillExperienceDetail = SkillExperience::where('user_id', auth()->user()->id)->first();
+        if ($skillExperienceDetail) {
             $this->skill_category = $skillExperienceDetail->skill_category;
             $this->skill_level = $skillExperienceDetail->skill_level;
             $this->description = $skillExperienceDetail->description;
-        }
-        else{
+        } else {
             $this->skill_category = '';
             $this->skill_level = '';
             $this->description = '';

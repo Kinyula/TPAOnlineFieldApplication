@@ -15,9 +15,9 @@
         </button>
         <button wire:click="setStep(4)"
             class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 4) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
-            Referee Details
+            Language proficiency Details
         </button>
-        <button wire:click="setStep(5)"
+        {{-- <button wire:click="setStep(5)"
             class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 5) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
             Training & Workshops
         </button>
@@ -36,7 +36,7 @@
         <button wire:click="setStep(9)"
             class="w-full md:w-auto px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 @if ($currentStep == 9) bg-blue-800 text-white @else bg-gray-300 text-gray-800 @endif">
             Declaration
-        </button>
+        </button> --}}
     </div>
 
     <!-- Step Content -->
@@ -55,10 +55,10 @@
             @break
 
             @case(4)
-                @livewire('student.student-files.view-student-referee-details-livewire')
+                @livewire('student.student-files.view-student-language-proficiency-details-livewire')
             @break
 
-            @case(5)
+            {{-- @case(5)
                 @livewire('student.student-files.view-student-training-and-workshop-details-livewire')
             @break
 
@@ -76,7 +76,7 @@
 
             @case(9)
                 @livewire('student.student-files.view-student-declaration-details-livewire')
-            @break
+            @break --}}
         @endswitch
     </div>
 

@@ -30,7 +30,7 @@
                 <x-select-input id="department" class="block mt-1 w-full" wire:model="department">
                     <option value="">{{ __('Select department') }}</option>
                     @foreach ($departments as $department)
-                        <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                        <option value="{{ $department->id }}">{{ $department->department }}</option>
                     @endforeach
                 </x-select-input>
                 <x-input-error :messages="$errors->get('department')" class="mt-2" />

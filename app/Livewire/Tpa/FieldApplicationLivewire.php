@@ -7,10 +7,10 @@ use Livewire\Component;
 class FieldApplicationLivewire extends Component
 {
     public $currentStep = 1;
-    public $totalSteps = 8; // Total number of steps/forms
+    public $totalSteps = 5; // Total number of steps/forms
     public $progress = 0;
 
-    
+
     protected $listeners = ['progressUpdated'];
 
     public function progressUpdated($progress)
@@ -21,8 +21,8 @@ class FieldApplicationLivewire extends Component
     public function nextStep()
     {
         if ($this->currentStep < $this->totalSteps) {
-            // Prevent advancing to step 15 unless progress is >= 50%
-            if ($this->currentStep == 14 && $this->progress < 50) {
+            // Prevent advancing to step 5 unless progress is >= 50%
+            if ($this->currentStep == 4 && $this->progress < 50) {
                 return;
             }
             $this->currentStep++;

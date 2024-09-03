@@ -1,5 +1,3 @@
-
-
 </html>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,35 +94,67 @@
         }
     </style>
     <div class="container-fluid bg-dark-blue p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
+        <div class="row gx-0">
+            <!-- Large Screen Content -->
+            <div class="col-lg-7 px-5 text-start d-none d-lg-flex">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-3">
-                    <a class="text-body px-2" href="tel:+255222113648"><i
-                            class="fa fa-phone-alt text-warning me-2"></i>+255 22 2113648</a>
-                    <a class="text-body px-2" href="mailto:info@tanzaniaports.com"><i
-                            class="fa fa-envelope-open text-warning me-2"></i>info@tanzaniaports.com</a>
+                    <a class="text-body px-2" href="tel:+255222113648">
+                        <i class="fa fa-phone-alt text-warning me-2"></i>+255 22 2113648
+                    </a>
+                    <a class="text-body px-2" href="mailto:info@tanzaniaports.com">
+                        <i class="fa fa-envelope-open text-warning me-2"></i>info@tanzaniaports.com
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-5 px-5 text-end">
+            <div class="col-lg-5 px-5 text-end d-none d-lg-flex">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-2">
+                    <span class="text-warning d-flex align-items-center animate__animated animate__bounce">
+                        <i class="fa fa-calendar-alt text-warning me-2"></i>
+                        @if ($deadline)
+                            <span class="font-weight-bold">Deadline:
+                                {{ \Carbon\Carbon::parse($deadline)->format('d M Y') }}</span>
+                        @else
+                            <span class="font-weight-bold">No deadline set</span>
+                        @endif
+                    </span>
+
                     <a class="text-body px-2" href="#">Terms</a>
                     <a class="text-body px-2" href="#">Privacy</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square btn-outline-body me-1" href="#"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-1" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-1" href="#"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-sm-square btn-outline-body me-0" href="#"><i
-                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-sm-square btn-outline-body me-1" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-sm-square btn-outline-body me-1" href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-sm-square btn-outline-body me-1" href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-sm-square btn-outline-body me-0" href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
+            </div>
+
+            <!-- Small Screen Content -->
+            <div class="col-12 px-5 text-center d-lg-none">
+                <span class="text-warning d-flex align-items-center animate__animated animate__bounce">
+                    <i class="fa fa-calendar-alt text-warning me-2"></i>
+                    @if ($deadline)
+                        <span class="font-weight-bold">Deadline:
+                            {{ \Carbon\Carbon::parse($deadline)->format('d M Y') }}</span>
+                    @else
+                        <span class="font-weight-bold">No deadline set</span>
+                    @endif
+                </span>
+
             </div>
         </div>
     </div>
 
-    <!-- Topbar End -->
 
+    <!-- Topbar End -->
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
@@ -146,6 +176,25 @@
 
             </div>
 
+            @php
+                $deadlinePassed = $deadline && \Carbon\Carbon::parse($deadline)->isPast();
+            @endphp
+
+            <span class="text-warning d-flex align-items-center animate__animated animate__bounce">
+                <i class="fa fa-calendar-alt text-warning me-2"></i>
+                @if ($deadline)
+                    @if ($deadlinePassed)
+                        <span class="font-weight-bold">Deadline passed:
+                            {{ \Carbon\Carbon::parse($deadline)->format('d M Y') }}</span>
+                    @else
+                        <span class="font-weight-bold">Deadline:
+                            {{ \Carbon\Carbon::parse($deadline)->format('d M Y') }}</span>
+                    @endif
+                @else
+                    <span class="font-weight-bold">No deadline set</span>
+                @endif
+            </span>
+
             @if (Route::has('login'))
                 @auth
                     <a href="{{ url('/dashboard') }}" class="nav-item nav-link text-warning">
@@ -156,12 +205,18 @@
                         <i class="fa fa-sign-in-alt me-2"></i> Log in
                     </a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="nav-item nav-link text-warning">
-                            <i class="fa fa-user-plus me-2"></i> Register
-                        </a>
+                        @if (!$deadlinePassed)
+                            <a href="{{ route('register') }}" class="nav-item nav-link text-warning">
+                                <i class="fa fa-user-plus me-2"></i> Register
+                            </a>
+                        @else
+                            <span class="text-danger d-block mt-2"> Application closed.</span>
+                        @endif
                     @endif
                 @endauth
             @endif
+
+
         </div>
     </nav>
 

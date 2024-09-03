@@ -7,6 +7,7 @@ use App\Models\TpaFieldApplicationData;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ViewAllTpaStudentApplicationsLivewire extends Component
 {
@@ -16,6 +17,7 @@ class ViewAllTpaStudentApplicationsLivewire extends Component
     public $software_development_vacant_spaces;
     public $networking_vacant_spaces;
     public $total_applicants;
+    public $StudentId;
     public function render()
     {
         if (auth()->user()->role_id == '4') {
@@ -74,7 +76,6 @@ class ViewAllTpaStudentApplicationsLivewire extends Component
 
     public function approvalStatus($id)
     {
-
         $application = TpaFieldApplicationData::findOrFail($id);
         $application->approval_status = 'approved';
         $application->view_status = 'viewed';
@@ -88,7 +89,10 @@ class ViewAllTpaStudentApplicationsLivewire extends Component
         $application = TpaFieldApplicationData::findOrFail($id);
         $application->approval_status = 'not approved';
         $application->view_status = 'not viewed';
+
         $application->update();
+
+
 
         $this->dispatch('application-status-updated');
     }
@@ -146,12 +150,32 @@ class ViewAllTpaStudentApplicationsLivewire extends Component
         }
     }
 
-
-
     public function exportStudentsExcel()
     {
 
         session()->flash('download', 'Download complete!');
         return Excel::download(new StudentApplicationExport, 'Tpa-student-applicants.xlsx');
     }
+
+    public function generatePdf($studentId)
+    {
+        $student = TpaFieldApplicationData::with('user')->findOrFail($studentId);
+
+        $pdf = Pdf::loadView('pdfs.accepted-letter', [
+            'student' => $student,
+        ]);
+
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->stream();
+        }, "student-application-{$student->user->last_name}.pdf");
+    }
+
+    // public function generateAllPdfs()
+    // {
+    //     $students = TpaFieldApplicationData::with('user')->get();
+
+    //     foreach ($students as $student) {
+    //         $this->generatePdf($student->id);
+    //     }
+    // }
 }

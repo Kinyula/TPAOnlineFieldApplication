@@ -450,11 +450,29 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id
+ * @property int|null $user_id
+ * @property string $date_of_birth
+ * @property string|null $nida_number
+ * @property string $disability_status
+ * @property string|null $marital_status
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail query()
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDateOfBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereDisabilityStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereMaritalStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereNidaNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalDetail withoutTrashed()
  */
@@ -710,24 +728,86 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property string $response_letter
+ * @property string $recipient
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereRecipient($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereResponseLetter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ResponseLetter withoutTrashed()
+ */
+	class ResponseLetter extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
  * @property int $department_id
  * @property string $deadline_date
+ * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Department $department
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline query()
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereDeadlineDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereDepartmentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|SetFieldDeadline withoutTrashed()
  */
 	class SetFieldDeadline extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $department_id
+ * @property string $vacant_space
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace query()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace whereVacantSpace($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|SetFieldVacantSpace withoutTrashed()
+ */
+	class SetFieldVacantSpace extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -893,6 +973,7 @@ namespace App\Models{
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \App\Models\PersonalDetail|null $personalDetails
+ * @property-read \App\Models\TpaFieldApplicationData|null $tpaFieldApplications
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()

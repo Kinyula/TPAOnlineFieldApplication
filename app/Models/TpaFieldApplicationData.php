@@ -20,7 +20,8 @@ class TpaFieldApplicationData extends Model
         return $this->belongsTo(Port::class);
     }
 
-    public function department(){
+    public function department()
+    {
         return $this->belongsTo(Department::class);
     }
 }

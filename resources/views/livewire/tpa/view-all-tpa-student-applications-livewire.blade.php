@@ -1,4 +1,6 @@
 <div>
+    @livewire('tpa-staff.view-field-vacant-spaces-livewire')
+    
     <div class="bg-white shadow-lg rounded-lg p-6">
 
 
@@ -20,6 +22,7 @@
             @endif
         @endforeach
         <br>
+
         <!-- Table Header -->
         <h2 class="text-xl font-bold text-yellow-500 mb-5"><i class="fas fa-user"></i> View Students Application Status
         </h2>
@@ -122,8 +125,7 @@
                             <td class="px-4 py-2">
                                 <!-- Active Confirm Button -->
                                 @if ($application->approval_status == 'approved' && $application->confirm_status != 'confirmed')
-                                    <button
-                                        class="px-3 py-1 rounded text-white bg-red-500 hover:bg-red-700">
+                                    <button class="px-3 py-1 rounded text-white bg-red-500 hover:bg-red-700">
                                         <i class="fas fa-times"></i> Not Confirmed
                                     </button>
                                 @else

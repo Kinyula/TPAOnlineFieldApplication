@@ -22,23 +22,24 @@ class SetFieldDeadlineLivewire extends Component
 
     public function saveOrUpdateDeadline()
     {
-
         $this->validate([
             'deadline' => 'required|date',
-            'department' => 'required'
+            'department' => 'required',
         ]);
 
         $deadline = SetFieldDeadline::updateOrCreate(
             ['department_id' => $this->department],
-            ['deadline_date' => $this->deadline]
+            [
+                'deadline_date' => $this->deadline,
+                'user_id' => auth()->id(),
+            ]
         );
 
+        $message = $deadline->wasRecentlyCreated
+            ? 'Deadline set successfully!'
+            : 'Deadline updated successfully!';
 
-        if ($deadline->wasRecentlyCreated) {
-            session()->flash('message', 'Deadline set successfully!');
-        } else {
-            session()->flash('update', 'Deadline updated successfully!');
-        }
+        session()->flash('message', $message);
 
         $this->resetForm();
     }

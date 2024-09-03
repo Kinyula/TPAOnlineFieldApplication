@@ -38,7 +38,7 @@
                         @foreach ($recipients as $recipient)
                             <option value="{{ $recipient->user_id }}">{{ $recipient->user->first_name }}
                                 {{ $recipient->user->last_name }} from <span
-                                    class="text-red-500">{{ $recipient->user->academicDetails->institute_name }}</span>
+                                    class="text-red-500">{{ $recipient->user->academicDetails?->institute_name }}</span>
                             </option>
                         @endforeach
                     </select>
@@ -49,11 +49,29 @@
             <!-- File Input -->
             <div class="sm:col-span-2 lg:col-span-3">
                 <x-input-label for="response_letter" :value="__('Upload Response Letter')" class="text-lg font-semibold mb-2" />
-                <input id="response_letter"
-                    class="block mt-1 w-full border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 rounded-md shadow-sm"
-                    type="file" name="response_letter" wire:model="response_letter" />
+
+                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-md cursor-pointer hover:border-yellow-500 focus-within:ring-2 focus-within:ring-yellow-500 focus-within:border-yellow-500 transition duration-150 ease-in-out">
+                    <div class="space-y-1 text-center" wire:loading.class="opacity-50">
+                        <label for="response_letter" class="cursor-pointer">
+                            <svg class="mx-auto h-full w-full text-gray-400 hover:text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                                <path d="M8 16c0-4.418 3.582-8 8-8h16c4.418 0 8 3.582 8 8v16c0 4.418-3.582 8-8 8H16c-4.418 0-8-3.582-8-8V16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M32 16l-8 8-8-8M24 24v-8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </label>
+                        <div class="flex text-sm text-gray-600">
+                            <label for="response_letter" class="relative cursor-pointer bg-white rounded-md font-medium text-yellow-600 hover:text-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-yellow-500 focus-within:ring-offset-2">
+                                <span>Upload a response letter</span>
+                                <input id="response_letter" name="response_letter" type="file" class="sr-only" wire:model="response_letter">
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                        </div>
+                        <p class="text-xs text-gray-500">PDF up to 10MB</p>
+                    </div>
+                </div>
+
                 <x-input-error :messages="$errors->get('response_letter')" class="mt-2 text-red-500 text-sm" />
             </div>
+
 
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-6 sm:col-span-2 lg:col-span-3">

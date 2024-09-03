@@ -18,7 +18,7 @@ use Livewire\Component;
 
 class FieldApplicationProgressbarLivewire extends Component
 {
-    public $totalSteps = 8; // Total number of steps/forms
+    public $totalSteps = 6; // Total number of steps/forms
     public $completedSteps = 0; // Dynamically fetched from the database
     public $progress = 0; // Progress percentage
 
@@ -54,9 +54,9 @@ class FieldApplicationProgressbarLivewire extends Component
         }
 
         // Check if skill experience details have been completed
-        if (SkillExperience::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (SkillExperience::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // // Check if project portfolio details have been completed
         // if (ProjectDetail::where('user_id', auth()->id())->exists()) {
@@ -84,9 +84,9 @@ class FieldApplicationProgressbarLivewire extends Component
         // }
 
         // Check if other attachment details have been completed
-        if (OtherAttachmentDetail::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (OtherAttachmentDetail::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
 
         // Check if language proficiency details have been completed
         if (LanguageProficiency::where('user_id', auth()->id())->exists()) {
@@ -94,9 +94,9 @@ class FieldApplicationProgressbarLivewire extends Component
         }
 
         // Check if application declaration details have been completed
-        if (ApplicationDeclarationDetail::where('user_id', auth()->id())->exists()) {
-            $completedSteps++;
-        }
+        // if (ApplicationDeclarationDetail::where('user_id', auth()->id())->exists()) {
+        //     $completedSteps++;
+        // }
         return $completedSteps;
     }
 

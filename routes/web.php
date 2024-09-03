@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Student\ViewRespondedStudentsController;
 use App\Http\Controllers\Tpa\AcceptedLetterPdfController;
 use App\Http\Controllers\Tpa\FieldApplicationController;
 use App\Http\Controllers\Tpa\HomeForTpaOnlineFieldApplicationController;
@@ -20,11 +21,16 @@ use App\Http\Controllers\TPAStaff\TPAContactsController;
 use App\Http\Controllers\TpaStaff\ViewNetworkingSubModulesController;
 use App\Http\Controllers\TpaStaff\ViewSoftwareDevelopmentSubModulesController;
 use App\Http\Controllers\TPAStaff\ViewStudentsDetailsController;
+use App\Models\SetFieldDeadline;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // Retrieve the deadline date for a specific department (for example, department_id = 1 or 2)
+    $deadline = SetFieldDeadline::where('department_id', 1)->orWhere('department_id', 2)->value('deadline_date');
+
+    return view('welcome', ['deadline' => $deadline]);
 });
+
 Route::get('TPA/Online-application', [HomeForTpaOnlineFieldApplicationController::class, 'index']);
 // ------------------------------------------------------ Contact routes ------------------------------------------------------------------
 
@@ -40,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('TPA/field-application', [FieldApplicationController::class, 'index']);
-    Route::get('TPA/view-single-field-application',[TpaApplyFieldController::class, 'index']);
+    Route::get('TPA/view-single-field-application', [TpaApplyFieldController::class, 'index']);
     Route::get('TPA/view-field-application', [ViewApplicationsController::class, 'index']);
 
     // -------------------------------------- Admin management routes -------------------------------------------
@@ -55,8 +61,8 @@ Route::middleware('auth')->group(function () {
     Route::get('TPA/view-networking-sub-modules', [ViewNetworkingSubModulesController::class, 'index']);
     Route::get('TPA/send-accepted-letter', [AcceptedLetterPdfController::class, 'index']);
     Route::get('TPA/create-vacant-space', [AddVacantSpacesController::class, 'index']);
-    Route::get('TPA/student-restore-application-infos',[RestoreApplicationDetailsController::class, 'index']);
-    Route::get('TPA/student-restore-tpa-application-infos',[RestoreTpaApplicationDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-application-infos', [RestoreApplicationDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-tpa-application-infos', [RestoreTpaApplicationDetailsController::class, 'index']);
 
     // ------------------------------------------------ TPA Routes ------------------------------------------------------------------------------------
 
@@ -69,7 +75,8 @@ Route::middleware('auth')->group(function () {
     // ------------------------------------------------------------------ Student Routes -------------------------------------------------------------------------------
     Route::get('TPA/student-restore-contact-infos', [RestoreContactDetailsController::class, 'index']);
     Route::get('TPA/student-restore-personal-infos', [RestorePersonalDetailsController::class, 'index']);
-    Route::get('TPA/student-restore-academic-infos',[RestoreAcademicDetailsController::class, 'index']);
+    Route::get('TPA/student-restore-academic-infos', [RestoreAcademicDetailsController::class, 'index']);
+    Route::get('TPA/view-responded-students', [ViewRespondedStudentsController::class, 'index']);
 });
 
 require __DIR__ . '/auth.php';

@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SetFieldDeadline extends Model
 {
-    use HasFactory, softDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['department_id', 'deadline_date'];
+    protected $fillable = ['user_id', 'department_id', 'deadline_date'];
 
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
