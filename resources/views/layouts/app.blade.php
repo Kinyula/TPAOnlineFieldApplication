@@ -17,3 +17,7 @@
 @if (auth()->user()->role_id == '4')
     @livewire('tpa-staff.hr-layout-livewire')
 @endif
+
+@if (auth()->user()->role_id == '5')
+    @livewire('tpa-staff.tpa-supervisor-layout-livewire')
+@endif

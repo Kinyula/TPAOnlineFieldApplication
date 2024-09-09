@@ -115,6 +115,7 @@
                         <option value="2">Directorate of ICT ( DICT )</option>
                         <option value="3">Directorate of Marketing</option>
                         <option value="4">Human Resource ( HR )</option>
+                        <option value="5">TPA Supervisor</option>
                     </x-select-input>
                     <x-input-error :messages="$errors->get('role')" class="mt-2" />
                 </div>
@@ -131,6 +132,7 @@
                         <option value="Directorate of ICT ( DICT )">Directorate of ICT ( DICT )</option>
                         <option value="Directorate of Marketing">Directorate of Marketing</option>
                         <option value="Human Resource ( HR )">Human Resource ( HR )</option>
+                        <option value="tpa supervisor">TPA Supervisor</option>
                     </x-select-input>
                     <x-input-error :messages="$errors->get('position')" class="mt-2" />
                 </div>

@@ -11,11 +11,14 @@ class AdminHomePageLivewire extends Component
     public $departments;
     public $directorates;
     public $hr;
+    public $supervisors;
 
-    public function mount(){
+    public function mount()
+    {
         $this->departments = Department::count();
         $this->directorates = User::where('role_id', '=', '2')->count();
         $this->hr = User::where('role_id', '=', '4')->count();
+        $this->supervisors = User::where('role_id', '=', '5')->count();
     }
     public function render()
     {

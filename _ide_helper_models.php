@@ -84,6 +84,38 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property int $tpa_field_application_data_id
+ * @property string $group
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $allocation_status
+ * @property-read \App\Models\TpaFieldApplicationData $tpaFieldApplications
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereAllocationStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereTpaFieldApplicationDataId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|AssignmentGroup withoutTrashed()
+ */
+	class AssignmentGroup extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property int|null $user_id
  * @property int|null $country_id
  * @property int|null $region_id
@@ -295,6 +327,36 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|FieldApplicationData withoutTrashed()
  */
 	class FieldApplicationData extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int $assignment_group_id
+ * @property string $task
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\AssignmentGroup $assignmentGroup
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask query()
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereAssignmentGroupId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereTask($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|GroupTask withoutTrashed()
+ */
+	class GroupTask extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -885,6 +947,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string $approval_status
+ * @property string $allocation_status
  * @property-read \App\Models\Department|null $department
  * @property-read \App\Models\Port|null $port
  * @property-read \App\Models\User|null $user
@@ -892,6 +955,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData query()
+ * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereAllocationStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereApplicationLetter($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereApprovalStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TpaFieldApplicationData whereConfirmStatus($value)

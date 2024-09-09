@@ -16,6 +16,10 @@
         @if (auth()->user()->role_id == '4')
             @livewire('tpa.view-all-tpa-student-applications-livewire')
         @endif
+
+        @if (auth()->user()->role_id == '5')
+            @livewire('tpa.view-students-grouped-by-departments-livewire')
+        @endif
     @endsection
 
 </x-app-layout>
