@@ -109,7 +109,8 @@
                                 <img src="{{ asset('storage/profile_images/' . $profileImage->profile_image) }}"
                                     alt="" />
                             </span>
-                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }} )</span>
+                            <span class="user-name">{{ auth()->user()->first_name }} ( {{ auth()->user()->position }}
+                                )</span>
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
@@ -123,7 +124,7 @@
                                     <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                    <i class="fas fa-sign-out"></i>
+                                        <i class="fas fa-sign-out"></i>
                                         Log Out
                                     </x-dropdown-link>
                                 </form>
@@ -233,8 +234,8 @@
         <div class="left-side-bar">
             <div class="brand-logo">
                 <a href="{{ asset('/dashboard') }}" style="color:black;" href="javascript:;">
-                    <img style="width: 55px;" src="{{ asset('storage/HomeImages/real-tpa.png') }}"
-                        alt="" srcset="">
+                    <img style="width: 55px;" src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt=""
+                        srcset="">
                     <p class="text-gray-500" style="position:relative;left:10%">TOAS</p>
                 </a>
                 <div class="close-sidebar" data-toggle="left-sidebar-close">
@@ -255,7 +256,7 @@
                                 <span class="micon bi bi-person"></span><span class="mtext">View profile</span>
                             </a>
                             <ul class="submenu">
-                                <li><a  href="{{ asset('/profile')}}">Profile</a></li>
+                                <li><a href="{{ asset('/profile/'.auth()->user()->id) }}">Profile</a></li>
 
                             </ul>
 
@@ -266,7 +267,14 @@
                                 <span class="micon bi bi-pencil-square"></span><span class="mtext">Activities</span>
                             </a>
                             <ul class="submenu">
-                                <li><a class="active:bg-red-800"  href="{{ asset('TPA/task-management') }}">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/comment-management') }}">
+                                        Comments Management
+                                    </a></li>
+
+                            </ul>
+
+                            <ul class="submenu">
+                                <li><a class="active:bg-red-800" href="{{ asset('TPA/task-management') }}">
                                         Task Management
                                     </a></li>
 
@@ -304,7 +312,8 @@
         <footer class="bg-blue-800 text-yellow-500 py-6 mt-8">
             <div class="container mx-auto text-center">
                 <p class="text-sm sm:text-base">
-                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer Victor Z.K.
+                    &copy; {{ date('Y') }} All rights reserved. Developed and maintained by Software Engineer
+                    Victor Z.K.
                 </p>
                 <p class="text-xs sm:text-sm text-gray-400 mt-2">
                     Unauthorized copying, sharing, or redistribution is strictly prohibited.

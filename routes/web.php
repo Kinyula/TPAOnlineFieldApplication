@@ -15,6 +15,7 @@ use App\Http\Controllers\Tpa\ViewApplicationsController;
 use App\Http\Controllers\TPAStaff\AddVacantSpacesController;
 use App\Http\Controllers\TPAStaff\AdminFunction\StaffManagementController;
 use App\Http\Controllers\TPAStaff\AdminFunction\TpaManagementController;
+use App\Http\Controllers\TPAStaff\CommentsController;
 use App\Http\Controllers\TPAStaff\GroupTaskManagementController;
 use App\Http\Controllers\TPAStaff\SetDeadlineController;
 use App\Http\Controllers\TPAStaff\TpaApplyFieldController;
@@ -65,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('TPA/student-restore-application-infos', [RestoreApplicationDetailsController::class, 'index']);
     Route::get('TPA/student-restore-tpa-application-infos', [RestoreTpaApplicationDetailsController::class, 'index']);
     Route::get('TPA/task-management', [GroupTaskManagementController::class, 'index']);
+    Route::get('TPA/comment-management',[CommentsController::class, 'index']);
 
     // ------------------------------------------------ TPA Routes ------------------------------------------------------------------------------------
 

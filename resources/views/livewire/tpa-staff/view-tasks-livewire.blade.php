@@ -44,6 +44,7 @@
                     <th class="text-left px-6 py-3 border-b-2 border-gray-300">Group Name</th>
                     <th class="text-left px-6 py-3 border-b-2 border-gray-300">Task</th>
                     <th class="text-left px-6 py-3 border-b-2 border-gray-300">Assigned By</th>
+                    <th class="text-left px-6 py-3 border-b-2 border-gray-300">Created At</th>
                     <th class="text-left px-6 py-3 border-b-2 border-gray-300">Actions</th>
                 </tr>
             </thead>
@@ -65,6 +66,11 @@
                             {{ $task->user->first_name }}
                         </td>
 
+                        <!-- Created At (User) -->
+                        <td class="px-6 py-4 border-b border-gray-200">
+                            {{ $task->created_at->format('F j, Y h:i A') }}
+
+                        </td>
                         <!-- Actions -->
                         <td class="px-6 py-4 border-b border-gray-200">
                             <button wire:click="editTask({{ $task->id }})"

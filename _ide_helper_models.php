@@ -115,6 +115,22 @@ namespace App\Models{
 /**
  * 
  *
+ * @property-read \App\Models\AssignmentGroup|null $assignmentGroup
+ * @property-read \App\Models\User|null $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Comment withoutTrashed()
+ */
+	class Comment extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int|null $user_id
  * @property int|null $country_id
