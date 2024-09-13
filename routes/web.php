@@ -5,6 +5,7 @@ use App\Http\Controllers\Student\ViewRespondedStudentsController;
 use App\Http\Controllers\Tpa\AcceptedLetterPdfController;
 use App\Http\Controllers\Tpa\FieldApplicationController;
 use App\Http\Controllers\Tpa\HomeForTpaOnlineFieldApplicationController;
+use App\Http\Controllers\Tpa\InternshipApplicationController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\AcademicRestoreFiles\RestoreAcademicDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\ContactRestoreFiles\RestoreContactDetailsController;
 use App\Http\Controllers\Tpa\StudentRestoreFiles\PersonalRestoreFiles\RestorePersonalDetailsController;
@@ -72,6 +73,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('TPA/view-all-confirmed-students', [ViewAllConfirmedStudentsController::class, 'index']);
     Route::get('TPA/view-student-details', [ViewStudentsDetailsController::class, 'index']);
+    Route::get('TPA/internship-application',[InternshipApplicationController::class, 'index']);
 
 
     // ------------------------------------------------------------ End of TPA Routes ------------------------------------------------------------------------------------
