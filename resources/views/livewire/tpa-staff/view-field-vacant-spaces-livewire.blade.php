@@ -26,7 +26,7 @@
     <!-- Marketing Card -->
     <div class="card-box mb-6 p-4 w-full transition-transform transform hover:scale-105 duration-300">
         <div class="flex flex-col items-center">
-            <i class="fas fa-bullhorn text-4xl mb-3 text-yellow-500"></i> <!-- Marketing Icon -->
+            <i class="fas fa-bullhorn text-4xl mb-3 text-yellow-500"></i>
             <h4 class="font-weight-bold uppercase text-center">
                 Marketing
             </h4>
@@ -61,13 +61,34 @@
             @else
             @endif
         </div>
-        <!-- Vacant Spaces -->
+        <!-- Total Applicants -->
         <div class="mt-4 text-center">
             <span class="font-weight-bold {{ $vacantSpaces > 0 ? 'text-green-700' : 'text-red-500' }}">
                 <i class="fas fa-users"></i>
                 Total:
                 {{ $applicants }}
             </span>
+        </div>
+    </div>
+
+    <!-- Logged-in Status Card -->
+    <div class="card-box mb-6 p-4 w-full transition-transform transform hover:scale-105 duration-300">
+        <div class="flex flex-col items-center">
+            <i class="fas fa-user-check text-4xl mb-3 text-yellow-500"></i>
+            <h4 class="font-weight-bold uppercase text-center">
+                Login Status
+            </h4>
+        </div>
+        <div class="mt-4 text-center">
+            @if (auth()->check())
+                <span class="font-weight-bold text-green-700">
+                    <i class="fas fa-check-circle"></i> You are logged in as {{ auth()->user()->position }}.
+                </span>
+            @else
+                <span class="font-weight-bold text-red-500">
+                    <i class="fas fa-times-circle"></i> You are not logged in.
+                </span>
+            @endif
         </div>
     </div>
 </div>

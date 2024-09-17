@@ -54,7 +54,7 @@
         </div>
 
         <!-- Research & Innovation Card -->
-        <div class="card-box mb-30 p-3 bg-white shadow-md rounded-lg flex flex-col items-center">
+        {{-- <div class="card-box mb-30 p-3 bg-white shadow-md rounded-lg flex flex-col items-center">
             <i class="fas fa-rocket text-3xl mb-2 text-yellow-500"></i>
             <h3 class="text-xl font-bold mb-2 text-yellow-500">Research & Innovation</h3>
             <span class="text-blue-900">We invest in research and innovation to enhance port efficiency and safety. Our
@@ -70,10 +70,10 @@
                     Deadline Passed
                 </button>
             @endif
-        </div>
+        </div> --}}
 
         <!-- Mentorship Card -->
-        <div class="card-box mb-30 p-3 bg-white shadow-md rounded-lg flex flex-col items-center">
+        {{-- <div class="card-box mb-30 p-3 bg-white shadow-md rounded-lg flex flex-col items-center">
             <i class="fas fa-hands-helping text-3xl mb-2 text-yellow-500"></i>
             <h3 class="text-xl font-bold mb-2 text-yellow-500">Mentorship</h3>
             <span class="text-blue-900">Tanzania Port Authority’s mentorship programs guide and support emerging
@@ -89,6 +89,6 @@
                     Deadline Passed
                 </button>
             @endif
-        </div>
+        </div> --}}
     </div>
 </div>

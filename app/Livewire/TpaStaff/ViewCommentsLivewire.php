@@ -21,7 +21,7 @@ class ViewCommentsLivewire extends Component
     public function render()
     {
         $query = Comment::query()
-            ->with('user')
+            ->with(['user','assignmentGroup'])
             ->when($this->search, function ($query) {
                 $query->whereHas('assignmentGroup', function ($query) {
                     $query->where('group', 'like', '%' . $this->search . '%');

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TpaFieldApplicationData extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['user_id', 'port_id', 'application_letter', 'view_status', 'approval_status', 'department_id','allocation_status'];
+    protected $fillable = ['user_id', 'port_id', 'application_letter', 'view_status', 'approval_status', 'department_id', 'allocation_status'];
 
     public function user()
     {
@@ -23,5 +23,10 @@ class TpaFieldApplicationData extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function assignmentGroup()
+    {
+        return $this->belongsTo(AssignmentGroup::class);
     }
 }

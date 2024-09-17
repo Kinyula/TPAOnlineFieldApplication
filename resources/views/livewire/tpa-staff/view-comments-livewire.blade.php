@@ -49,15 +49,15 @@
                     <p class="text-gray-700 mb-2">{{ $comment->comment }}</p>
 
                     <!-- Display Assignment Group -->
-                    @if ($comment->assignmentGroup)
+                    @if ($comment)
                         <div class="text-gray-600">
                             <span class="font-semibold">Group:</span>
                             <span
-                                class="text-yellow-500 font-weight-bold uppercase">{{ $comment->assignmentGroup->group }}</span>
+                                class="text-yellow-500 font-weight-bold uppercase">{{ $comment->groupTask->assignmentGroup?->group }}</span>
                             <span class="text-sm text-gray-500 ml-2">
                                 <br>
                                 Commented by: <span
-                                    class="font-weight-bold text-yellow-500 uppercase">{{ $comment->assignmentGroup->user->position }}</span>
+                                    class="font-weight-bold text-yellow-500 uppercase">{{ $comment->groupTask->user->position }}</span>
                             </span>
                         </div>
                     @else
@@ -85,10 +85,11 @@
                         class="block w-full mt-1 bg-white border border-gray-300 text-gray-900 py-2 px-4 rounded leading-tight focus:outline-none focus:border-yellow-500">{{ $editCommentText }}</textarea>
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit"
-                        class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-300"><i class="fas fa-check px-1"></i> Save</button>
+                    <button type="submit" class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-300"><i
+                            class="fas fa-check px-1"></i> Save</button>
                     <button type="button" wire:click="cancelEdit"
-                        class="ml-2 bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"><i class="fas fa-close px-1"></i>Cancel</button>
+                        class="ml-2 bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"><i
+                            class="fas fa-close px-1"></i>Cancel</button>
                 </div>
             </form>
         </div>

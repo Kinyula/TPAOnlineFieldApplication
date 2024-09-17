@@ -86,7 +86,7 @@
     <div class="bg-gray-100 p-4 rounded-t-lg border-b border-gray-300">
         <div class="flex justify-between items-center flex-wrap">
             @foreach (range(1, 15) as $step)
-                <!-- Adjusted to 5 steps -->
+                <!-- Adjusted to 15 steps -->
                 <div class="flex-1 text-center">
                     <div class="relative flex justify-center">
                         <div
@@ -95,7 +95,7 @@
                             {{ $step }}
                         </div>
                         @if ($step != 15)
-                            <!-- Adjusted to 5 steps -->
+                            <!-- Adjusted to 15 steps -->
                             <div
                                 class="absolute top-1/2 left-full w-full h-0.5
                                         bg-gray-300 @if ($currentStep >= $step) bg-blue-800 @endif">
@@ -178,7 +178,7 @@
             Previous
         </button>
         <button wire:click="nextStep" class="bg-blue-800 text-white px-4 py-2 rounded flex items-center"
-            @if ($currentStep >= 5 || ($progress < 50 && $currentStep == 5)) disabled @endif>
+            @if ($currentStep >= 15 || ($progress < 50 && $currentStep == 15)) disabled @endif>
             <i class="fas fa-chevron-right mr-2"></i>
             Next
         </button>

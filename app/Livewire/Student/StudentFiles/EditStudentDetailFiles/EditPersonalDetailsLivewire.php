@@ -48,6 +48,7 @@ class EditPersonalDetailsLivewire extends Component
             'marital_status' => $this->marital_status,
         ]);
 
+        $this->dispatch('stepCompleted');
         // Flash success message
         session()->flash('message', 'Personal details updated successfully!');
     }

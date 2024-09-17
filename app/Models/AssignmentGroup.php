@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class AssignmentGroup extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['user_id', 'tpa_field_application_data_id','group','allocation_status'];
+    protected $fillable = ['user_id', 'tpa_field_application_data_id', 'group', 'allocation_status'];
 
     public function user()
     {
@@ -19,6 +19,11 @@ class AssignmentGroup extends Model
 
     public function tpaFieldApplications()
     {
-        return $this->belongsTo(TpaFieldApplicationData::class,'tpa_field_application_data_id');
+        return $this->belongsTo(TpaFieldApplicationData::class, 'tpa_field_application_data_id');
+    }
+
+    public function groupTask()
+    {
+        return $this->hasMany(GroupTask::class);
     }
 }

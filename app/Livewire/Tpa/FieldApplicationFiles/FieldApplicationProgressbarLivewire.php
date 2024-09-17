@@ -3,17 +3,10 @@
 namespace App\Livewire\Tpa\FieldApplicationFiles;
 
 use App\Models\AcademicDetail;
-use App\Models\ApplicationDeclarationDetail;
 use App\Models\ContactDetail;
 use App\Models\LanguageProficiency;
-use App\Models\OtherAttachmentDetail;
 use App\Models\PersonalDetail;
-use App\Models\ProfessionalQualification;
-use App\Models\ProjectDetail;
-use App\Models\RefereeDetail;
-use App\Models\SkillExperience;
-use App\Models\TrainingAndWorkshop;
-use App\Models\WorkExperience;
+
 use Livewire\Component;
 
 class FieldApplicationProgressbarLivewire extends Component
@@ -53,50 +46,11 @@ class FieldApplicationProgressbarLivewire extends Component
             $completedSteps++;
         }
 
-        // Check if skill experience details have been completed
-        // if (SkillExperience::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // // Check if project portfolio details have been completed
-        // if (ProjectDetail::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // // Check if referee details have been completed
-        // if (RefereeDetail::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // Check if training and workshop details have been completed
-        // if (TrainingAndWorkshop::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // Check if professional qualifications details have been completed
-        // if (ProfessionalQualification::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // Check if working experience details have been completed
-        // if (WorkExperience::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
-        // Check if other attachment details have been completed
-        // if (OtherAttachmentDetail::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
-
         // Check if language proficiency details have been completed
         if (LanguageProficiency::where('user_id', auth()->id())->exists()) {
             $completedSteps++;
         }
 
-        // Check if application declaration details have been completed
-        // if (ApplicationDeclarationDetail::where('user_id', auth()->id())->exists()) {
-        //     $completedSteps++;
-        // }
         return $completedSteps;
     }
 

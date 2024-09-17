@@ -31,7 +31,7 @@
                 class="block w-full mt-1 bg-gray-100 border border-gray-300 text-gray-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
                 <option value="">-- Select Assignment Group --</option>
                 @foreach ($assignmentGroups as $assignmentGroup)
-                    <option value="{{ $assignmentGroup->id }}">{{ $assignmentGroup->group }}</option>
+                    <option value="{{ $assignmentGroup->id }}">{{ $assignmentGroup->assignmentGroup->group }}</option>
                 @endforeach
             </select>
             @error('group')

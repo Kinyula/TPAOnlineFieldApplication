@@ -5,6 +5,7 @@ namespace App\Livewire\TpaStaff;
 use App\Models\AssignmentGroup;
 use Livewire\Component;
 use App\Models\Comment;
+use App\Models\GroupTask;
 
 class CommentsLivewire extends Component
 {
@@ -22,7 +23,7 @@ class CommentsLivewire extends Component
 
         Comment::create([
             'comment' => $this->comment,
-            'assignment_group_id' => $this->group,
+            'group_task_id' => $this->group,
             'user_id' => auth()->user()->id,
         ]);
 
@@ -34,8 +35,8 @@ class CommentsLivewire extends Component
     public function render()
     {
         // Fetch distinct assignment groups based on ID and group name
-        $assignmentGroups = AssignmentGroup::selectRaw('MIN(id) as id, `group`')
-            ->groupBy('group')
+        $assignmentGroups = GroupTask::selectRaw('MIN(id) as id, `assignment_group_id`')->with(['assignmentGroup'])
+            ->groupBy('assignment_group_id')
             ->get();
 
         return view('livewire.tpa-staff.comments-livewire', [

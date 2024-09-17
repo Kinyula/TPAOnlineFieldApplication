@@ -37,7 +37,7 @@ class InternshipApplicationProgressBarLivewire extends Component
     {
         $completedSteps = 0;
 
-        // Example: Check if personal details have been completed
+        //  Check if personal details have been completed
         if (PersonalDetail::where('user_id', auth()->id())->exists()) {
             $completedSteps++;
         }

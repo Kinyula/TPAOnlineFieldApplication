@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Comment extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['user_id', 'assignment_group_id', 'comment'];
+    protected $fillable = ['user_id', 'group_task_id', 'comment'];
 
     public function assignmentGroup()
     {
@@ -18,5 +18,10 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function groupTask()
+    {
+        return $this->belongsTo(GroupTask::class);
     }
 }
