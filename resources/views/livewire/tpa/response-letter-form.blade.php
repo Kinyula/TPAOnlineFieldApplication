@@ -53,7 +53,7 @@
                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-md cursor-pointer hover:border-yellow-500 focus-within:ring-2 focus-within:ring-yellow-500 focus-within:border-yellow-500 transition duration-150 ease-in-out">
                     <div class="space-y-1 text-center" wire:loading.class="opacity-50">
                         <label for="response_letter" class="cursor-pointer">
-                            <svg class="mx-auto h-full w-full text-gray-400 hover:text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                            <svg class="mx-auto h-10 w-10 text-gray-400 hover:text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
                                 <path d="M8 16c0-4.418 3.582-8 8-8h16c4.418 0 8 3.582 8 8v16c0 4.418-3.582 8-8 8H16c-4.418 0-8-3.582-8-8V16z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M32 16l-8 8-8-8M24 24v-8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -65,12 +65,21 @@
                             </label>
                             <p class="pl-1">or drag and drop</p>
                         </div>
+
+                        <!-- Display selected file name -->
+                        @if ($response_letter)
+                            <p class="mt-2 text-sm text-gray-500">Selected file: {{ $response_letter->getClientOriginalName() }}</p>
+                        @else
+                            <p class="mt-2 text-sm text-gray-500">No file selected</p>
+                        @endif
+
                         <p class="text-xs text-gray-500">PDF up to 10MB</p>
                     </div>
                 </div>
 
                 <x-input-error :messages="$errors->get('response_letter')" class="mt-2 text-red-500 text-sm" />
             </div>
+
 
 
             <!-- Submit Button -->

@@ -280,13 +280,6 @@
 
                             </ul>
 
-
-
-
-
-
-
-
                             {{-- <ul class="submenu">
                                 <li><a href="{{ asset('UIMS/add-asset-status') }}">
                                         Add an allocation status
