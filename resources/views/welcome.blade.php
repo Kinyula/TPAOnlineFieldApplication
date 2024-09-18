@@ -160,7 +160,8 @@
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
         data-wow-delay="0.1s">
         <a href="{{ asset('/') }}" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="Icon" class="me-2" style="width: 50px; height: 50px;">
+            <img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="Icon" class="me-2"
+                style="width: 50px; height: 50px;">
             <!-- Text that disappears on small screens -->
             <h1 class="text-warning m-0 d-none d-lg-block">Tanzania Port Authority</h1>
         </a>
@@ -447,7 +448,7 @@
                             Port Authority</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+
                         Designed By <a href="">Software Engineer Victor Z . K</a>
                         <br> Distributed By: <a class="border-bottom" href="Group 3" target="_blank">Group 3</a>
                     </div>
@@ -487,7 +488,7 @@
         // Initialize the map
         var map = L.map('map').setView([-6.369028, 34.888822], 6); // Center the map on Tanzania
 
-        // Add a tile layer (map background)
+        //  tile layer (map background)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
@@ -495,15 +496,25 @@
         // Add markers for branches
         var branches = [{
                 name: 'Headquarters',
-                coords: [-6.8123, 39.2830], // Coordinates of the headquarters
+                coords: [-6.8259,  39.2913], // Coordinates of the headquarters
                 popup: 'Dar es Salaam port ( HQ )'
             },
             {
                 name: 'Tanga port',
-                coords: [-5.0694, 39.1048], // Coordinates of another branch
+                coords: [-5.0689, 39.0988], // Coordinates of Tanga port
                 popup: 'Tanga port'
             },
-            // Add more branches here
+            {
+                name: 'Lake victoria port',
+                coords: [-2.5167, 32.9000], // Coordinates of Victoria port
+                popup: 'Lake victoria port'
+            },
+
+            {
+                name: 'Lake Tanganyika port',
+                coords: [-4.8769, 29.6264], // Coordinates of Tanganyika port
+                popup: 'Lake Tanganyika port'
+            },
         ];
 
         branches.forEach(function(branch) {
