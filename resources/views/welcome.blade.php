@@ -230,9 +230,15 @@
             <div class="owl-carousel-item position-relative"
                 data-dot="<img src='{{ asset('storage/HomeImages/hamburg-elbe-ship-water.jpg') }}'>">
                 <div class="position-relative w-100" style="height: 80vh;">
+                    <!-- Background Image -->
                     <img class="img-fluid w-100 h-100"
                         src="{{ asset('storage/HomeImages/hamburg-elbe-ship-water.jpg') }}"
                         alt="Hamburg Elbe Ship Water" style="object-fit: cover;">
+
+                    <!-- Dark Overlay -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.7;"></div>
+
+                    <!-- Text Content -->
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
                         <h2 class="fs-2 text-white animated slideInDown">Unlock Your Potential in ICT</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
@@ -253,6 +259,10 @@
                     <img class="img-fluid w-100 h-100"
                         src="{{ asset('storage/HomeImages/container-port-loading-stacked.jpg') }}"
                         alt="Container Port Loading" style="object-fit: cover;">
+
+                    <!-- Dark Overlay -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.7;"></div>
+
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
                         <h2 class="fs-2 text-white animated slideInDown">Innovate with Software Development</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
@@ -274,6 +284,10 @@
                     <img class="img-fluid w-100 h-100"
                         src="{{ asset('storage/HomeImages/birds-eye-view-photo-of-freight-containers.jpg') }}"
                         alt="Freight Containers" style="object-fit: cover;">
+
+                    <!-- Dark Overlay -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.7;"></div>
+
                     <div class="position-absolute top-50 start-50 translate-middle text-center">
                         <h2 class="fs-2 text-white animated slideInDown">Empower Your Career in Digital Marketing</h2>
                         <p class="fs-5 fw-medium text-white mb-4 pb-3">
@@ -287,8 +301,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
 
 
     <!-- Carousel End -->
