@@ -75,8 +75,14 @@
                                 </td>
                             @endif
 
-                            <td class="px-4 py-2">{{ $assignment->assignmentGroup->group ?? 'N/A' }}</td>
-                            <td class="px-4 py-2">{{ $assignment->task ?? 'N/A' }}</td>
+                            @if ($assignment->user_id == auth()->user()->id)
+                                <td class="px-4 py-2">{{ auth()->user()->assignmentGroup->group ?? 'N/A' }}</td>
+                                <td class="px-4 py-2">{{ auth()->user()->task ?? 'N/A' }}</td>
+                            @else
+                                <td class="px-4 py-2">{{ $assignment->assignmentGroup->group ?? 'N/A' }}</td>
+                                <td class="px-4 py-2">{{ $assignment->task ?? 'N/A' }}</td>
+                            @endif
+
 
                             <td class="px-4 py-2">
                                 @forelse ($assignment->comments as $comment)

@@ -68,7 +68,7 @@
 
                         <!-- Display selected file name -->
                         @if ($response_letter)
-                            <p class="mt-2 text-sm text-gray-500">Selected file: {{ $response_letter->getClientOriginalName() }}</p>
+                            <p class="mt-2 text-sm text-gray-500 font-weight-bold">Selected file: {{ $response_letter->getClientOriginalName() }}</p>
                         @else
                             <p class="mt-2 text-sm text-gray-500">No file selected</p>
                         @endif

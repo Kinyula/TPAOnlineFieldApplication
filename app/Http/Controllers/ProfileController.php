@@ -48,7 +48,7 @@ class ProfileController extends Controller
             ],
 
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255'],
-            'profile_image' => ['required']
+
         ]);
 
         $users = User::findOrFail($id);
@@ -69,11 +69,15 @@ class ProfileController extends Controller
             File::delete(public_path('storage/profile_images/' . $profile_image));
         }
 
-        $new_profile_image  = $request->file('profile_image')->store('public/profile_images');
-        $profile_image = explode('/', $new_profile_image);
-        $profile_image = $profile_image[2];
+        if ($request->hasFile('profile_image')) {
+            $profile_image =  $users->profile_image = $request->file('profile_image')->store('public/profile_images') ?? NULL;
 
-        $users->profile_image = $profile_image;
+            $profile_image = explode('/', $profile_image);
+            $profile_image = $profile_image[2];
+            $users->profile_image = $profile_image;
+        } else {
+            $users->profile_image = 'user3.png';
+        }
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;

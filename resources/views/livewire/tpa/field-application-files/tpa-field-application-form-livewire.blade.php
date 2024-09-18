@@ -74,7 +74,7 @@
 
                         <!-- Display selected file name -->
                         @if ($application_letter)
-                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Selected file: {{ $application_letter->getClientOriginalName() }}</p>
+                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 font-weight-bold">Selected file: {{ $application_letter->getClientOriginalName() }}</p>
                         @else
                             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">No file selected</p>
                         @endif
