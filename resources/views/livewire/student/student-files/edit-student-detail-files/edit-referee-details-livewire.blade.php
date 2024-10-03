@@ -14,7 +14,7 @@
             </div>
         @endif
         <h2 class="text-blue-500 text-2xl"><i class="fas fa-user"></i> Update referee details</h2>
-        <form wire:submit.prevent="updateRefereeDetail">
+        <form wire:submit.prevent="updateRefereeDetails">
             <div class="mb-4">
                 <label for="first_name" class="block text-gray-700">First Name</label>
                 <input type="text" id="first_name" wire:model.defer="first_name"
@@ -53,7 +53,7 @@
 
             <div class="mb-4">
                 <label for="institute_name" class="block text-gray-700">Institute Name</label>
-                <input type="email" id="email" wire:model.defer="institute_name"
+                <input type="text" id="email" wire:model.defer="institute_name"
                     class="w-full px-4 py-2 border border-gray-300 rounded @error('institute_name') border-red-500 @enderror">
                 @error('institute_name')
                     <span class="text-red-500">{{ $message }}</span>
@@ -85,7 +85,7 @@
 
 
 
-            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded"><i class="fas fa-check px-1"></i> Update</button>
+            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded uppercase"><i class="fas fa-check px-1"></i> Update</button>
         </form>
 
         @if (session()->has('message'))

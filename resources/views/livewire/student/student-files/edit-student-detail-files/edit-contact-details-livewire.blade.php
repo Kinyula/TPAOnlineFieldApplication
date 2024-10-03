@@ -78,7 +78,7 @@
                 @enderror
             </div>
 
-            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded"><i class="fas fa-check px-1"></i>
+            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded uppercase"><i class="fas fa-check px-1"></i>
                 Update</button>
         </form>
 

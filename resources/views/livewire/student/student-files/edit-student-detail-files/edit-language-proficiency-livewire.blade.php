@@ -49,9 +49,9 @@
 
 
             <!-- Submit Button -->
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-start mt-4">
                 <x-primary-button class="bg-blue-800">
-                    <i class="fas fa-check px-1"></i> {{ __('Update Language Proficiency') }}
+                    <i class="fas fa-check px-1"></i> {{ __('Update') }}
                 </x-primary-button>
             </div>
         </form>
