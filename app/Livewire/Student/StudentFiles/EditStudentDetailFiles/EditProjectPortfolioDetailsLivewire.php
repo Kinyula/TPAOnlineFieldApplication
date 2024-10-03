@@ -25,7 +25,13 @@ class EditProjectPortfolioDetailsLivewire extends Component
 
     public function updateProjectPortfolioDetails()
     {
-        $this->validate(['project_name' => 'required', 'start_date' => 'required', 'end_date' => 'required', 'project_url' => 'required', 'description' => 'required']);
+        $this->validate([
+            'project_name' => 'required',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'project_url' => 'required|url|max:255|active_url',
+            'description' => 'required|max:1000',
+        ]);
 
         $projectPortfolioDetail = ProjectDetail::where('user_id', '=', auth()->user()->id)->first();
 
