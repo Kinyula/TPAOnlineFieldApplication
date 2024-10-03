@@ -4,59 +4,66 @@ This project is a web-based application built with Laravel, designed to manage p
 
 ## Project Features
 
-- **Application Management**: Submit, track, and manage applications for practical training and internships.
-- **Dynamic Forms**: Stepwise forms with real-time updates using Livewire and Alpine.js.
-- **Deadline Management**: Set and manage application deadlines.
-- **Responsive Design**: Tailored for all screen sizes using Tailwind CSS and Bootstrap.
-- **Data Export**: Export data to Excel using the Laravel Excel package.
-  
+-   **Application Management**: Submit, track, and manage applications for practical training and internships.
+-   **Dynamic Forms**: Stepwise forms with real-time updates using Livewire and Alpine.js.
+-   **Deadline Management**: Set and manage application deadlines.
+-   **Responsive Design**: Tailored for all screen sizes using Tailwind CSS and Bootstrap.
+-   **Data Export**: Export data to Excel using the Laravel Excel package.
+
 ## Requirements
 
-- **PHP** >= 8.2
-- **Composer** (for managing Laravel dependencies)
-- **MySQL** (for the database)
-- **Node.js** and **npm** (for managing front-end assets)
-- **Laravel Excel** (for handling Excel exports)
-- **Tailwind CSS** (for styling and responsive design)
-- **Bootstrap** (for additional styling)
-- **Livewire** (for dynamic components)
-- **Alpine.js** (for lightweight JavaScript interactions)
+-   **PHP** >= 8.2
+-   **Composer** (for managing Laravel dependencies)
+-   **MySQL** (for the database)
+-   **Node.js** and **npm** (for managing front-end assets)
+-   **Laravel Excel** (for handling Excel exports)
+-   **Tailwind CSS** (for styling and responsive design)
+-   **Bootstrap** (for additional styling)
+-   **Livewire** (for dynamic components)
+-   **Alpine.js** (for lightweight JavaScript interactions)
 
 ## Installation
 
 1. **Clone the repository**:
+
     ```bash
     git clone https://github.com/Kinyula/TPAOnlineFieldApplication
 
+    ```
 
 2. **Install PHP dependencies**:
+
     ```bash
     composer install
     ```
 
 3. **Install Node.js dependencies**:
+
     ```bash
     npm install
     ```
 
 4. **Environment setup**:
+
     - Duplicate the `.env.example` file and rename it to `.env`.
     - Update the `.env` file with your database credentials and other settings:
-      ```bash
-      DB_CONNECTION=mysql
-      DB_HOST=127.0.0.1
-      DB_PORT=3306
-      DB_DATABASE=tpa_online_application
-      DB_USERNAME=root
-      DB_PASSWORD=
-      ```
+        ```bash
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=tpa_online_application
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
 
 5. **Run database migrations**:
+
     ```bash
     php artisan migrate
     ```
 
 6. **Compile assets**:
+
     ```bash
     npm run dev
     ```
@@ -76,8 +83,8 @@ We would like to extend our thanks to all the sponsors of Laravel. Their contrib
 
 ### Premium Partners
 
-- [Forge](https://forge.laravel.com)
-- [Vapor](https://vapor.laravel.com)
+-   [Forge](https://forge.laravel.com)
+-   [Vapor](https://vapor.laravel.com)
 
 ## Contributing
 
@@ -89,7 +96,7 @@ Please follow the [Laravel Code of Conduct](https://laravel.com/conduct) when co
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability, please email us at `security@yourdomain.com`. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability, please email us at `victorzacharia111@gmail.com`. All security vulnerabilities will be promptly addressed.
 
 ## License
 

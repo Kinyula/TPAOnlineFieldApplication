@@ -16,8 +16,16 @@
                         <th class="px-4 py-2 border-b">Group Name</th>
                         <th class="px-4 py-2 border-b">First Name</th>
                         <th class="px-4 py-2 border-b">Last Name</th>
-                        <th class="px-4 py-2 border-b">Allocation Status</th>
-                        <th class="px-4 py-2 border-b">Action</th>
+                        <th class="px-4 py-2 border-b">Phone Number</th>
+                        <th class="px-4 py-2 border-b">Institute Name</th>
+                        <th class="px-4 py-2 border-b">Created At</th>
+
+                        @if (auth()->user()->position === 'tpa supervisor')
+                            <th class="px-4 py-2 border-b">Allocation Status</th>
+                            <th class="px-4 py-2 border-b">Action</th>
+                        @else
+                        @endif
+
                     </tr>
                 </thead>
                 <tbody>
@@ -26,18 +34,28 @@
                             <td class="px-4 py-2 border-b">{{ $group->group }}</td>
                             <td class="px-4 py-2 border-b">{{ $group->tpaFieldApplications->user->first_name }}</td>
                             <td class="px-4 py-2 border-b">{{ $group->tpaFieldApplications->user->last_name }}</td>
-                            <td class="px-4 py-2 border-b">
-                                {{ $group->tpaFieldApplications->allocation_status ? 'assigned' : 'unassigned' }}
-                            </td>
-                            <td class="px-4 py-2 border-b">
-                                <!-- Unassign/Assign Button with Font Awesome Icons -->
-                                <button wire:click="toggleAssign({{ $group->tpaFieldApplications->id }})"
-                                    class="px-4 py-2 text-white {{ $group->tpaFieldApplications->allocation_status ? 'bg-red-500' : 'bg-green-500' }} rounded">
-                                    <i
-                                        class="{{ $group->tpaFieldApplications->allocation_status ? 'fas fa-user-minus' : 'fas fa-user-plus' }} mr-2"></i>
-                                    {{ $group->tpaFieldApplications->allocation_status ? 'Unassign' : 'Assign' }}
-                                </button>
-                            </td>
+                            <td class="px-4 py-2 border-b">{{ $group->tpaFieldApplications->user->phone_number }}</td>
+                            <td class="px-4 py-2 border-b">{{ $group->tpaFieldApplications->user->academicDetails?->institute_name }}</td>
+                            <td class="px-4 py-2 border-b">{{ $group->created_at->format('F , j , Y h:i A') }}</td>
+                            @if (auth()->user()->position === 'tpa supervisor')
+                                <td
+                                    class="px-4 py-2 border-b bg-green-100 text-green-600 text-xs font-medium  rounded-full">
+                                    {{ $group->tpaFieldApplications->allocation_status ? 'assigned' : 'unassigned' }}
+                                </td>
+                                <td class="px-4 py-2 border-b">
+                                    <!-- Unassign/Assign Button with Font Awesome Icons -->
+
+                                    <button wire:click="toggleAssign({{ $group->tpaFieldApplications->id }})"
+                                        class="px-4 py-2 text-white {{ $group->tpaFieldApplications->allocation_status ? 'bg-red-500' : 'bg-green-500' }} rounded">
+                                        <i
+                                            class="{{ $group->tpaFieldApplications->allocation_status ? 'fas fa-user-minus' : 'fas fa-user-plus' }} mr-2"></i>
+                                        {{ $group->tpaFieldApplications->allocation_status ? 'Unassign' : 'Assign' }}
+                                    </button>
+
+
+                                </td>
+                            @else
+                            @endif
                         </tr>
                     @empty
                         <tr>

@@ -1,6 +1,6 @@
 <div>
     @livewire('tpa-staff.view-field-vacant-spaces-livewire')
-    
+
     <div class="bg-white shadow-lg rounded-lg p-6">
 
 
@@ -94,6 +94,7 @@
                         <th class="px-4 py-2 text-left">Phone number</th>
                         <th class="px-4 py-2 text-left">Role</th>
                         <th class="px-4 py-2 text-left">Department</th>
+                        <th class="px-4 py-2 text-left">Submission time</th>
                         <th class="px-4 py-2 text-left">Confirmation Status</th>
                         @if (!auth()->user()->role_id == '4')
                             <th class="px-4 py-2 text-left">Viewing Status</th>
@@ -122,6 +123,7 @@
                             <td class="px-4 py-2">{{ $application->user->phone_number }}</td>
                             <td class="px-4 py-2">{{ $application->user->position }}</td>
                             <td class="px-4 py-2">{{ $application->department->department }}</td>
+                            <td class="px-4 py-2">{{ $application->created_at->format('F j, Y, g:i A') }}</td>
                             <td class="px-4 py-2">
                                 <!-- Active Confirm Button -->
                                 @if ($application->approval_status == 'approved' && $application->confirm_status != 'confirmed')

@@ -376,10 +376,6 @@
     <!-- Facts End -->
 
 
-
-
-
-
     <!-- Footer Start -->
     <div class="container-fluid text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s"
         style="background-color: #003366">
@@ -450,7 +446,8 @@
                     <div class="col-md-6 text-center text-md-end">
 
                         Designed By <a href="">Software Engineer Victor Z . K</a>
-                        <br> Distributed By: <a class="border-bottom" href="Group 3" target="_blank">Group 3</a>
+                        <br> Distributed By: <a class="border-bottom" href="Group 3" target="_blank">Tanzania Ports
+                            Authority </a>
                     </div>
                 </div>
             </div>
@@ -496,7 +493,7 @@
         // Add markers for branches
         var branches = [{
                 name: 'Headquarters',
-                coords: [-6.8259,  39.2913], // Coordinates of the headquarters
+                coords: [-6.8259, 39.2913], // Coordinates of the headquarters
                 popup: 'Dar es Salaam port ( HQ )'
             },
             {

@@ -21,9 +21,10 @@ class ViewCommentsLivewire extends Component
     public function render()
     {
         $query = Comment::query()
-            ->with(['user','assignmentGroup'])
+            ->with(['user', 'groupTask.assignmentGroup'])
             ->when($this->search, function ($query) {
-                $query->whereHas('assignmentGroup', function ($query) {
+                $query->whereHas('groupTask.assignmentGroup', function ($query) {
+
                     $query->where('group', 'like', '%' . $this->search . '%');
                 });
             })
@@ -38,6 +39,7 @@ class ViewCommentsLivewire extends Component
             'comments' => $query,
         ]);
     }
+
 
     public function deleteComment($id)
     {

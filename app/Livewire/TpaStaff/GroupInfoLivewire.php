@@ -5,7 +5,7 @@ namespace App\Livewire\TpaStaff;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\GroupTask;
-
+use App\Models\TpaFieldApplicationData;
 
 class GroupInfoLivewire extends Component
 {
@@ -14,8 +14,14 @@ class GroupInfoLivewire extends Component
     public $search = '';
     public $selected = [];
     public $selectAll = false;
+    public $data;
 
     protected $listeners = ['deleteSelected' => 'deleteSelected'];
+
+    public function mount()
+    {
+        $this->data = TpaFieldApplicationData::with(['assignmentGroup'])->where('user_id', '=', auth()->user()->id)->exists();
+    }
 
     public function updatedSelectAll($value)
     {
@@ -53,20 +59,17 @@ class GroupInfoLivewire extends Component
 
     public function render()
     {
-
         $assignments = GroupTask::with(['assignmentGroup', 'comments'])
-        ->when(auth()->user()->role_id == 0, function ($query) {
-            $query->where('user_id', auth()->id());
-        })
-        ->when($this->search, function ($query) {
-            $query->whereHas('user', function ($q) {
-                $q->where('first_name', 'like', '%' . $this->search . '%')
-                  ->orWhere('last_name', 'like', '%' . $this->search . '%');
-            });
-        })
-        ->paginate(10);
-
-
+            ->when(auth()->user()->role_id == 0, function ($query) {
+                $query->where('user_id', auth()->id());
+            })
+            ->when($this->search, function ($query) {
+                $query->whereHas('user', function ($q) {
+                    $q->where('first_name', 'like', '%' . $this->search . '%')
+                        ->orWhere('last_name', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->paginate(10);
 
         return view('livewire.tpa-staff.group-info-livewire', [
             'assignments' => $assignments,

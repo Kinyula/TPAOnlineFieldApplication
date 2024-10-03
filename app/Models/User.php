@@ -90,8 +90,5 @@ class User extends Authenticatable
         return $this->hasOne(TpaFieldApplicationData::class);
     }
 
-    public function isOnline()
-    {
-        Cache::has('user-is-online-' . $this->id);
-    }
+
 }

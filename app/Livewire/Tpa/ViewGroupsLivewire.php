@@ -11,28 +11,26 @@ class ViewGroupsLivewire extends Component
 {
     use WithPagination;
 
-    public $search = ''; // For search input
+    public $search = '';
 
-    // Method to toggle assignment status
     public function toggleAssign($applicationId)
     {
         $application = TpaFieldApplicationData::find($applicationId);
-        $application->allocation_status = !$application->allocation_status; // Toggle the status
-        $application->save(); // Save the updated status
+        $application->allocation_status = !$application->allocation_status;
+        $application->save();
     }
 
     public function render()
     {
-        // Fetch groups along with user and tpaFieldApplications
         $groups = AssignmentGroup::with(['tpaFieldApplications.user'])
             ->where(function ($query) {
-                $query->where('group', 'like', '%' . $this->search . '%') // Search by group name
+                $query->where('group', 'like', '%' . $this->search . '%')
                     ->orWhereHas('tpaFieldApplications.user', function ($query) {
-                        $query->where('first_name', 'like', '%' . $this->search . '%') // Search by first name
-                            ->orWhere('last_name', 'like', '%' . $this->search . '%');  // Search by last name
+                        $query->where('first_name', 'like', '%' . $this->search . '%')
+                            ->orWhere('last_name', 'like', '%' . $this->search . '%');
                     });
             })
-            ->paginate(15); // Pagination
+            ->paginate(15);
 
         return view('livewire.tpa.view-groups-livewire', [
             'groups' => $groups,
