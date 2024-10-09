@@ -14,7 +14,6 @@
 
         <form wire:submit.prevent = "createWard">
 
-            <!-- Country -->
             <div>
                 <span class="flex relative top-3">
                     <x-input-label for="country" :value="__('District')" />
@@ -23,14 +22,15 @@
                 <x-select-input id="district" class="block mt-1 w-full" name="district" wire:model="district">
                     <option value="">-- Select District --</option>
                     @foreach ($country_districts as $country_district)
-                        <!-- Add your country options here -->
-                        <option value="{{ $country_district->id }}">{{ $country_district->district }}</option>
+    
+                        <option value="{{ $country_district->id }}">District : {{ $country_district->district }} ---
+                            Region : {{ $country_district->region->region }}</option>
                     @endforeach
 
                 </x-select-input>
                 <x-input-error :messages="$errors->get('district')" class="mt-2" />
             </div>
-            <!-- Region -->
+
             <div>
                 <span class="flex relative top-3">
                     <x-input-label for="ward" :value="__('Ward')" />

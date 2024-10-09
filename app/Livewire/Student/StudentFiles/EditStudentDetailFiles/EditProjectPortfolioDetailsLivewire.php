@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class EditProjectPortfolioDetailsLivewire extends Component
 {
+    
     public $project_name, $start_date, $end_date, $project_url, $description;
 
     public function mount()
