@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('country_id')->nullable()->constrained('countries')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('region_id')->nullable()->constrained('regions')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('district_id')->nullable()->constrained('districts')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('ward_id')->nullable()->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('ward_id')->nullable()->constrained('wards')->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -45,7 +45,7 @@ class SetDeadlineLivewire extends Component
             ['deadline_date' => $this->deadline]
         );
 
- 
+
         if ($deadline->wasRecentlyCreated) {
             session()->flash('message', 'Deadline set successfully!');
         } else {

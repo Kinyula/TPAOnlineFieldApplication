@@ -18,20 +18,24 @@ class ContactDetail extends Model
         'ward_id',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function country(){
+    public function country()
+    {
         return $this->belongsTo(Country::class);
     }
-    public function region(){
+    public function region()
+    {
         return $this->belongsTo(Region::class);
     }
-    public function district(){
+    public function district()
+    {
         return $this->belongsTo(District::class);
     }
-    public function ward(){
+    public function ward()
+    {
         return $this->belongsTo(Ward::class);
     }
-
 }

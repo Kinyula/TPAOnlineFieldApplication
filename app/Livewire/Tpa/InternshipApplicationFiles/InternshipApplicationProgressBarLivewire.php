@@ -30,6 +30,9 @@ class InternshipApplicationProgressBarLivewire extends Component
 
     public function render()
     {
+        $this->completedSteps = $this->fetchCompletedSteps(); // Update completed steps on render
+        $this->progress = $this->calculateProgress(); // Calculate progress
+        $this->dispatch('progressUpdated', $this->progress); // Dispatch the progress update to parent component
         return view('livewire.tpa.internship-application-files.internship-application-progress-bar-livewire');
     }
 

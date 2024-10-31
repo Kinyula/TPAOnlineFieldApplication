@@ -43,8 +43,6 @@ class RegisteredUserController extends Controller
                 'regex:/[a-z]/', // At least one lowercase letter
                 'regex:/[A-Z]/', // At least one uppercase letter
                 'regex:/[0-9]/', // At least one digit
-                'regex:/[@$!%*?&#_]/', // At least one special character
-                'not_regex:/\s/', // No spaces allowed
             ],
             // 'profile_image' => ['required', 'image']
 

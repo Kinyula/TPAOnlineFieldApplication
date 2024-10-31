@@ -99,5 +99,3 @@ class CreateContactFormLivewire extends Component
         $this->dispatch('stepCompleted');
     }
 }
-
-

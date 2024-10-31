@@ -78,7 +78,7 @@
 
         <!-- Step 15: Apply Form -->
         <div @if ($currentStep === 15) style="display:block;" @else style="display:none;" @endif>
-            @livewire('tpa.field-application-files.tpa-field-application-form-livewire')
+            @livewire('tpa.field-application-files.apply-field-livewire')
         </div>
     </div>
 
