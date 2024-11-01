@@ -83,7 +83,7 @@
 
                 <!-- Submit Button -->
                 <div class="flex items-center justify-end mt-4">
-                    <x-primary-button class="ms-4 bg-yellow-500">
+                    <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                         <i class="fas fa-save px-1"></i> {{ __('Save Referee Details') }}
                     </x-primary-button>
                 </div>

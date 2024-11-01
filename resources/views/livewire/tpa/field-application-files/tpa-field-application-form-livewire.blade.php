@@ -74,7 +74,8 @@
 
                         <!-- Display selected file name -->
                         @if ($application_letter)
-                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 font-weight-bold">Selected file: {{ $application_letter->getClientOriginalName() }}</p>
+                            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 font-weight-bold">Selected file:
+                                {{ $application_letter->getClientOriginalName() }}</p>
                         @else
                             <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">No file selected</p>
                         @endif
@@ -84,11 +85,9 @@
                 <x-input-error :messages="$errors->get('application_letter')" class="mt-2 text-red-500 text-sm" />
             </div>
 
-
-
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-4 sm:col-span-2 lg:col-span-3">
-                <x-primary-button class="ms-4 bg-yellow-500">
+                <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                     <i class="fas fa-save px-1"></i> {{ __('Submit Application') }}
                 </x-primary-button>
             </div>

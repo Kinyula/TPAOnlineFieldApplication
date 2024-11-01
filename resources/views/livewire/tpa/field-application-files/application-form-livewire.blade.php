@@ -95,7 +95,7 @@
 
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-4 sm:col-span-2 lg:col-span-3">
-                <x-primary-button class="ms-4 bg-yellow-500">
+                <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                     <i class="fas fa-save px-1"></i> {{ __('Submit Application') }}
                 </x-primary-button>
             </div>

@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
+            <x-primary-button class="flex justify-center items-center">
                 <i class="fas fa-paper-plane px-1"></i>
                 {{ __('Email Password Reset Link') }}
             </x-primary-button>

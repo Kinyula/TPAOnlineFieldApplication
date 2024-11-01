@@ -186,7 +186,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-primary-button class="ms-4 bg-yellow-500">
+                <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                     <i class="fas fa-check px-1"></i>
                     {{ __('save personal details') }}
                 </x-primary-button>
