@@ -24,12 +24,13 @@ use App\Http\Controllers\TPAStaff\TPAContactsController;
 use App\Http\Controllers\TpaStaff\ViewNetworkingSubModulesController;
 use App\Http\Controllers\TpaStaff\ViewSoftwareDevelopmentSubModulesController;
 use App\Http\Controllers\TPAStaff\ViewStudentsDetailsController;
+use App\Models\ApplicationDeadline;
 use App\Models\SetFieldDeadline;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // Retrieve the deadline date for a specific department (for example, department_id = 1 or 2)
-    $deadline = SetFieldDeadline::where('department_id', 1)->orWhere('department_id', 2)->value('deadline_date');
+    $deadline = ApplicationDeadline::value('deadline_date');
 
     return view('welcome', ['deadline' => $deadline]);
 });

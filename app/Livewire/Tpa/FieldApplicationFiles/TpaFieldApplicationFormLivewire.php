@@ -5,6 +5,8 @@ namespace App\Livewire\Tpa\FieldApplicationFiles;
 use App\Models\Department;
 use App\Models\Port;
 use App\Models\TpaFieldApplicationData;
+use App\Notifications\OnlineApplicationNotification;
+use Auth;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -54,6 +56,8 @@ class TpaFieldApplicationFormLivewire extends Component
         $application->save();
 
         session()->flash('success', 'Application submitted successfully.');
+        
+        Auth::user()->notify(new OnlineApplicationNotification());
 
         $this->dispatch('application-submitted');
         $this->reset(['port', 'application_letter', 'department']);

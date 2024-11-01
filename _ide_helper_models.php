@@ -52,6 +52,20 @@ namespace App\Models{
 /**
  * 
  *
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline withoutTrashed()
+ */
+	class ApplicationDeadline extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int|null $user_id
  * @property string $declaration_text
