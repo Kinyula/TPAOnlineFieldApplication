@@ -25,5 +25,9 @@ class ExtraUserInfo extends Model
     {
         return $this->belongsTo(Department::class);
     }
-    
+
+    public function port()
+    {
+        return $this->belongsTo(Port::class);
+    }
 }

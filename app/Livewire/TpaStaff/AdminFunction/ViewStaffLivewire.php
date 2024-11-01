@@ -16,6 +16,8 @@ class ViewStaffLivewire extends Component
             'staff' => User::with(['extraUserInfo'])
                 ->where('position', '!=', 'student')
                 ->paginate(15),
+
+            'totalStaff' => User::where('position', '!=', 'student')->count(),
         ]);
     }
 }

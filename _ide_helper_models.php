@@ -303,6 +303,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $check_number
  * @property-read \App\Models\Department|null $department
+ * @property-read \App\Models\Port|null $port
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ExtraUserInfo newQuery()
