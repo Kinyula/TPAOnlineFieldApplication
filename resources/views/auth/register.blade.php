@@ -59,7 +59,9 @@
             </span>
 
             <div class="relative">
-                <x-text-input id="password" class="block mt-1 w-full pr-12 border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 rounded-md shadow-sm" type="password" name="password" autocomplete="new-password" />
+                <x-text-input id="password"
+                    class="block mt-1 w-full pr-12 border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 rounded-md shadow-sm"
+                    type="password" name="password" autocomplete="new-password" />
 
                 <div class="absolute inset-y-0 right-0 me-2 pr-4 flex items-center text-gray-500">
                     <i id="togglePassword" class="fas fa-eye cursor-pointer"></i>
@@ -112,14 +114,18 @@
             <x-text-input id="profile_image" class="block mt-1 w-full" type="file" name="profile_image" />
 
             <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />
-        </div>
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
 
-            <x-primary-button class="ms-4">
+
+        </div>
+        <a class="underline text-sm  text-yellow-600 font-weight-bold dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 mt-4 mb-4"
+        href="{{ route('login') }}">
+        {{ __('Already registered?') }}
+    </a>
+
+        <div class="flex items-center justify-end mt-4">
+
+
+            <x-primary-button class="ms-4 flex justify-center items-center">
                 <i class="fas fa-user-plus px-1"></i>
                 {{ __('Register') }}
             </x-primary-button>

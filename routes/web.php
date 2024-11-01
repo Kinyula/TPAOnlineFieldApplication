@@ -25,7 +25,6 @@ use App\Http\Controllers\TpaStaff\ViewNetworkingSubModulesController;
 use App\Http\Controllers\TpaStaff\ViewSoftwareDevelopmentSubModulesController;
 use App\Http\Controllers\TPAStaff\ViewStudentsDetailsController;
 use App\Models\ApplicationDeadline;
-use App\Models\SetFieldDeadline;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
