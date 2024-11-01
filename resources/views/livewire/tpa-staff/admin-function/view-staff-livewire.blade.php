@@ -35,7 +35,7 @@
                             <td class="px-6 py-4">{{ $member->extraUserInfo->port->port_name ?? 'N/A' }}</td>
                             <td class="px-6 py-4">{{ $member->position }}</td>
                             <td class="px-6 py-4">{{ $member->extraUserInfo->department->department ?? 'N/A' }}</td>
-                            <!-- Adjust if your department relationship or attribute differs -->
+
                         </tr>
                     @endforeach
                 </tbody>
