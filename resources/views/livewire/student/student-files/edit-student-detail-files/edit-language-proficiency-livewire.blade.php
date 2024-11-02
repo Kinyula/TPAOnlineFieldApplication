@@ -18,11 +18,11 @@
             <i class="fas fa-language"></i> Update Language Proficiency
         </h2>
 
-        <form wire:submit.prevent="updateLanguageProficiencyDetail">
+        <form wire:submit.prevent="updateLanguageProficiencyDetail" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Language Selection -->
             <div>
                 <x-input-label for="language" :value="__('Language')" />
-                <x-select-input id="language" class="block mt-1 w-full" name="language" wire:model="language">
+                <x-select-input id="language" class="block mt-1 w-full" name="language" wire:model.defer="language">
                     <option value="">{{ __('Select Language') }}</option>
                     <option value="english">{{ __('English') }}</option>
                     <option value="swahili">{{ __('Swahili') }}</option>
@@ -32,10 +32,10 @@
             </div>
 
             <!-- Language Level -->
-            <div class="mb-4">
+            <div>
                 <label for="language_level" class="block text-gray-700">Language Level</label>
                 <select id="language_level" wire:model.defer="language_level"
-                    class="w-full px-4 py-2 border border-gray-300 rounded @error('language_level') border-red-500 @enderror">
+                    class="w-full px-4 py-2 border border-gray-300 rounded @error('language_level') border-red-500 @enderror focus:border-blue-500 focus:ring focus:ring-blue-200">
                     <option value="">Select Language Level</option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
@@ -47,13 +47,13 @@
                 @enderror
             </div>
 
-
             <!-- Submit Button -->
-            <div class="flex items-center justify-start mt-4">
-                <x-primary-button class="bg-blue-800">
+            <div class="flex items-center justify-start mt-4 col-span-1 md:col-span-2">
+                <x-primary-button class="bg-blue-800 flex justify-center items-center">
                     <i class="fas fa-check px-1"></i> {{ __('Update') }}
                 </x-primary-button>
             </div>
         </form>
+
     </div>
 </div>

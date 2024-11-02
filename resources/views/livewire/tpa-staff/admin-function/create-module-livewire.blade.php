@@ -26,7 +26,7 @@
                 </button>
             </div>
         @endif
-        <form wire:submit.prevent="createModule">
+        <form wire:submit.prevent="createModule" class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
             <!-- Department ID -->
             <div class="mt-4">
@@ -55,7 +55,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-primary-button class="ms-4 bg-yellow-500">
+                <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                     <i class="fas fa-check px-1"></i>
                     {{ __('Save') }}
                 </x-primary-button>

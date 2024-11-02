@@ -11,7 +11,7 @@
             {{ __('Add Department') }}
         </h2>
         <p class="text-red-500">NB: all parts with * are mandatory</p>
-        <form wire:submit.prevent = "createDepartment">
+        <form wire:submit.prevent = "createDepartment" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Department -->
             <div>
                 <span class="flex relative top-3">
@@ -91,7 +91,7 @@
 
             <!-- Submit button -->
             <div class="flex items-center justify-end mt-4">
-                <x-primary-button class="ms-4 bg-yellow-500">
+                <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                     <i class="fas fa-check px-1"></i>
                     {{ __('save') }}
                 </x-primary-button>

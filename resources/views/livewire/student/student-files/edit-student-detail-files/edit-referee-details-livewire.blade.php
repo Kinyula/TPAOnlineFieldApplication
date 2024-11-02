@@ -85,7 +85,12 @@
 
 
 
-            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded uppercase"><i class="fas fa-check px-1"></i> Update</button>
+            <!-- Submit Button -->
+            <div class="flex items-center justify-start mt-4">
+                <x-primary-button class="bg-blue-800 flex justify-center items-center">
+                    <i class="fas fa-check px-1"></i> {{ __('Update') }}
+                </x-primary-button>
+            </div>
         </form>
 
         @if (session()->has('message'))

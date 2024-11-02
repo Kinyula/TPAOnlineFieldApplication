@@ -14,20 +14,22 @@
             </div>
         @endif
         <h2 class="text-blue-500 text-2xl"><i class="fas fa-user"></i> Update personal details</h2>
-        <form wire:submit.prevent="updatePersonalDetail">
+        <form wire:submit.prevent="updatePersonalDetail" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Date of Birth -->
             <div class="mb-4">
                 <label for="date_of_birth" class="block text-gray-700">Date of Birth</label>
                 <input type="date" id="date_of_birth" wire:model.defer="date_of_birth"
-                    class="w-full px-4 py-2 border border-gray-300 rounded @error('date_of_birth') border-red-500 @enderror">
+                    class="w-full px-4 py-2 border border-gray-300 rounded @error('date_of_birth') border-red-500 @enderror focus:border-blue-500 focus:ring focus:ring-blue-200">
                 @error('date_of_birth')
                     <span class="text-red-500">{{ $message }}</span>
                 @enderror
             </div>
 
+            <!-- Disability Status -->
             <div class="mb-4">
                 <label for="disability_status" class="block text-gray-700">Disability Status</label>
                 <select id="disability_status" wire:model.defer="disability_status"
-                    class="w-full px-4 py-2 border border-gray-300 rounded @error('disability_status') border-red-500 @enderror">
+                    class="w-full px-4 py-2 border border-gray-300 rounded @error('disability_status') border-red-500 @enderror focus:border-blue-500 focus:ring focus:ring-blue-200">
                     <option value="">Select Disability Status</option>
                     <option value="none">None</option>
                     <option value="disabled">Disabled</option>
@@ -37,10 +39,11 @@
                 @enderror
             </div>
 
+            <!-- Marital Status -->
             <div class="mb-4">
                 <label for="marital_status" class="block text-gray-700">Marital Status</label>
                 <select id="marital_status" wire:model.defer="marital_status"
-                    class="w-full px-4 py-2 border border-gray-300 rounded @error('marital_status') border-red-500 @enderror">
+                    class="w-full px-4 py-2 border border-gray-300 rounded @error('marital_status') border-red-500 @enderror focus:border-blue-500 focus:ring focus:ring-blue-200">
                     <option value="">Select Marital Status</option>
                     <option value="single">Single</option>
                     <option value="married">Married</option>
@@ -52,8 +55,14 @@
                 @enderror
             </div>
 
-            <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded uppercase"><i class="fas fa-check px-1"></i> Update</button>
+            <!-- Submit Button -->
+            <div class="flex items-center justify-start mt-4 col-span-1 md:col-span-2">
+                <x-primary-button class="bg-blue-800 flex justify-center items-center">
+                    <i class="fas fa-check px-1"></i> {{ __('Update') }}
+                </x-primary-button>
+            </div>
         </form>
+
 
         @if (session()->has('message'))
             <div class="mt-4 text-green-500">

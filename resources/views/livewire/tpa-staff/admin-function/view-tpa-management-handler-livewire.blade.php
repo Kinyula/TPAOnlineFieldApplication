@@ -1,7 +1,8 @@
 <div>
     <!-- Step Indicator -->
     <div class="card-box mb-30 p-3">
-        <h2 class="mb-2 text-xl font-bold">Step-by-Step Form</h2>
+        <h2 class="mb-2 text-xl font-bold">Step-by-Step View Created Infos</h2>
+
         <div class="flex items-center mb-6">
             @foreach (range(1, $totalSteps) as $step)
                 <div class="flex-1">
@@ -38,71 +39,53 @@
                 Next <i class="fas fa-arrow-right"></i>
             </button>
         </div>
-
     </div>
-
 
     <!-- Step 1: Port -->
     <div @if ($currentStep == 1) style="display: block;" @else style="display: none;" @endif class="bg-white">
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-port-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Port Information</h3>
+        @livewire('tpa-staff.admin-function.view-port-livewire')
     </div>
 
     <!-- Step 2: Country -->
     <div @if ($currentStep == 2) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-country-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Country Information</h3>
+        @livewire('tpa-staff.admin-function.view-country-livewire')
     </div>
 
     <!-- Step 3: Region -->
     <div @if ($currentStep == 3) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-region-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Region Information</h3>
+        @livewire('tpa-staff.admin-function.view-region-livewire')
     </div>
 
     <!-- Step 4: District -->
     <div @if ($currentStep == 4) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-district-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View District Information</h3>
+        @livewire('tpa-staff.admin-function.view-district-livewire')
     </div>
 
     <!-- Step 5: Ward -->
     <div @if ($currentStep == 5) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-ward-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Ward Information</h3>
+        @livewire('tpa-staff.admin-function.view-ward-livewire')
     </div>
 
     <!-- Step 6: Department -->
     <div @if ($currentStep == 6) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
-
-        </h3>
-        @livewire('tpa-staff.admin-function.create-department-livewire')
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Department Information</h3>
+        @livewire('tpa-staff.admin-function.view-department-livewire')
     </div>
 
     <!-- Step 7: Module -->
     <div @if ($currentStep == 7) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Module Information</h3>
 
-        </h3>
-        @livewire('tpa-staff.admin-function.create-module-livewire')
     </div>
 
     <!-- Step 8: Sub Module -->
     <div @if ($currentStep == 8) style="display: block;" @else style="display: none;" @endif>
-        <h3 class="text-2xl font-bold mb-3 text-yellow-500">
+        <h3 class="text-2xl font-bold mb-3 text-yellow-500">View Sub Module Information</h3>
 
-        </h3>
-        @livewire('tpa-staff.admin-function.create-sub-module-livewire')
     </div>
 </div>
