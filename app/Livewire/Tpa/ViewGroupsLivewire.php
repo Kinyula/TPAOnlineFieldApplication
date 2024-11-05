@@ -16,9 +16,16 @@ class ViewGroupsLivewire extends Component
     public function toggleAssign($applicationId)
     {
         $application = TpaFieldApplicationData::find($applicationId);
-        $application->allocation_status = !$application->allocation_status;
+
+        if ($application->allocation_status === 'assigned') {
+            $application->allocation_status = 'unassigned';
+        } else {
+            $application->allocation_status = 'assigned';
+        }
+
         $application->save();
     }
+
 
     public function render()
     {

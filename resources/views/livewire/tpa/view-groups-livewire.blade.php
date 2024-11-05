@@ -1,5 +1,15 @@
 <div>
+
+
     <div class="container mx-auto p-4 card-box">
+        @if (session()->has('message'))
+            <div role="alert" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                <strong>{{ session('message') }}</strong>
+                <button class="absolute top-0 right-0 mt-1 mr-2 text-red-500 hover:text-red-700" data-bs-dismiss="alert">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        @endif
         <h2 class="text-xl font-bold mb-4">Groups and Students</h2>
 
         <!-- Search Bar -->
@@ -16,6 +26,7 @@
                         <th class="px-4 py-2 border-b">Group Name</th>
                         <th class="px-4 py-2 border-b">First Name</th>
                         <th class="px-4 py-2 border-b">Last Name</th>
+                        <th class="px-4 py-2 border-b">Gender</th>
                         <th class="px-4 py-2 border-b">Phone Number</th>
                         <th class="px-4 py-2 border-b">Institute Name</th>
                         <th class="px-4 py-2 border-b">Department Name</th>
@@ -33,7 +44,6 @@
                 </thead>
                 <tbody>
 
-
                     @forelse($groups as $group)
                         @php
                             $application = $group->tpaFieldApplications;
@@ -43,6 +53,7 @@
                             <td class="px-4 py-2 border-b">{{ $group->group }}</td>
                             <td class="px-4 py-2 border-b">{{ $application->user->first_name }}</td>
                             <td class="px-4 py-2 border-b">{{ $application->user->last_name }}</td>
+                            <td class="px-4 py-2 border-b">{{ $application->user->gender }}</td>
                             <td class="px-4 py-2 border-b">{{ $application->user->phone_number }}</td>
                             <td class="px-4 py-2 border-b">
                                 {{ $application->user->academicDetails?->institute_name }}
@@ -65,14 +76,14 @@
                             @if (auth()->user()->position === 'tpa supervisor')
                                 <td
                                     class="px-4 py-2 border-b bg-green-100 text-green-600 text-xs font-medium rounded-full">
-                                    {{ $application->allocation_status ? 'assigned' : 'unassigned' }}
+                                    {{ $application->allocation_status }}
                                 </td>
                                 <td class="px-4 py-2 border-b">
                                     <button wire:click="toggleAssign({{ $application->id }})"
-                                        class="px-4 py-2 text-white {{ $application->allocation_status ? 'bg-red-500' : 'bg-green-500' }} rounded">
+                                        class="px-4 py-2 text-white {{ $application->allocation_status === 'assigned' ? 'bg-red-500' : 'bg-green-500' }} rounded">
                                         <i
-                                            class="{{ $application->allocation_status ? 'fas fa-user-minus' : 'fas fa-user-plus' }} mr-2"></i>
-                                        {{ $application->allocation_status ? 'Unassign' : 'Assign' }}
+                                            class="{{ $application->allocation_status === 'assigned' ? 'fas fa-user-minus' : 'fas fa-user-plus' }} mr-2"></i>
+                                        {{ $application->allocation_status === 'assigned' ? 'Unassign' : 'Assign' }}
                                     </button>
                                 </td>
                             @endif
