@@ -22,6 +22,7 @@ class ViewGroupsLivewire extends Component
 
     public function render()
     {
+
         $groups = AssignmentGroup::with(['tpaFieldApplications.user'])
             ->where(function ($query) {
                 $query->where('group', 'like', '%' . $this->search . '%')

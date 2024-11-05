@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update', ['id' => $user->id]) }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form method="post" action="{{ route('profile.update', ['id' => $user->id]) }}" class="mt-6 space-y-6 grid grid-cols-1 md:grid-cols-2 gap-4" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div class="profile-image">
@@ -85,8 +85,8 @@
 
             <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />
         </div>
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="flex  items-center gap-4">
+            <x-primary-button class="flex justify-center items-center gap-4">{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
