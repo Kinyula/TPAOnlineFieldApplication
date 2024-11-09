@@ -52,10 +52,22 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id
+ * @property int $user_id
+ * @property string $deadline_date
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline onlyTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereDeadlineDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|ApplicationDeadline withoutTrashed()
  */

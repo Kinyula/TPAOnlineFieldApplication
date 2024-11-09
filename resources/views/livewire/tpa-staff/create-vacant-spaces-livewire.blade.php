@@ -20,7 +20,7 @@
 
 <p class="text-red-500">NB: all parts with * are mandatory</p>
 
-    <form wire:submit.prevent = "createVacantSpaces">
+    <form wire:submit.prevent = "createVacantSpaces" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {{-- Module ID --}}
         <div class="mb-4">
             <label for="module" class="block text-gray-700 font-bold mb-2">

@@ -48,7 +48,6 @@
                         @php
                             $application = $group->tpaFieldApplications;
                         @endphp
-
                         <tr>
                             <td class="px-4 py-2 border-b">{{ $group->group }}</td>
                             <td class="px-4 py-2 border-b">{{ $application->user->first_name }}</td>

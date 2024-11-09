@@ -108,7 +108,7 @@
         @endforeach
         <br>
         <!-- Table Header -->
-        <h2 class="text-xl font-bold text-yellow-500 mb-5"><i class="fas fa-user"></i> View Students Application Status
+        <h2 class="text-xl font-bold text-yellow-500 mb-5"><i class="fas fa-user"></i> View Students Internship Application Status
         </h2>
 
         <!-- Search Bar and Actions -->

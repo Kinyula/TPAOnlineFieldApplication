@@ -2,12 +2,19 @@
     <div class="card-box mb-30 p-6 bg-white shadow-lg rounded-lg">
         <span>
             <span class="text-sm text-yellow-500 mr-2">Total Staff:</span>
-            <span class="text-lg">{{ Illuminate\Support\Number::abbreviate($totalStaff,precision:2) }} staff members</span>
+            <span class="text-lg">{{ Illuminate\Support\Number::abbreviate($totalStaff, precision: 2) }} staff
+                members</span>
         </span>
 
         <h3 class="text-2xl font-bold mb-6 text-yellow-500 flex items-center">
             <i class="fas fa-users px-2"></i> Staff List
         </h3>
+
+        <!-- Search Bar -->
+        <div class="mb-4">
+            <input type="text" wire:model.live="search" placeholder="Search staff..."
+                class="w-full border border-gray-300 rounded-lg shadow-sm focus:ring-yellow-500 focus:border-yellow-500 px-4 py-2" />
+        </div>
 
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-yellow-500 rounded-lg shadow-md">

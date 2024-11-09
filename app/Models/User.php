@@ -89,4 +89,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(TpaFieldApplicationData::class);
     }
+
+    public static function search($search){
+        return empty($search) ? static::query() : static::query()
+        ->where('first_name','like','%'.$search.'%')
+        ->orWhere('last_name','like','%'.$search.'%');
+    }
 }

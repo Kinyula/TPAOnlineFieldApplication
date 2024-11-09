@@ -8,7 +8,7 @@ use Livewire\Component;
 class ViewWardLivewire extends Component
 {
     protected $paginationTheme = 'tailwind';
-    
+
     public function render()
     {
         return view('livewire.tpa-staff.admin-function.view-ward-livewire', [
