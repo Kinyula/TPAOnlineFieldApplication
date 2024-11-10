@@ -21,7 +21,7 @@
         <h3 class="text-2xl font-bold mb-3 text-yellow-500">
             <i class="fas fa-shield-alt"></i> Insurance Details
         </h3>
-        <form wire:submit.prevent = "submitInsuranceDetails">
+        <form wire:submit.prevent = "submitInsuranceDetails" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
             <!-- Insurance Company -->
             <div>

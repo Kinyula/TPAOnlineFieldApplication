@@ -21,7 +21,7 @@
                     </button>
                 </div>
             @endif
-            <form wire:submit.prevent="submitAcademicDetails" class="space-y-4">
+            <form wire:submit.prevent="submitAcademicDetails" class="space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Institute Name -->
                     <div>

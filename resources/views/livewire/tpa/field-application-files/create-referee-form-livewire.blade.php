@@ -20,7 +20,7 @@
                     </button>
                 </div>
             @endif
-            <form wire:submit.prevent = "submitRefereeDetails">
+            <form wire:submit.prevent = "submitRefereeDetails" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- First Name -->
                 <div>
                     <x-input-label for="first_name" :value="__('First Name')" />

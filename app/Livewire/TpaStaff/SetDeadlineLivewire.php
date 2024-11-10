@@ -25,7 +25,7 @@ class SetDeadlineLivewire extends Component
 
         if ($existingDeadline) {
             $this->isUpdating = true;
-            $this->deadline = $existingDeadline->deadline_date;
+            $this->deadline = $this->deadline;
         } else {
             $this->isUpdating = false;
             $this->deadline = $this->deadline;
@@ -44,7 +44,6 @@ class SetDeadlineLivewire extends Component
             ['module_id' => $this->module],
             ['deadline_date' => $this->deadline]
         );
-
 
         if ($deadline->wasRecentlyCreated) {
             session()->flash('message', 'Deadline set successfully!');

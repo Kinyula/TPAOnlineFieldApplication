@@ -1,6 +1,7 @@
 <div>
     <div class="card-box mb-30 p-3">
-        <form wire:submit.prevent="updateSkillExperienceDetail">
+        <h2 class="text-blue-500 text-2xl"><i class="fas fa-user"></i> Update skill experience details</h2>
+        <form wire:submit.prevent="updateSkillExperienceDetail" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
                 <x-input-label for="skill_category" :value="__('Skill Category')" />
                 <x-select-input id="skill_category" class="block mt-1 w-full" name="skill_category"

@@ -36,7 +36,7 @@
                     </button>
                 </div>
             @endif
-            <form wire:submit.prevent = "submitSkillExperience">
+            <form wire:submit.prevent = "submitSkillExperience" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Skill Experience Category -->
                 <div>
                     <x-input-label for="skill_category" :value="__('Skill Category')" />

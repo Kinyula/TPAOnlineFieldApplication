@@ -20,7 +20,7 @@
                     </button>
                 </div>
             @endif
-            <form wire:submit.prevent = "submitProjectPortfolio">
+            <form wire:submit.prevent = "submitProjectPortfolio" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Project Name -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="col-span-1 sm:col-span-3">

@@ -16,7 +16,7 @@
             Create New Task
         </h2>
 
-        <form wire:submit.prevent="createTask">
+        <form wire:submit.prevent="createTask" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Select Group -->
             <div class="mb-4">
                 <label for="group" class="block text-gray-700 font-bold mb-2">
@@ -54,7 +54,7 @@
             <!-- Submit Button -->
             <div class="flex items-center justify-end">
                 <button type="submit" wire:loading.attr = "disabled"
-                    class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-lg shadow hover:bg-yellow-600 transition">
+                    class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-full  shadow hover:bg-yellow-600 transition">
                     <i class="fas fa-check px-1"></i>
                     {{ __('Save Task') }}
                 </button>

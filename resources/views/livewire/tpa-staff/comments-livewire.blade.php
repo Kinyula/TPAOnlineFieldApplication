@@ -19,7 +19,7 @@
 
     <p class="text-red-500">NB: all parts with * are mandatory</p>
 
-    <form wire:submit.prevent="submitComment">
+    <form wire:submit.prevent="submitComment" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- Assignment Group -->
         <div class="mb-4">
             <label for="group" class="block text-gray-700 font-bold mb-2">
@@ -57,7 +57,7 @@
 
         <div class="flex items-center justify-end mt-6">
             <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-lg shadow hover:bg-yellow-600 transition">
+                class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-full shadow hover:bg-yellow-600 transition">
                 <i class="fas fa-check px-1"></i>
                 {{ __('Save') }}
             </button>

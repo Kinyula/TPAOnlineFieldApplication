@@ -3,7 +3,23 @@
         <h3 class="text-2xl font-bold mb-3 text-yellow-500">
             <i class="fas fa-paperclip"></i> Attachments
         </h3>
-        <form>
+
+        @if (session()->has('attachments'))
+        <div role="alert"
+            class="flex items-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+            role="alert">
+            <i class="fas fa-check-circle w-6 h-6 mr-3 text-green-500"></i>
+            <div class="flex-1">
+                <strong class="font-medium">{{ session('attachments') }}</strong>
+            </div>
+            <button class="absolute top-0 right-0 mt-2 mr-2 text-green-500 hover:text-green-700"
+                data-bs-dismiss="alert">
+                <i class="fas fa-times w-5 h-5"></i>
+            </button>
+        </div>
+    @endif
+
+        <form wire:submit.prevent = "submitOtherAttachments" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Attachment Name -->
             <div>
                 <x-input-label for="attachment_name" :value="__('Attachment Name')" />

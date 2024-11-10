@@ -56,7 +56,7 @@
 
         <div class="flex items-center justify-end mt-6">
             <button type="submit"
-                class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-lg shadow hover:bg-yellow-600 transition">
+                class="inline-flex items-center px-4 py-2 bg-yellow-500 text-white font-bold rounded-full  shadow hover:bg-yellow-600 transition">
                 <i class="fas fa-check px-1"></i>
                 {{ __('Save') }}
             </button>

@@ -20,7 +20,7 @@
             <h3 class="text-2xl font-bold mb-3 text-yellow-500">
                 <i class="fas fa-user-graduate"></i> Professional Qualifications
             </h3>
-            <form wire:submit.prevent = "submitProfessionalQualifications">
+            <form wire:submit.prevent = "submitProfessionalQualifications" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Country -->
                 <div class="mt-4">
                     <x-input-label for="country" :value="__('Country')" />
@@ -96,7 +96,7 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-end mt-10">
                     <x-primary-button class="ms-4 bg-yellow-500 flex justify-center items-center">
                         <i class="fas fa-save px-1"></i> {{ __('Save Professional Qualifications') }}
                     </x-primary-button>

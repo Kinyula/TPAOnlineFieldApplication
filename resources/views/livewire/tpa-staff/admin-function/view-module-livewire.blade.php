@@ -1,5 +1,5 @@
 <div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {{-- <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 
         <!-- Software Development -->
         <div class="card-box mb-6 p-4 w-full transition-transform transform hover:scale-105 duration-300">
@@ -95,5 +95,5 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 </div>

@@ -14,7 +14,7 @@
             </div>
         @endif
         <h2 class="text-blue-500 text-2xl"><i class="fas fa-user"></i> Update project portfolio details</h2>
-        <form wire:submit.prevent="updateProjectPortfolioDetails">
+        <form wire:submit.prevent="updateProjectPortfolioDetails" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="mb-4">
                 <label for="project_name" class="block text-gray-700">Project Name</label>
                 <input type="text" id="project_name" wire:model.defer="project_name"

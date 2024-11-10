@@ -85,7 +85,7 @@
             <!-- Submit Button -->
             <div class="flex items-center justify-end mt-6 sm:col-span-2 lg:col-span-3">
                 <x-primary-button
-                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-md shadow-md transition ease-in-out duration-150">
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 flex justify-center items-center rounded-full shadow-md transition ease-in-out duration-150">
                     <i class="fas fa-save px-1"></i> {{ __('Submit Response Letter') }}
                 </x-primary-button>
             </div>

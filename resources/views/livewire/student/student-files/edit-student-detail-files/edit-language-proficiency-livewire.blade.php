@@ -18,7 +18,7 @@
             <i class="fas fa-language"></i> Update Language Proficiency
         </h2>
 
-        <form wire:submit.prevent="updateLanguageProficiencyDetail" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form wire:submit.prevent="updateLanguageProficiencyDetail" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Language Selection -->
             <div>
                 <x-input-label for="language" :value="__('Language')" />

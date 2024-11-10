@@ -14,7 +14,7 @@
             </div>
         @endif
         <h2 class="text-blue-500 text-2xl"><i class="fas fa-user"></i> Update referee details</h2>
-        <form wire:submit.prevent="updateRefereeDetails">
+        <form wire:submit.prevent="updateRefereeDetails" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="mb-4">
                 <label for="first_name" class="block text-gray-700">First Name</label>
                 <input type="text" id="first_name" wire:model.defer="first_name"

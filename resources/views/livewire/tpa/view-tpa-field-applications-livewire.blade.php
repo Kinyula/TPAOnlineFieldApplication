@@ -1,31 +1,55 @@
 <div>
-    <div
-        class="card-box mb-30 p-6 bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-6">
-        <img src="{{ asset('storage/HomeImages/coat-of-arms-2.png') }}" alt="TPA Logo" class="w-16 h-16 object-cover">
+    @if (
+        !auth()->user()->position == 'Directorate of ICT ( DICT )' ||
+            !auth()->user()->position == 'Directorate of Marketing')
+        <div
+            class="card-box mb-30 p-6 bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-6">
+            <img src="{{ asset('storage/HomeImages/coat-of-arms-2.png') }}" alt="TPA Logo" class="w-16 h-16 object-cover">
 
 
-        <h2 class="text-center md:text-left text-2xl font-bold text-gray-800">
-            View your application
-        </h2>
+            <h2 class="text-center md:text-left text-2xl font-bold text-gray-800">
+                View your application
+            </h2>
 
-        <img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="Coat of Arms"
-            class="w-18 h-16 object-cover rounded">
-    </div>
+            <img src="{{ asset('storage/HomeImages/real-tpa.png') }}" alt="Coat of Arms"
+                class="w-18 h-16 object-cover rounded">
+        </div>
+    @else
+    @endif
+
 
     <div class="bg-white shadow-lg rounded-lg p-6">
+        @if (
+            !auth()->user()->position == 'Directorate of ICT ( DICT )' ||
+                !auth()->user()->position == 'Directorate of Marketing')
+            <div role="alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                <strong class="uppercase">Remember you have to confirm your application after you have been approved for
+                    it to be
+                    noticed
+                    else your application will not be seen!</strong>
+                <button class="absolute top-0 right-0 mt-1 mr-2 text-green-500 hover:text-green-700"
+                    data-bs-dismiss="alert">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        @else
+        @endif
 
-        <div role="alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-            <strong class="uppercase">Remember you have to confirm your application after you have been approved for it to be
-                noticed
-                else your application will not be seen!</strong>
-            <button class="absolute top-0 right-0 mt-1 mr-2 text-green-500 hover:text-green-700"
-                data-bs-dismiss="alert">
-                <i class="fas fa-times"></i>
-            </button>
+        @if (
+            !auth()->user()->position == 'Directorate of ICT ( DICT )' ||
+                !auth()->user()->position == 'Directorate of Marketing')
+            <h2 class="text-xl font-bold text-yellow-500 mb-5">View your application status</h2>
+        @else
+            <h2 class="text-xl font-bold text-yellow-500 mb-5"><i class="fas fa-user"></i> View students practical
+                training application statuses</h2>
+        @endif
+
+        <div class="flex flex-col sm:flex-row sm:justify-between items-center mb-4 space-y-4 sm:space-y-0">
+            <input type="text" placeholder="Search..."
+                class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 w-full sm:w-1/3"
+                wire:model.live="search">
+
         </div>
-
-        <h2 class="text-xl font-bold text-yellow-500 mb-5">View your application status</h2>
-
         <div class="overflow-x-auto">
             <table class="w-full table-auto border-collapse">
                 <thead>
@@ -98,7 +122,9 @@
 
                         </tr>
                     @endforeach
+                    
                 </tbody>
+
             </table>
         </div>
     </div>

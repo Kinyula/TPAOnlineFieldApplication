@@ -3,7 +3,7 @@
         <h3 class="text-2xl font-bold mb-3 text-yellow-500">
             <i class="fas fa-chalkboard-teacher"></i> Training and Workshop
         </h3>
-        <form wire:submit.prevent = "submitTrainingAndWorkshop">
+        <form wire:submit.prevent = "submitTrainingAndWorkshop" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Training Name -->
             <div class="mt-4">
                 <x-input-label for="training_name" :value="__('Training Name')" />

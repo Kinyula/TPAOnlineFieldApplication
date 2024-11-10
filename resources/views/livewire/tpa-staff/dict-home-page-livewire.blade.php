@@ -24,7 +24,7 @@
 
     @if ($modules->count() > $visibleCount)
     <div class="mt-6 text-center">
-        <button wire:click="showMore" class="px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900">
+        <button wire:click="showMore" class="px-4 py-2 bg-blue-800 text-white rounded-full  hover:bg-blue-900">
             <i class="fas fa-plus px-1"></i>
             Show More
         </button>

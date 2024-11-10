@@ -17,7 +17,7 @@
             </button>
         </div>
         @endif
-        <form wire:submit.prevent="submitPublicationDetails">
+        <form wire:submit.prevent="submitPublicationDetails" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Publication Title -->
             <div class="mt-4">
                 <x-input-label for="publication_title" :value="__('Publication Title')" />

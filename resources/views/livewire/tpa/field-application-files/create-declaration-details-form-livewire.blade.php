@@ -21,7 +21,7 @@
         <h3 class="text-2xl font-bold mb-3 text-yellow-500">
             <i class="fas fa-file-signature"></i> Applicant Declaration
         </h3>
-        <form>
+        <form wire:submit.prevent = "submitDeclaration" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Declaration Text -->
             <div>
                 <x-input-label for="declaration_text" :value="__('Declaration Text')" />

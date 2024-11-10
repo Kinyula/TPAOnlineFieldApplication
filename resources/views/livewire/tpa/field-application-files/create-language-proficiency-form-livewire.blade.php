@@ -37,7 +37,7 @@
                     </button>
                 </div>
             @endif
-            <form wire:submit.prevent = "submitLanguageProficiency">
+            <form wire:submit.prevent = "submitLanguageProficiency" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Language Name -->
                 <div class="mt-4">
                     <x-input-label for="language_name" :value="__('Language Name')" />
